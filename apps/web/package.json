@@ -12,13 +12,12 @@
     "next": "^13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ui": "workspace:*"
+    "@kyrian/ui": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-kyrian": "0.0.0",
     "eslint": "7.32.0",
-    "tsconfig": "workspace:*",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
