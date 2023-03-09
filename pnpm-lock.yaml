@@ -88,6 +88,7 @@ importers:
 
   packages/ui:
     specifiers:
+      '@types/react': ^18.0.22
       eslint: ^8.34.0
       eslint-config-kyrian: 0.0.0
       react: ^18.2.0
@@ -97,6 +98,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
+      '@types/react': 18.0.28
       eslint: 8.35.0
       eslint-config-kyrian: link:../config/eslint
       typescript: 4.9.5
