@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kyrian/tailwind-config": "0.1.0",
     "@kyrian/ui": "*",
     "next": "^13.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss-animate": "^1.0.5",
-    "@kyrian/tailwind-config": "0.1.0"
+    "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
