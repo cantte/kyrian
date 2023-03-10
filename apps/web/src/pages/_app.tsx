@@ -1,6 +1,5 @@
 import '@kyrian/ui/styles.css'
 import '../styles/globals.css'
-
 import type { AppType } from 'next/app'
 import { Inter } from 'next/font/google'
 
