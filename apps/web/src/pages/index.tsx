@@ -2,9 +2,9 @@ import { Button } from '@kyrian/ui'
 
 export default function Web() {
   return (
-    <div>
+    <div className='m-10 px-10'>
       <h1>Web</h1>
-      <Button />
+      <Button>Default</Button>
     </div>
   )
 }
