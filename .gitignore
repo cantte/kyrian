@@ -12,6 +12,7 @@ coverage
 .next/
 out/
 build
+dist
 
 # misc
 .DS_Store
@@ -28,6 +29,17 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # turbo
 .turbo
+
+# i18n
+compiled-lang
+
+# IDEs
+.idea
+.vercel
+
+# Sentry
+.sentryclirc
