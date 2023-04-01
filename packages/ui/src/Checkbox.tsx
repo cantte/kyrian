@@ -25,6 +25,6 @@ const Checkbox = forwardRef<
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+Checkbox.displayName = '@kyrian/ui/Checkbox'
 
 export { Checkbox }
