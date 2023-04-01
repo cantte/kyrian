@@ -2,6 +2,14 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env"],
   "pipeline": {
+    "db:generate": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false
+    },
+    "db:push": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false
+    },
     "dev": {
       "persistent": true,
       "cache": false
@@ -27,6 +35,9 @@
     "NEXTAUTH_URL",
     "NEXTAUTH_SECRET",
     "NODE_ENV",
-    "SKIP_ENV_VALIDATION"
+    "SKIP_ENV_VALIDATION",
+    "GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET",
+    "DATABASE_URL"
   ]
 }
