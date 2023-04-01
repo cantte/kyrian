@@ -1,4 +1,7 @@
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   Button,
   Input,
   Label,
@@ -39,6 +42,13 @@ export default function Web() {
               <SelectItem value='system'>System</SelectItem>
             </SelectContent>
           </Select>
+        </div>
+
+        <div>
+          <Avatar>
+            <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
         </div>
       </div>
     </div>
