@@ -43,6 +43,9 @@ importers:
       '@kyrian/ui':
         specifier: '*'
         version: link:../../packages/ui
+      '@next/font':
+        specifier: ^13.2.4
+        version: 13.2.4
       next:
         specifier: ^13.2.3
         version: 13.2.3(@babel/core@7.21.0)(react-dom@18.2.0)(react@18.2.0)
@@ -794,6 +797,10 @@ packages:
     resolution: {integrity: sha512-QmMPItnU7VeojI1KnuwL9SLFWEwmaNHNlnOGpoTwdLoSiP9sc8KYiAHWEc4/44L+cAdCxcZYvn7frcRNP5l84Q==}
     dependencies:
       glob: 7.1.7
+    dev: false
+
+  /@next/font@13.2.4:
+    resolution: {integrity: sha512-lMAnuOYjv5g22WhD00u0DQ9u2rTMJH0S64PKE4Sy8Y2q+FJTYs6ZHT2z3VRoI8+AOWSLK4FirpnygcjOienQ9A==}
     dev: false
 
   /@next/swc-android-arm-eabi@13.2.3:

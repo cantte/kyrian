@@ -1,9 +1,17 @@
+'use client'
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
   Button,
   Checkbox,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
   Input,
   Label,
   Select,
@@ -15,7 +23,7 @@ import {
 
 export default function Web() {
   return (
-    <div className='m-10 px-10'>
+    <div>
       <h1>Web</h1>
 
       <div className='my-2'></div>
@@ -62,6 +70,21 @@ export default function Web() {
               Accept terms and conditions
             </label>
           </div>
+        </div>
+
+        <div>
+          <Dialog>
+            <DialogTrigger>Open</DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Are you sure absolutely sure?</DialogTitle>
+                <DialogDescription>
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>
