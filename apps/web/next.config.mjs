@@ -4,7 +4,7 @@ const config = {
   experimental: {
     appDir: true,
   },
-  transpilePackages: ['@kyrian/ui'],
+  transpilePackages: ['@kyrian/ui', '@kyrian/auth', '@kyrian/db'],
 }
 
 export default config
