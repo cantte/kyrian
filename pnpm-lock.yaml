@@ -271,8 +271,8 @@ importers:
         specifier: 0.0.0
         version: link:../config/eslint
       lucide-react:
-        specifier: ^0.129.0
-        version: 0.129.0(react@18.2.0)
+        specifier: ^0.130.0
+        version: 0.130.0(react@18.2.0)
       next:
         specifier: ^13.2.3
         version: 13.2.3(@babel/core@7.21.0)(react-dom@18.2.0)(react@18.2.0)
@@ -3671,8 +3671,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucide-react@0.129.0(react@18.2.0):
-    resolution: {integrity: sha512-kGEZ+pOk9FLKsCr4luL4HYqr23lQdVbmN+3cgTj0Ye6s95FED3CX/DNzB3o8/TimgNmKKw+iq+g3mnTbtS7/ew==}
+  /lucide-react@0.130.0(react@18.2.0):
+    resolution: {integrity: sha512-9RrBRQAxx7SZUpV7z0T0XLR6EWMydd+G77WijyKmK1+MW9Icx0PM+/HstiMSsi/3EIyw7RgMIV9BO0+iUfZYtA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
