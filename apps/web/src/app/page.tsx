@@ -5,6 +5,15 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   Avatar,
   AvatarFallback,
   AvatarImage,
@@ -32,7 +41,7 @@ export default function Web() {
 
       <div className='my-2'></div>
 
-      <div className='grid grid-cols-1 gap-4'>
+      <div className='grid grid-cols-1 gap-6'>
         <div>
           <Button>Default</Button>
         </div>
@@ -93,7 +102,7 @@ export default function Web() {
       </div>
 
       <div>
-        <Accordion className='h-[200px] w-[450px]'>
+        <Accordion type='single' collapsible className='w-[450px]'>
           <AccordionItem value='item-1'>
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
             <AccordionContent>
@@ -115,6 +124,25 @@ export default function Web() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+      </div>
+
+      <div>
+        <AlertDialog>
+          <AlertDialogTrigger>Open</AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   )
