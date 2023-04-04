@@ -21,7 +21,7 @@ const AccordionItem = forwardRef<
     {...props}
   />
 ))
-AccordionItem.displayName = 'AccordionItem'
+AccordionItem.displayName = '@kyrian/ui/AccordionItem'
 
 const AccordionTrigger = forwardRef<
   ElementRef<typeof AccordionPrimitive.Trigger>,
@@ -41,7 +41,7 @@ const AccordionTrigger = forwardRef<
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
+AccordionTrigger.displayName = '@kyrian/ui/AccordionTrigger'
 
 const AccordionContent = forwardRef<
   ElementRef<typeof AccordionPrimitive.Content>,
@@ -58,6 +58,6 @@ const AccordionContent = forwardRef<
     <div className='pt-0 pb-4'>{children}</div>
   </AccordionPrimitive.Content>
 ))
-AccordionContent.displayName = AccordionPrimitive.Content.displayName
+AccordionContent.displayName = '@kyrian/ui/AccordionContent'
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
