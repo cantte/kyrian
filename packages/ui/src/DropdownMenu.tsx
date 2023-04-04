@@ -1,10 +1,10 @@
 'use client'
 
 import {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  HTMLAttributes,
   forwardRef,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  type HTMLAttributes,
 } from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { Check, ChevronRight, Circle } from 'lucide-react'

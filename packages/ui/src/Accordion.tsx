@@ -1,6 +1,10 @@
 'use client'
 
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+} from 'react'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { ChevronDown } from 'lucide-react'
 

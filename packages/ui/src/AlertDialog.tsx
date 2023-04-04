@@ -1,10 +1,10 @@
 'use client'
 
 import {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  HTMLAttributes,
   forwardRef,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  type HTMLAttributes,
 } from 'react'
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog'
 
@@ -30,7 +30,7 @@ AlertDialogPortal.displayName = '@kyrian/ui/AlertDialogPortal'
 const AlertDialogOverlay = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Overlay>,
   ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Overlay>
->(({ className, children, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
     className={cn(
       'animate-in fade-in fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity',
