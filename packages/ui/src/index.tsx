@@ -2,6 +2,7 @@
 
 import './styles.css'
 
+export * from './Accordion'
 export * from './Avatar'
 export { default as Button } from './Button'
 export * from './Checkbox'
