@@ -1,4 +1,6 @@
+import '@/base/styles/globals.css'
 import '@kyrian/ui/styles.css'
+
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
@@ -9,8 +11,6 @@ import { getProviders, signIn } from 'next-auth/react'
 
 import { authOptions } from '@kyrian/auth'
 import { Button } from '@kyrian/ui'
-
-import '../../styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

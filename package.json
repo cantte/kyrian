@@ -1,11 +1,10 @@
 {
   "name": "kyrian",
-  "version": "0.0.0",
   "private": true,
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@8.1.0",
+  "packageManager": "pnpm@8.1.1",
   "scripts": {
     "build": "pnpm with-env turbo build",
     "clean": "git clean -xdf node_modules",
@@ -15,17 +14,19 @@
     "dev": "pnpm with-env turbo dev --parallel",
     "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore",
     "lint": "turbo lint && manypkg check",
-    "lint:fix": "turbo lint:fix && manypkg fix",
+    "lint:fix": "manypkg fix",
     "type-check": "turbo type-check",
     "with-env": "dotenv -e .env --"
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
+    "@kyrian/eslint-config": "0.1.0",
     "@manypkg/cli": "^0.20.0",
     "@types/prettier": "^2.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
     "dotenv-cli": "^7.1.0",
     "eslint": "^8.34.0",
-    "eslint-config-kyrian": "0.0.0",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.4",
     "turbo": "^1.8.3",

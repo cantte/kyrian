@@ -4,7 +4,7 @@
   "baseBranches": ["develop"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@kyrian/", "eslint-config-kyrian"],
+      "matchPackagePatterns": ["^@kyrian/"],
       "enabled": false
     }
   ],

@@ -19,8 +19,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@kyrian/eslint-config": "0.1.0",
     "eslint": "^8.34.0",
-    "eslint-config-kyrian": "0.0.0",
     "tsup": "^6.0.0",
     "typescript": "^5.0.0"
   }
