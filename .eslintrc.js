@@ -1,8 +1,7 @@
 /** @type {import("eslint").Linter.Config} */
 const config = {
   root: true,
-  extends: ['eslint-config-kyrian'], // uses the config in `packages/config/eslint`
-  parser: '@typescript-eslint/parser',
+  extends: ['@kyrian/eslint-config'], // uses the config in `packages/config/eslint`
   parserOptions: {
     ecmaVersion: 'latest',
     tsconfigRootDir: __dirname,
