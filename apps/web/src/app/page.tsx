@@ -40,10 +40,30 @@ import {
   SelectValue,
 } from '@kyrian/ui'
 
+import { api } from '~/utils/api'
+
 export default function Web() {
+  const { data: message } = api.auth.getSecretMessage.useQuery()
+  const { data: session } = api.auth.getSession.useQuery()
+
   return (
-    <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8'>
-      <h1>Web</h1>
+    <div className='mx-auto my-7 max-w-screen-2xl px-4 sm:px-6 lg:px-8'>
+      <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
+        Web - Secret message is: {message}
+      </h1>
+
+      {session !== null && (
+        <div className='mt-4'>
+          <h2 className='mt-10 scroll-m-20 border-b border-b-slate-200 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 dark:border-b-slate-700'>
+            Your current session
+          </h2>
+          <div className='my-2'>
+            <pre className='relative rounded bg-slate-100 py-[0.2rem] px-[0.3rem] font-mono text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400'>
+              {JSON.stringify(session, null, 2)}
+            </pre>
+          </div>
+        </div>
+      )}
 
       <div className='my-2'></div>
 
@@ -74,7 +94,7 @@ export default function Web() {
 
         <div>
           <Avatar>
-            <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
+            <AvatarImage src={'https://github.com/shadcn.png'} alt='@shadcn' />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </div>
