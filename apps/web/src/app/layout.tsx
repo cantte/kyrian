@@ -1,8 +1,7 @@
-import { type FC, type PropsWithChildren } from 'react'
-import { Inter } from '@next/font/google'
-
 import '@/base/styles/globals.css'
 import '@kyrian/ui/styles.css'
+import { type FC, type PropsWithChildren } from 'react'
+import { Inter } from '@next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
