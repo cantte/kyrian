@@ -4,3 +4,4 @@ packages:
   - 'packages/ui'
   - 'packages/auth'
   - 'packages/db'
+  - 'packages/api'
