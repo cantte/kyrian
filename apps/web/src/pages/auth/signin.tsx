@@ -1,6 +1,5 @@
 import '@/base/styles/globals.css'
 import '@kyrian/ui/styles.css'
-
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
