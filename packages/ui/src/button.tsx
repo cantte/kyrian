@@ -50,4 +50,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = '@kyrian/ui/button'
 
-export default Button
+export { Button }

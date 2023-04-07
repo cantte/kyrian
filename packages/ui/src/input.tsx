@@ -21,4 +21,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = '@kyrian/ui/input'
 
-export default Input
+export { Input }

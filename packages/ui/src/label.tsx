@@ -25,4 +25,4 @@ const Label = forwardRef<
 
 Label.displayName = '@kyrian/ui/label'
 
-export default Label
+export { Label }
