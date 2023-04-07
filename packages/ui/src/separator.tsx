@@ -30,6 +30,6 @@ const Separator = forwardRef<
     />
   ),
 )
-Separator.displayName = '@kyrian/ui/Separator'
+Separator.displayName = '@kyrian/ui/separator'
 
 export { Separator }

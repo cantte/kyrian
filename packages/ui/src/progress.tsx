@@ -27,6 +27,6 @@ const Progress = forwardRef<
     />
   </ProgressPrimitive.Root>
 ))
-Progress.displayName = '@kyrian/ui/Progress'
+Progress.displayName = '@kyrian/ui/progress'
 
 export { Progress }

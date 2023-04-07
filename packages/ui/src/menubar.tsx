@@ -34,7 +34,7 @@ const Menubar = forwardRef<
     {...props}
   />
 ))
-Menubar.displayName = '@kyrian/ui/Menubar'
+Menubar.displayName = '@kyrian/ui/menubar'
 
 const MenubarTrigger = forwardRef<
   ElementRef<typeof MenubarPrimitive.Trigger>,
@@ -49,7 +49,7 @@ const MenubarTrigger = forwardRef<
     {...props}
   />
 ))
-MenubarTrigger.displayName = '@kyrian/ui/MenubarTrigger'
+MenubarTrigger.displayName = '@kyrian/ui/menubar-trigger'
 
 const MenubarSubTrigger = forwardRef<
   ElementRef<typeof MenubarPrimitive.SubTrigger>,
@@ -70,7 +70,7 @@ const MenubarSubTrigger = forwardRef<
     <ChevronRight className='ml-auto h-4 w-4' />
   </MenubarPrimitive.SubTrigger>
 ))
-MenubarSubTrigger.displayName = '@kyrian/ui/MenubarSubTrigger'
+MenubarSubTrigger.displayName = '@kyrian/ui/menubar-sub-trigger'
 
 const MenubarSubContent = forwardRef<
   ElementRef<typeof MenubarPrimitive.SubContent>,
@@ -85,7 +85,7 @@ const MenubarSubContent = forwardRef<
     {...props}
   />
 ))
-MenubarSubContent.displayName = '@kyrian/ui/MenubarSubContent'
+MenubarSubContent.displayName = '@kyrian/ui/menubar-sub-content'
 
 const MenubarContent = forwardRef<
   ElementRef<typeof MenubarPrimitive.Content>,
@@ -110,7 +110,7 @@ const MenubarContent = forwardRef<
     </MenubarPrimitive.Portal>
   ),
 )
-MenubarContent.displayName = '@kyrian/ui/MenubarContent'
+MenubarContent.displayName = '@kyrian/ui/menubar-content'
 
 const MenubarItem = forwardRef<
   ElementRef<typeof MenubarPrimitive.Item>,
@@ -128,7 +128,7 @@ const MenubarItem = forwardRef<
     {...props}
   />
 ))
-MenubarItem.displayName = '@kyrian/ui/MenubarItem'
+MenubarItem.displayName = '@kyrian/ui/menubar-item'
 
 const MenubarCheckboxItem = forwardRef<
   ElementRef<typeof MenubarPrimitive.CheckboxItem>,
@@ -151,7 +151,7 @@ const MenubarCheckboxItem = forwardRef<
     {children}
   </MenubarPrimitive.CheckboxItem>
 ))
-MenubarCheckboxItem.displayName = '@kyrian/ui/MenubarCheckboxItem'
+MenubarCheckboxItem.displayName = '@kyrian/ui/menubar-checkbox-item'
 
 const MenubarRadioItem = forwardRef<
   ElementRef<typeof MenubarPrimitive.RadioItem>,
@@ -173,7 +173,7 @@ const MenubarRadioItem = forwardRef<
     {children}
   </MenubarPrimitive.RadioItem>
 ))
-MenubarRadioItem.displayName = '@kyrian/ui/MenubarRadioItem'
+MenubarRadioItem.displayName = '@kyrian/ui/menubar-radio-item'
 
 const MenubarLabel = forwardRef<
   ElementRef<typeof MenubarPrimitive.Label>,
@@ -191,7 +191,7 @@ const MenubarLabel = forwardRef<
     {...props}
   />
 ))
-MenubarLabel.displayName = '@kyrian/ui/MenubarLabel'
+MenubarLabel.displayName = '@kyrian/ui/menubar-label'
 
 const MenubarSeparator = forwardRef<
   ElementRef<typeof MenubarPrimitive.Separator>,
@@ -203,7 +203,7 @@ const MenubarSeparator = forwardRef<
     {...props}
   />
 ))
-MenubarSeparator.displayName = '@kyrian/ui/MenubarSeparator'
+MenubarSeparator.displayName = '@kyrian/ui/menubar-separator'
 
 const MenubarShortcut = ({
   className,
@@ -219,7 +219,7 @@ const MenubarShortcut = ({
     />
   )
 }
-MenubarShortcut.displayname = '@kyrian/ui/MenubarShortcut'
+MenubarShortcut.displayname = '@kyrian/ui/menubar-shortcut'
 
 export {
   Menubar,

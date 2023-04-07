@@ -42,7 +42,7 @@ const DropdownMenuSubTrigger = forwardRef<
     <ChevronRight className='ml-auto h-4 w-4' />
   </DropdownMenuPrimitive.SubTrigger>
 ))
-DropdownMenuSubTrigger.displayName = '@kyrian/ui/DropdownMenuSubTrigger'
+DropdownMenuSubTrigger.displayName = '@kyrian/ui/dropdown-menu-sub-trigger'
 
 const DropdownMenuSubContent = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -57,7 +57,7 @@ const DropdownMenuSubContent = forwardRef<
     {...props}
   />
 ))
-DropdownMenuSubContent.displayName = '@kyrian/ui/DropdownMenuSubContent'
+DropdownMenuSubContent.displayName = '@kyrian/ui/dropdown-menu-sub-content'
 
 const DropdownMenuContent = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.Content>,
@@ -75,7 +75,7 @@ const DropdownMenuContent = forwardRef<
     />
   </DropdownMenuPrimitive.Portal>
 ))
-DropdownMenuContent.displayName = '@kyrian/ui/DropdownMenuContent'
+DropdownMenuContent.displayName = '@kyrian/ui/dropdown-menu-content'
 
 const DropdownMenuItem = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.Item>,
@@ -93,7 +93,7 @@ const DropdownMenuItem = forwardRef<
     {...props}
   />
 ))
-DropdownMenuItem.displayName = '@kyrian/ui/DropdownMenuItem'
+DropdownMenuItem.displayName = '@kyrian/ui/dropdown-menu-item'
 
 const DropdownMenuCheckboxItem = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
@@ -116,7 +116,7 @@ const DropdownMenuCheckboxItem = forwardRef<
     {children}
   </DropdownMenuPrimitive.CheckboxItem>
 ))
-DropdownMenuCheckboxItem.displayName = '@kyrian/ui/DropdownMenuCheckboxItem'
+DropdownMenuCheckboxItem.displayName = '@kyrian/ui/dropdown-menu-checkbox-item'
 
 const DropdownMenuRadioItem = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
@@ -138,7 +138,7 @@ const DropdownMenuRadioItem = forwardRef<
     {children}
   </DropdownMenuPrimitive.RadioItem>
 ))
-DropdownMenuRadioItem.displayName = '@kyrian/ui/DropdownMenuRadioItem'
+DropdownMenuRadioItem.displayName = '@kyrian/ui/dropdown-menu-radio-item'
 
 const DropdownMenuLabel = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.Label>,
@@ -156,7 +156,7 @@ const DropdownMenuLabel = forwardRef<
     {...props}
   />
 ))
-DropdownMenuLabel.displayName = '@kyrian/ui/DropdownMenuLabel'
+DropdownMenuLabel.displayName = '@kyrian/ui/drropdown-menu-label'
 
 const DropdownMenuSeparator = forwardRef<
   ElementRef<typeof DropdownMenuPrimitive.Separator>,
@@ -168,7 +168,7 @@ const DropdownMenuSeparator = forwardRef<
     {...props}
   />
 ))
-DropdownMenuSeparator.displayName = '@kyrian/ui/DropdownMenuSeparator'
+DropdownMenuSeparator.displayName = '@kyrian/ui/dropdown-menu-separator'
 
 const DropdownMenuShortcut = ({
   className,
@@ -184,7 +184,7 @@ const DropdownMenuShortcut = ({
     />
   )
 }
-DropdownMenuShortcut.displayName = 'DropdownMenuShortcut'
+DropdownMenuShortcut.displayName = 'dropdown-menu-shortcut'
 
 export {
   DropdownMenu,

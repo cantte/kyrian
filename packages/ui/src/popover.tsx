@@ -30,6 +30,6 @@ const PopoverContent = forwardRef<
     />
   </PopoverPrimitive.Portal>
 ))
-PopoverContent.displayName = '@kyrian/ui/PopoverContent'
+PopoverContent.displayName = '@kyrian/ui/popover-content'
 
 export { Popover, PopoverTrigger, PopoverContent }

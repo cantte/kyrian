@@ -23,6 +23,6 @@ const Label = forwardRef<
   />
 ))
 
-Label.displayName = '@kyrian/ui/Label'
+Label.displayName = '@kyrian/ui/label'
 
 export default Label

@@ -25,7 +25,7 @@ const AlertDialogPortal = ({
     </div>
   </AlertDialogPrimitive.Portal>
 )
-AlertDialogPortal.displayName = '@kyrian/ui/AlertDialogPortal'
+AlertDialogPortal.displayName = '@kyrian/ui/alert-dialog-portal'
 
 const AlertDialogOverlay = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Overlay>,
@@ -40,7 +40,7 @@ const AlertDialogOverlay = forwardRef<
     ref={ref}
   />
 ))
-AlertDialogOverlay.displayName = '@kyrian/ui/AlertDialogOverlay'
+AlertDialogOverlay.displayName = '@kyrian/ui/alert-dialog-overlay'
 
 const AlertDialogContent = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Content>,
@@ -59,7 +59,7 @@ const AlertDialogContent = forwardRef<
     />
   </AlertDialogPortal>
 ))
-AlertDialogContent.displayName = '@kyrian/ui/AlertDialogContent'
+AlertDialogContent.displayName = '@kyrian/ui/alert-dialog-content'
 
 const AlertDialogHeader = ({
   className,
@@ -73,7 +73,7 @@ const AlertDialogHeader = ({
     {...props}
   />
 )
-AlertDialogHeader.displayName = '@kyrian/ui/AlertDialogHeader'
+AlertDialogHeader.displayName = '@kyrian/ui/alert-dialog-header'
 
 const AlertDialogFooter = ({
   className,
@@ -87,7 +87,7 @@ const AlertDialogFooter = ({
     {...props}
   />
 )
-AlertDialogFooter.displayName = '@kyrian/ui/AlertDialogFooter'
+AlertDialogFooter.displayName = '@kyrian/ui/alert-dialog-footer'
 
 const AlertDialogTitle = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Title>,
@@ -103,7 +103,7 @@ const AlertDialogTitle = forwardRef<
     {...props}
   />
 ))
-AlertDialogTitle.displayName = '@kyrian/ui/AlertDialogTitle'
+AlertDialogTitle.displayName = '@kyrian/ui/alert-dialog-title'
 
 const AlertDialogDescription = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Description>,
@@ -115,7 +115,7 @@ const AlertDialogDescription = forwardRef<
     {...props}
   />
 ))
-AlertDialogDescription.displayName = '@kyrian/ui/AlertDialogDescription'
+AlertDialogDescription.displayName = '@kyrian/ui/alert-dialog-description'
 
 const AlertDialogAction = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Action>,
@@ -130,7 +130,7 @@ const AlertDialogAction = forwardRef<
     {...props}
   />
 ))
-AlertDialogAction.displayName = '@kyrian/ui/AlertDialogAction'
+AlertDialogAction.displayName = '@kyrian/ui/alert-dialog-action'
 
 const AlertDialogCancel = forwardRef<
   ElementRef<typeof AlertDialogPrimitive.Cancel>,
@@ -145,7 +145,7 @@ const AlertDialogCancel = forwardRef<
     {...props}
   />
 ))
-AlertDialogCancel.displayName = '@kyrian/ui/AlertDialogCancel'
+AlertDialogCancel.displayName = '@kyrian/ui/alert-dialog-cancel'
 
 export {
   AlertDialog,

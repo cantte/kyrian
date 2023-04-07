@@ -27,7 +27,7 @@ const NavigationMenu = forwardRef<
     <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
 ))
-NavigationMenu.displayName = '@kyrian/ui/NavigationMenu'
+NavigationMenu.displayName = '@kyrian/ui/navigation-menu'
 
 const NavigationMenuList = forwardRef<
   ElementRef<typeof NavigationMenuPrimitive.List>,
@@ -42,7 +42,7 @@ const NavigationMenuList = forwardRef<
     {...props}
   />
 ))
-NavigationMenuList.displayName = '@kyrian/ui/NavigationMenuList'
+NavigationMenuList.displayName = '@kyrian/ui/navigation-menu-list'
 
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
@@ -66,7 +66,7 @@ const NavigationMenuTrigger = forwardRef<
     />
   </NavigationMenuPrimitive.Trigger>
 ))
-NavigationMenuTrigger.displayName = '@kyrian/ui/NavigationMenuTrigger'
+NavigationMenuTrigger.displayName = '@kyrian/ui/navigation-menu-trigger'
 
 const NavigationMenuContent = forwardRef<
   ElementRef<typeof NavigationMenuPrimitive.Content>,
@@ -81,7 +81,7 @@ const NavigationMenuContent = forwardRef<
     {...props}
   />
 ))
-NavigationMenuContent.displayName = '@kyrian/ui/NavigationMenuContent'
+NavigationMenuContent.displayName = '@kyrian/ui/navigation-menu-content'
 
 const NavigationMenuLink = NavigationMenuPrimitive.Link
 
@@ -100,7 +100,7 @@ const NavigationMenuViewport = forwardRef<
     />
   </div>
 ))
-NavigationMenuViewport.displayName = '@kyrian/ui/NavigationMenuViewport'
+NavigationMenuViewport.displayName = '@kyrian/ui/navigation-menu-viewport'
 
 const NavigationMenuIndicator = forwardRef<
   ElementRef<typeof NavigationMenuPrimitive.Indicator>,
@@ -117,7 +117,7 @@ const NavigationMenuIndicator = forwardRef<
     <div className='relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-slate-200 shadow-md dark:bg-slate-800' />
   </NavigationMenuPrimitive.Indicator>
 ))
-NavigationMenuIndicator.displayName = '@kyrian/ui/NavigationMenuIndicator'
+NavigationMenuIndicator.displayName = '@kyrian/ui/navigation-menu-indicator'
 
 export {
   navigationMenuTriggerStyle,

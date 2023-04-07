@@ -20,7 +20,7 @@ const RadioGroup = forwardRef<
     ref={ref}
   />
 ))
-RadioGroup.displayName = '@kyrian/ui/RadioGroup'
+RadioGroup.displayName = '@kyrian/ui/radio-group'
 
 const RadioGroupItem = forwardRef<
   ElementRef<typeof RadioGroupPrimitive.Item>,
@@ -39,6 +39,6 @@ const RadioGroupItem = forwardRef<
     </RadioGroupPrimitive.Indicator>
   </RadioGroupPrimitive.Item>
 ))
-RadioGroupItem.displayName = '@kyrian/ui/RadioGroupItem'
+RadioGroupItem.displayName = '@kyrian/ui/radio-group-item'
 
 export { RadioGroup, RadioGroupItem }

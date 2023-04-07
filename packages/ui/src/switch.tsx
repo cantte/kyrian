@@ -28,6 +28,6 @@ const Switch = forwardRef<
     />
   </SwitchPrimitives.Root>
 ))
-Switch.displayName = '@kyrian/ui/Switch'
+Switch.displayName = '@kyrian/ui/switch'
 
 export { Switch }
