@@ -38,11 +38,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Switch,
 } from '@kyrian/ui'
 
 import { api } from '~/utils/api'
 
-export default function Web() {
+const Web = () => {
   const { data: message } = api.auth.getSecretMessage.useQuery()
   const { data: session } = api.auth.getSession.useQuery()
 
@@ -185,7 +186,16 @@ export default function Web() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+
+        <div>
+          <div className='flex items-center space-x-2'>
+            <Switch id='airplane-mode' />
+            <Label htmlFor='airplane-mode'>Airplane Mode</Label>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
+
+export default Web
