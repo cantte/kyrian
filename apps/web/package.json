@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@kyrian/api": "^0.1.0",
-    "@kyrian/auth": "*",
-    "@kyrian/db": "*",
+    "@kyrian/auth": "^1.0.0",
+    "@kyrian/db": "^1.0.0",
     "@kyrian/tailwind-config": "0.1.0",
-    "@kyrian/ui": "*",
+    "@kyrian/ui": "^0.1.0",
     "@next/font": "^13.2.4",
     "@tanstack/react-query": "^4.28.0",
     "@trpc/client": "^10.19.1",

@@ -47,16 +47,16 @@ importers:
         specifier: ^0.1.0
         version: link:../../packages/api
       '@kyrian/auth':
-        specifier: '*'
+        specifier: ^1.0.0
         version: link:../../packages/auth
       '@kyrian/db':
-        specifier: '*'
+        specifier: ^1.0.0
         version: link:../../packages/db
       '@kyrian/tailwind-config':
         specifier: 0.1.0
         version: link:../../packages/config/tailwind
       '@kyrian/ui':
-        specifier: '*'
+        specifier: ^0.1.0
         version: link:../../packages/ui
       '@next/font':
         specifier: ^13.2.4

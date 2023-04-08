@@ -16,6 +16,19 @@ const config = {
       rootDir: ['apps/web'],
     },
   },
+  ignorePatterns: [
+    '**/*.js',
+    '**/*.json',
+    'node_modules',
+    'public',
+    'styles',
+    '.next',
+    'coverage',
+    'dist',
+    '.turbo',
+    'next-env.d.ts',
+    'tsup.config.ts',
+  ],
 }
 
 module.exports = config
