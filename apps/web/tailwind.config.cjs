@@ -2,13 +2,20 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.tsx'],
+  darkMode: ['class', '[data-theme="dark"]'],
   presets: [require('@kyrian/tailwind-config')],
   theme: {
+    container: {
+      center: true,
+      padding: "1.5rem",
+      screens: {
+        "2xl": "1440px",
+      },
+    },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {
@@ -26,5 +33,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/line-clamp"),
+  ],
 }

@@ -1,22 +1,22 @@
-'use client'
-
 import '@/base/styles/globals.css'
 import '@kyrian/ui/styles.css'
-import { type FC, type PropsWithChildren } from 'react'
+import { type ReactNode } from 'react'
 import { Inter } from '@next/font/google'
 
-import { api } from '~/utils/api'
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
-const inter = Inter({ subsets: ['latin'] })
+interface RootLayoutProps {
+  children: ReactNode
+}
 
-const RootLayout: FC<PropsWithChildren> = ({ children }) => {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <main>{children}</main>
-      </body>
+    <html
+      lang='en'
+      className={`bg-white font-sans text-slate-900 antialiased ${inter.variable}`}
+    >
+      <head />
+      <body className='min-h-screen'>{children}</body>
     </html>
   )
 }
-
-export default api.withTRPC(RootLayout)
