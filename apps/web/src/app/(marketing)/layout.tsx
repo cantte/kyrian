@@ -12,9 +12,9 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions)
 
   return (
-    <div className='flex min-h-screen flex-col'>
-      <header className='container sticky top-0 z-40 bg-white'>
-        <div className='flex h-16 items-center justify-between border-b border-b-slate-200 py-4'>
+    <div className='app-flex app-min-h-screen app-flex-col'>
+      <header className='app-container app-sticky app-top-0 app-z-40 app-bg-white'>
+        <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4'>
           <MainNav items={dashboardConfig.mainNav} />
           <nav>
             {session ? (
@@ -33,7 +33,7 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
           </nav>
         </div>
       </header>
-      <main className='flex-1'>{children}</main>
+      <main className='app-flex-1'>{children}</main>
     </div>
   )
 }

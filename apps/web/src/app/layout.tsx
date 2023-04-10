@@ -13,10 +13,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang='en'
-      className={`bg-white font-sans text-slate-900 antialiased ${inter.variable}`}
+      className={`app-bg-white app-font-sans app-text-slate-900 app-antialiased ${inter.variable}`}
     >
       <head />
-      <body className='min-h-screen'>{children}</body>
+      <body className='app-min-h-screen'>{children}</body>
     </html>
   )
 }

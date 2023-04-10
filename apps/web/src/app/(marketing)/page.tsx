@@ -26,12 +26,12 @@ const IndexPage = async () => {
 
   return (
     <>
-      <section className='container grid items-center justify-center gap-6 pt-6 pb-8 md:pt-10 md:pb-12 lg:pt-16 lg:pb-24'>
-        <div className='mx-auto flex flex-col items-start gap-4 lg:w-[52rem]'>
-          <h1 className='text-3xl font-bold leading-[1.1] tracking-tighter sm:text-5xl md:text-6xl'>
+      <section className='app-container app-grid app-items-center app-justify-center app-gap-6 app-pt-6 app-pb-8 md:app-pt-10 md:app-pb-12 lg:app-pt-16 lg:app-pb-24'>
+        <div className='app-mx-auto app-flex app-flex-col app-items-start app-gap-4 lg:app-w-[52rem]'>
+          <h1 className='app-text-3xl app-font-bold app-leading-[1.1] app-tracking-tighter sm:app-text-5xl md:app-text-6xl'>
             Sitio en construcción
           </h1>
-          <p className='max-w-[42rem] leading-normal text-slate-700 sm:text-xl sm:leading-8'>
+          <p className='app-max-w-[42rem] app-leading-normal app-text-slate-700 sm:app-text-xl sm:app-leading-8'>
             Este sitio está en construcción. Tu mensaje secreto es{' '}
             {secretMessage}
           </p>
