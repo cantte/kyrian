@@ -32,8 +32,6 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.mjs",
-    ".next/types/**/*.ts",
-    "D:\\Projects\\kyrian\\apps\\web\\.next/types/**/*.ts"
+    "**/*.mjs"
   ]
 }
