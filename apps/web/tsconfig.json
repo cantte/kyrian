@@ -22,9 +22,15 @@
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [],
   "include": [
@@ -32,6 +38,8 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.mjs"
+    "**/*.mjs",
+    "D:\\Projects\\kyrian\\apps\\web\\.next/types/**/*.ts",
+    ".next/types/**/*.ts"
   ]
 }

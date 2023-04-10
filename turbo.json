@@ -27,7 +27,7 @@
       "cache": false
     },
     "type-check": {
-      "dependsOn": ["^db:generate", "^build"],
+      "dependsOn": ["^db:generate", "build"],
       "cache": false
     }
   },
