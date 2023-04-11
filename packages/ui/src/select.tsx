@@ -33,7 +33,7 @@ const SelectTrigger = forwardRef<
   </SelectPrimitive.Trigger>
 ))
 
-SelectTrigger.displayName = '@kyrian/ui/SelectTrigger'
+SelectTrigger.displayName = '@kyrian/ui/select-trigger'
 
 const SelectContent = forwardRef<
   ElementRef<typeof SelectPrimitive.Content>,
@@ -55,7 +55,7 @@ const SelectContent = forwardRef<
   </SelectPrimitive.Portal>
 ))
 
-SelectContent.displayName = '@kyrian/ui/SelectContent'
+SelectContent.displayName = '@kyrian/ui/select-content'
 
 const SelectLabel = forwardRef<
   ElementRef<typeof SelectPrimitive.Label>,
@@ -71,7 +71,7 @@ const SelectLabel = forwardRef<
   />
 ))
 
-SelectLabel.displayName = '@kyrian/ui/SelectLabel'
+SelectLabel.displayName = '@kyrian/ui/select-label'
 
 const SelectItem = forwardRef<
   ElementRef<typeof SelectPrimitive.Item>,
@@ -95,7 +95,7 @@ const SelectItem = forwardRef<
   </SelectPrimitive.Item>
 ))
 
-SelectItem.displayName = '@kyrian/ui/SelectItem'
+SelectItem.displayName = '@kyrian/ui/select-item'
 
 const SelectSeparator = forwardRef<
   ElementRef<typeof SelectPrimitive.Separator>,
@@ -108,7 +108,7 @@ const SelectSeparator = forwardRef<
   />
 ))
 
-SelectSeparator.displayName = '@kyrian/ui/SelectSeparator'
+SelectSeparator.displayName = '@kyrian/ui/select-separator'
 
 export {
   Select,

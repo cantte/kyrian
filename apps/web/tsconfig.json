@@ -3,18 +3,34 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
-      "@/*": ["./src/*"],
-      "@/base/*": ["./src/*"]
+      "~/*": [
+        "./src/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@/base/*": [
+        "./src/*"
+      ]
     },
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [],
   "include": [
@@ -23,6 +39,7 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
+    "D:\\Projects\\kyrian\\apps\\web\\.next/types/**/*.ts",
     ".next/types/**/*.ts"
   ]
 }

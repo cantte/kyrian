@@ -26,7 +26,7 @@ const DialogPortal = ({
     </div>
   </DialogPrimitive.Portal>
 )
-DialogPortal.displayName = '@kyrian/ui/DialogPortal'
+DialogPortal.displayName = '@kyrian/ui/dialog-portal'
 
 const DialogOverlay = forwardRef<
   ElementRef<typeof DialogPrimitive.Overlay>,
@@ -41,7 +41,7 @@ const DialogOverlay = forwardRef<
     ref={ref}
   />
 ))
-DialogOverlay.displayName = '@kyrian/ui/DialogOverlay'
+DialogOverlay.displayName = '@kyrian/ui/dialog-overlay'
 
 const DialogContent = forwardRef<
   ElementRef<typeof DialogPrimitive.Content>,
@@ -66,7 +66,7 @@ const DialogContent = forwardRef<
     </DialogPrimitive.Content>
   </DialogPortal>
 ))
-DialogContent.displayName = '@kyrian/ui/DialogContent'
+DialogContent.displayName = '@kyrian/ui/dialog-content'
 
 const DialogHeader = ({
   className,
@@ -80,7 +80,7 @@ const DialogHeader = ({
     {...props}
   />
 )
-DialogHeader.displayName = '@kyrian/ui/DialogHeader'
+DialogHeader.displayName = '@kyrian/ui/dialog-header'
 
 const DialogFooter = ({
   className,
@@ -94,7 +94,7 @@ const DialogFooter = ({
     {...props}
   />
 )
-DialogFooter.displayName = '@kyrian/ui/DialogFooter'
+DialogFooter.displayName = '@kyrian/ui/dialog-footer'
 
 const DialogTitle = forwardRef<
   ElementRef<typeof DialogPrimitive.Title>,
@@ -110,7 +110,7 @@ const DialogTitle = forwardRef<
     {...props}
   />
 ))
-DialogTitle.displayName = '@kyrian/ui/DialogTitle'
+DialogTitle.displayName = '@kyrian/ui/dialog-title'
 
 const DialogDescription = forwardRef<
   ElementRef<typeof DialogPrimitive.Description>,
@@ -122,7 +122,7 @@ const DialogDescription = forwardRef<
     {...props}
   />
 ))
-DialogDescription.displayName = '@kyrian/ui/DialogDescription'
+DialogDescription.displayName = '@kyrian/ui/dialog-description'
 
 export {
   Dialog,

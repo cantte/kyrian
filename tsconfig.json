@@ -17,5 +17,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": [".eslintrc.js", "prettier.config.cjs"]
+  "include": [".eslintrc.js", "prettier.config.cjs"],
+  "exclude": ["node_modules", "build", "dist", "coverage", "public"]
 }

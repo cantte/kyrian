@@ -1,6 +1,6 @@
 {
   "name": "@kyrian/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "sideEffects": [
     "**/*.css"
   ],
@@ -27,12 +27,13 @@
   "devDependencies": {
     "@kyrian/eslint-config": "0.1.0",
     "@kyrian/tailwind-config": "0.1.0",
+    "@types/node": "^18.15.11",
     "@types/react": "^18.0.22",
     "autoprefixer": "^10.4.13",
     "class-variance-authority": "^0.5.0",
     "clsx": "^1.2.1",
     "eslint": "^8.34.0",
-    "lucide-react": "^0.130.0",
+    "lucide-react": "^0.139.0",
     "next": "^13.2.3",
     "postcss": "^8.4.21",
     "react": "^18.2.0",

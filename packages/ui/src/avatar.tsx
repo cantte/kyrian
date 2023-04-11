@@ -23,7 +23,7 @@ const Avatar = forwardRef<
   />
 ))
 
-Avatar.displayName = '@kyrian/ui/Avatar'
+Avatar.displayName = '@kyrian/ui/avatar'
 
 const AvatarImage = forwardRef<
   ElementRef<typeof AvatarPrimitive.Image>,
@@ -36,7 +36,7 @@ const AvatarImage = forwardRef<
   />
 ))
 
-AvatarImage.displayName = '@kyrian/ui/AvatarImage'
+AvatarImage.displayName = '@kyrian/ui/avatar-image'
 
 const AvatarFallback = forwardRef<
   ElementRef<typeof AvatarPrimitive.Fallback>,
@@ -52,6 +52,6 @@ const AvatarFallback = forwardRef<
   />
 ))
 
-AvatarFallback.displayName = '@kyrian/ui/AvatarFallback'
+AvatarFallback.displayName = '@kyrian/ui/avatar-fallback'
 
 export { Avatar, AvatarImage, AvatarFallback }
