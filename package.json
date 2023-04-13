@@ -30,6 +30,6 @@
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.7",
     "turbo": "^1.8.3",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.4"
   }
 }
