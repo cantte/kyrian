@@ -26,7 +26,6 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "strictNullChecks": true,
-    "strict": true,
     "plugins": [
       {
         "name": "next"

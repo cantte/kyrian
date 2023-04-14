@@ -5,6 +5,7 @@ import superjson from 'superjson'
 
 import { appRouter } from '@kyrian/api'
 import { authOptions } from '@kyrian/auth'
+import { prisma } from '@kyrian/db'
 
 const IndexPage = async () => {
   const session = await getServerSession(authOptions)
@@ -16,6 +17,7 @@ const IndexPage = async () => {
     router: appRouter,
     ctx: {
       session,
+      prisma: prisma,
     },
     transformer: superjson,
   })

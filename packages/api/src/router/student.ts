@@ -1,7 +1,5 @@
 import { z } from 'zod'
 
-import { prisma } from '@kyrian/db'
-
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
 export const newStudentSchema = z.object({
@@ -39,7 +37,7 @@ export const newStudentSchema = z.object({
 export const studentRouter = createTRPCRouter({
   create: protectedProcedure
     .input(newStudentSchema)
-    .mutation(async ({ input }) => {
-      return await prisma.student.create({ data: input })
+    .mutation(async ({ input, ctx }) => {
+      return await ctx.prisma.student.create({ data: input })
     }),
 })

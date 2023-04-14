@@ -6,13 +6,13 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
-
 import { TRPCError, initTRPC } from '@trpc/server'
 import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 
 import { getServerSession, type Session } from '@kyrian/auth'
+import { prisma } from '@kyrian/db'
 
 /**
  * 1. CONTEXT
@@ -39,6 +39,7 @@ type CreateContextOptions = {
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
+    prisma,
   }
 }
 

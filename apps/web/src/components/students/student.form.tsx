@@ -2,10 +2,10 @@
 
 import { type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { type Student } from '@prisma/client'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { type z } from 'zod'
+import { z } from 'zod'
 
-import { newStudentSchema } from '@kyrian/api'
 import {
   Button,
   Input,
@@ -17,24 +17,43 @@ import {
   SelectValue,
 } from '@kyrian/ui'
 
-import { client } from '~/client/trpc-client'
-
-type Student = {
-  id: string
-  idType: string
-  name: string
-  email: string
-  phone: string
-  createdAt: Date
-  updatedAt: Date
-  userId: string
-}
-
 type NewStudentValues = Omit<Student, 'createdAt' | 'updatedAt'>
 
 export type StudentFormProps = {
   defaultValues?: Partial<NewStudentValues>
 }
+
+const newStudentSchema = z.object({
+  id: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(10, 'Máximo 10 caracteres'),
+  idType: z
+    .string({
+      required_error: 'Debe digitar este campo',
+    })
+    .min(1, 'Debe digitar este campo')
+    .max(2, 'Máximo 2 caracteres'),
+  name: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(128, 'Máximo 128 caracteres'),
+  email: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(256, 'Máximo 256 caracteres')
+    .email('Debe digitar un correo válido')
+    // email ends with @unicesar.edu.co
+    .refine(
+      (email) => email.endsWith('@unicesar.edu.co'),
+      'El correo debe terminar con @unicesar.edu.co',
+    ),
+  phone: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(10, 'Máximo 10 caracteres'),
+  userId: z.string().min(1, 'Debe digitar este campo').max(128),
+})
 
 type StudentFormValues = z.infer<typeof newStudentSchema>
 
@@ -57,8 +76,6 @@ const StudentForm: FC<StudentFormProps> = ({ defaultValues }) => {
     },
   })
 
-  const { mutate } = client.student.create.useMutation()
-
   const onSubmit: SubmitHandler<StudentFormValues> = (values) => {
     console.log(values)
   }
@@ -66,7 +83,7 @@ const StudentForm: FC<StudentFormProps> = ({ defaultValues }) => {
   return (
     <form
       className='app-grid app-gap-6 app-w-full px-2'
-      onSubmit={void handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className='app-grid app-w-full app-items-center app-gap-1.5'>
         <Label htmlFor='id'>Identificación</Label>
