@@ -120,8 +120,8 @@ importers:
         specifier: ^18.0.11
         version: 18.0.11
       autoprefixer:
-        specifier: ^10.4.13
-        version: 10.4.13(postcss@8.4.21)
+        specifier: ^10.4.14
+        version: 10.4.14(postcss@8.4.21)
       dotenv-cli:
         specifier: ^7.2.1
         version: 7.2.1
@@ -237,8 +237,8 @@ importers:
   packages/config/tailwind:
     devDependencies:
       autoprefixer:
-        specifier: ^10.4.13
-        version: 10.4.13(postcss@8.4.21)
+        specifier: ^10.4.14
+        version: 10.4.14(postcss@8.4.21)
       postcss:
         specifier: ^8.4.21
         version: 8.4.21
@@ -332,8 +332,8 @@ importers:
         specifier: ^18.0.35
         version: 18.0.35
       autoprefixer:
-        specifier: ^10.4.13
-        version: 10.4.13(postcss@8.4.21)
+        specifier: ^10.4.14
+        version: 10.4.14(postcss@8.4.21)
       class-variance-authority:
         specifier: ^0.5.2
         version: 0.5.2(typescript@5.0.4)
@@ -2265,8 +2265,8 @@ packages:
     resolution: {integrity: sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==}
     dev: false
 
-  /autoprefixer@10.4.13(postcss@8.4.21):
-    resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}
+  /autoprefixer@10.4.14(postcss@8.4.21):
+    resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
