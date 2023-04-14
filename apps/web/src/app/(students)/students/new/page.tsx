@@ -1,6 +1,11 @@
+import { redirect } from 'next/navigation'
+import { createServerSideHelpers } from '@trpc/react-query/server'
 import { getServerSession } from 'next-auth/next'
+import superjson from 'superjson'
 
+import { appRouter } from '@kyrian/api'
 import { authOptions } from '@kyrian/auth'
+import { prisma } from '@kyrian/db'
 
 import StudentForm from '~/components/students/student.form'
 
@@ -10,6 +15,23 @@ export const metadata = {
 
 const RegisterNewStudentPage = async () => {
   const session = await getServerSession(authOptions)
+
+  const ssg = createServerSideHelpers({
+    router: appRouter,
+    ctx: {
+      session,
+      prisma: prisma,
+    },
+    transformer: superjson,
+  })
+
+  const student = await ssg.student.byUser.fetch()
+
+  console.log(student)
+
+  if (student !== null) {
+    return redirect('/')
+  }
 
   return (
     <div className='app-grid app-items-start app-gap-8 app-max-w-2xl'>

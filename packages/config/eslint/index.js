@@ -10,6 +10,7 @@ const config = {
   ],
   rules: {
     '@next/next/no-html-link-for-pages': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',

@@ -55,7 +55,7 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
   return (
     <form
       className='app-grid app-gap-6 app-w-full px-2'
-      onSubmit={void handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className='app-grid app-w-full app-items-center app-gap-1.5'>
         <Label htmlFor='id'>Identificación</Label>
