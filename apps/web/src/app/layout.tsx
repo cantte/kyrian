@@ -1,7 +1,7 @@
 import '@/base/styles/globals.css'
 import '@kyrian/ui/styles.css'
 import { type ReactNode } from 'react'
-import { Inter } from '@next/font/google'
+import { Inter } from "next/font/google"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 

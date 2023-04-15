@@ -61,9 +61,6 @@ importers:
       '@kyrian/ui':
         specifier: ^0.1.0
         version: link:../../packages/ui
-      '@next/font':
-        specifier: ^13.3.0
-        version: 13.3.0
       '@tanstack/react-query':
         specifier: ^4.29.2
         version: 4.29.2(react-dom@18.2.0)(react@18.2.0)
@@ -969,10 +966,6 @@ packages:
     resolution: {integrity: sha512-wuGN5qSEjSgcq9fVkH0Y/qIPFjnZtW3ZPwfjJOn7l/rrf6y8J24h/lo61kwqunTyzZJm/ETGfGVU9PUs8cnzEA==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@13.3.0:
-    resolution: {integrity: sha512-xUv7VRUA2Zr6n/KJDILyv7/zGy9xKUsyQURaQqYr7lVxn0REScazwyZQzhSm+DnJoUyo+9DcFs2J3WsZXHUvQw==}
     dev: false
 
   /@next/swc-darwin-arm64@13.3.0:
