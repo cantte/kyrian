@@ -1,5 +1,7 @@
+import { Skeleton } from '@kyrian/ui'
+
 const Loading = () => {
-  return <div>Verificando...</div>
+  return <Skeleton />
 }
 
 export default Loading

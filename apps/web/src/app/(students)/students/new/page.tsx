@@ -27,8 +27,6 @@ const RegisterNewStudentPage = async () => {
 
   const student = await ssg.student.byUser.fetch()
 
-  console.log(student)
-
   if (student !== null) {
     return redirect('/')
   }
