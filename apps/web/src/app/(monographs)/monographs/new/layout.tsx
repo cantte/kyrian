@@ -1,5 +1,7 @@
 import { type PropsWithChildren } from 'react'
 
+import { Toaster } from '@kyrian/ui'
+
 const MonographLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className='app-mx-auto app-flex app-flex-col app-space-y-6'>
@@ -14,6 +16,8 @@ const MonographLayout = ({ children }: PropsWithChildren) => {
           {children}
         </main>
       </div>
+
+      <Toaster />
     </div>
   )
 }
