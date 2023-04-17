@@ -3,9 +3,8 @@ import { type DashboardConfig } from '~/types'
 export const dashboardConfig: DashboardConfig = {
   mainNav: [
     {
-      title: 'Documentos',
-      href: '/docs',
-      disabled: true,
+      title: 'Añadir monografia',
+      href: '/monographs/new',
     },
     {
       title: 'Configuraciones',
