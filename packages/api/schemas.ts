@@ -31,3 +31,7 @@ export const newStudentSchema = z.object({
     .max(10, 'Máximo 10 caracteres'),
   userId: z.string().min(1, 'Debe digitar este campo').max(128),
 })
+
+export const uploadMonographSchema = z.object({
+  title: z.string().min(1, 'Debe digitar este campo').max(256),
+})

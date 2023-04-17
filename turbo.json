@@ -43,6 +43,7 @@
     "VERCEL",
     "VERCEL_URL",
     "AWS_IDENTITY_POOL_ID",
-    "AWS_REGION"
+    "AWS_REGION",
+    "MONOGRAPH_STORAGE_S3_BUCKET"
   ]
 }
