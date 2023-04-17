@@ -1,6 +1,10 @@
 'use client'
 
-import { type NextComponentType, type NextPage } from 'next'
+import {
+  type NextComponentType,
+  type NextPage,
+  type NextPageContext,
+} from 'next'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type Student } from '@prisma/client'
 import { useForm, type SubmitHandler } from 'react-hook-form'
@@ -152,7 +156,7 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
 }
 
 export default api.withTRPC(StudentForm) as NextComponentType<
-  any,
-  any,
+  NextPageContext,
+  unknown,
   StudentFormProps
 >

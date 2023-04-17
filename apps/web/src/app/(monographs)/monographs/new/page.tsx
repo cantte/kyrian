@@ -1,7 +1,10 @@
 import { redirect } from 'next/navigation'
+import { createServerSideHelpers } from '@trpc/react-query/server'
 import { getServerSession } from 'next-auth/next'
 
+import { appRouter } from '@kyrian/api'
 import { authOptions } from '@kyrian/auth'
+import { prisma } from '@kyrian/db'
 
 import MonographForm from '~/components/monographs/monograph.form'
 
@@ -10,6 +13,16 @@ const RegisterNewMonographPage = async () => {
   if (!session) {
     return redirect('/api/auth/signin')
   }
+
+  const ssg = createServerSideHelpers({
+    router: appRouter,
+    ctx: {
+      session,
+      prisma: prisma,
+    },
+  })
+
+  const student = await ssg.student.byUser.fetch()
 
   return (
     <div className='app-grid app-items-start app-gap-8 app-max-w-2xl'>
@@ -21,7 +34,11 @@ const RegisterNewMonographPage = async () => {
         </div>
       </div>
 
-      <MonographForm />
+      <MonographForm
+        defaultValues={{
+          authorId: student?.id ?? undefined,
+        }}
+      />
     </div>
   )
 }

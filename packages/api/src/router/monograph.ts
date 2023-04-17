@@ -5,7 +5,7 @@ import { createTRPCRouter, protectedProcedure } from '../trpc'
 const BUCKET_NAME =
   process.env.MONOGRAPH_STORAGE_S3_BUCKET ?? 'kyrian-monograph-repository'
 const UPLOADING_TIME_LIMIT = 30
-const UPLOAD_MAX_FILE_SIZE = 1000000
+const UPLOAD_MAX_FILE_SIZE = 5000000 // 5MB
 
 export const monographRouter = createTRPCRouter({
   upload: protectedProcedure
@@ -20,7 +20,7 @@ export const monographRouter = createTRPCRouter({
               key: `${userId}/${input.title}`,
             },
             Conditions: [
-              ['starts-with', '$Content-Type', 'image/'],
+              ['starts-with', '$Content-Type', 'application/pdf'],
               ['content-length-range', 0, UPLOAD_MAX_FILE_SIZE],
             ],
             Expires: UPLOADING_TIME_LIMIT,
