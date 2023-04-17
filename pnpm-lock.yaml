@@ -44,8 +44,8 @@ importers:
   apps/web:
     dependencies:
       '@hookform/resolvers':
-        specifier: ^3.0.1
-        version: 3.0.1(react-hook-form@7.43.9)
+        specifier: ^3.1.0
+        version: 3.1.0(react-hook-form@7.43.9)
       '@kyrian/api':
         specifier: ^0.1.0
         version: link:../../packages/api
@@ -831,8 +831,8 @@ packages:
       - '@types/react'
     dev: false
 
-  /@hookform/resolvers@3.0.1(react-hook-form@7.43.9):
-    resolution: {integrity: sha512-n5oOt0cLw9mQNW3/k9zWaPsNWQcc0k6Jpc7XUrg2Q/AqqsHp3IVa1juqHCxczXI6uXHBa69ILc4pdtsRGyuzsw==}
+  /@hookform/resolvers@3.1.0(react-hook-form@7.43.9):
+    resolution: {integrity: sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
