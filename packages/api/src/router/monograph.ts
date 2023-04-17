@@ -1,4 +1,4 @@
-import { uploadMonographSchema } from '../../schemas'
+import { newMonographSchema, uploadMonographSchema } from '../../schemas'
 import { S3 } from '../aws'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
@@ -35,5 +35,10 @@ export const monographRouter = createTRPCRouter({
           },
         )
       })
+    }),
+  create: protectedProcedure
+    .input(newMonographSchema)
+    .mutation(async ({ input, ctx }) => {
+      return await ctx.prisma.monograph.create({ data: input })
     }),
 })

@@ -69,6 +69,19 @@ model Student {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String      @unique
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Monograph Monograph[]
+}
+
+model Monograph {
+  id              String   @id @default(cuid())
+  title           String
+  publicationDate DateTime
+  authorId        String?
+  createdAt       DateTime @default(now())
+
+  author Student? @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
 }
