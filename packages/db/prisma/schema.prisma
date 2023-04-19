@@ -84,4 +84,5 @@ model Monograph {
   author Student? @relation(fields: [authorId], references: [id], onDelete: Cascade)
 
   @@index([authorId])
+  @@index([title])
 }
