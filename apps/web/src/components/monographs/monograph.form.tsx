@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef, useState, type FormEvent } from 'react'
+import { useCallback, useState } from 'react'
 import {
   type NextComponentType,
   type NextPage,
@@ -45,14 +45,6 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
   const [file, setFile] = useState<File | null>(null)
   const [missingFile, setMissingFile] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
-  const fileRef = useRef<HTMLInputElement>(null)
-
-  const onFileChange = (event: FormEvent<HTMLInputElement>) => {
-    const { files } = event.currentTarget
-    if (files !== null) {
-      setFile(files[0])
-    }
-  }
 
   const { mutateAsync: createMonograph, isLoading: isCreatingMonograph } =
     api.monograph.create.useMutation()
@@ -69,28 +61,18 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
 
     const monograph = await createMonograph(values)
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { url, fields }: { url: string; fields: any } =
-      (await uploadMonograph({
-        title: monograph.title,
-      })) as any
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const data = {
-      ...fields,
-      'Content-Type': file.type,
-      file,
-    }
-    const formData = new FormData()
-    for (const name in data) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-member-access
-      formData.append(name, data[name])
-    }
-    setIsUploading(true)
-    await fetch(url, {
-      method: 'POST',
-      body: formData,
+    const url = await uploadMonograph({
+      title: monograph.title,
+      id: monograph.id,
     })
+
+    setIsUploading(true)
+
+    await fetch(url, {
+      method: 'PUT',
+      body: file,
+    })
+
     setIsUploading(false)
 
     toast.toast({
@@ -109,11 +91,11 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: {
-      'application/pdf': ['*.pdf'],
-    },
     maxFiles: 1,
     maxSize: 1024 * 1024 * 5, // 5 MB
+    accept: {
+      'application/pdf': ['.pdf'],
+    },
   })
 
   return (
@@ -145,15 +127,7 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
           </span>
         </Label>
 
-        <input
-          ref={fileRef}
-          id='file'
-          type='file'
-          accept='application/pdf'
-          className='app-hidden'
-          onChange={onFileChange}
-          {...getInputProps()}
-        />
+        <input {...getInputProps()} />
 
         {missingFile && file === null && (
           <p className='app-text-sm app-text-red-500'>
