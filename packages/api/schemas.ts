@@ -49,3 +49,7 @@ export const newMonographSchema = z.object({
     .min(1, 'Debe digitar este campo')
     .max(10, 'Máximo 10 caracteres'),
 })
+
+export const searchByTitleSchema = z.object({
+  title: z.string().min(1, 'Debe digitar este campo').max(256),
+})
