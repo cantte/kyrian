@@ -1,4 +1,8 @@
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import {
+  GetObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from '@aws-sdk/client-s3'
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-providers'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 
@@ -16,10 +20,18 @@ export type PresignedUrlInput = {
   key: string
 }
 
-export const createPresignedUrl = async ({
+export const createUploadPresignedUrl = async ({
   bucket,
   key,
 }: PresignedUrlInput) => {
   const command = new PutObjectCommand({ Bucket: bucket, Key: key })
+  return getSignedUrl(client, command, { expiresIn: 3600 })
+}
+
+export const createDownloadPresignedUrl = async ({
+  bucket,
+  key,
+}: PresignedUrlInput) => {
+  const command = new GetObjectCommand({ Bucket: bucket, Key: key })
   return getSignedUrl(client, command, { expiresIn: 3600 })
 }

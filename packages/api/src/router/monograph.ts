@@ -3,7 +3,7 @@ import {
   searchByTitleSchema,
   uploadMonographSchema,
 } from '../../schemas'
-import { createPresignedUrl } from '../aws/s3'
+import { createDownloadPresignedUrl, createUploadPresignedUrl } from '../aws/s3'
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
 const BUCKET_NAME =
@@ -12,12 +12,10 @@ const BUCKET_NAME =
 export const monographRouter = createTRPCRouter({
   upload: protectedProcedure
     .input(uploadMonographSchema)
-    .mutation(async ({ input, ctx }) => {
-      const userId = ctx.session.user.id
-
-      return await createPresignedUrl({
+    .mutation(async ({ input }) => {
+      return await createUploadPresignedUrl({
         bucket: BUCKET_NAME,
-        key: `${userId}/${input.title}`,
+        key: `${input.id}/${input.title}`,
       })
     }),
   create: protectedProcedure
@@ -28,7 +26,7 @@ export const monographRouter = createTRPCRouter({
   byTitle: publicProcedure
     .input(searchByTitleSchema)
     .query(async ({ input, ctx }) => {
-      return await ctx.prisma.monograph.findMany({
+      const monographs = await ctx.prisma.monograph.findMany({
         where: {
           title: {
             contains: input.title,
@@ -44,5 +42,18 @@ export const monographRouter = createTRPCRouter({
         },
         take: 30,
       })
+
+      return await Promise.all(
+        monographs.map(async (monograph) => {
+          const downloadUrl = await createDownloadPresignedUrl({
+            bucket: BUCKET_NAME,
+            key: `${monograph.id}/${monograph.title}`,
+          })
+          return {
+            ...monograph,
+            downloadUrl,
+          }
+        }),
+      )
     }),
 })

@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import { redirect } from 'next/navigation'
 import { createServerSideHelpers } from '@trpc/react-query/server'
 import { Link } from 'lucide-react'
@@ -61,9 +62,11 @@ const SearchMonographsPage = async ({
               </CardHeader>
 
               <CardFooter className='app-flex app-justify-end md:app-justify-start'>
-                <Button>
-                  <Link className='app-mr-2 app-h-4 app-w-4' /> Ver
-                </Button>
+                <NextLink href={monograph.downloadUrl} target='_blank' passHref>
+                  <Button>
+                    <Link className='app-mr-2 app-h-4 app-w-4' /> Ver{' '}
+                  </Button>
+                </NextLink>
               </CardFooter>
             </Card>
           </li>

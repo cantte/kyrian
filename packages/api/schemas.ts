@@ -33,6 +33,7 @@ export const newStudentSchema = z.object({
 })
 
 export const uploadMonographSchema = z.object({
+  id: z.string().min(1, 'Debe digitar este campo').max(191),
   title: z.string().min(1, 'Debe digitar este campo').max(256),
 })
 

@@ -63,6 +63,7 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
 
     const url = await uploadMonograph({
       title: monograph.title,
+      id: monograph.id,
     })
 
     setIsUploading(true)
