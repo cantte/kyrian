@@ -41,6 +41,7 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
         <Input
           id='title'
           type='text'
+          placeholder='Ingresa el título de tu monografía a buscar'
           {...register('title')}
           className='app-w-full app-text-base app-h-12'
         />
