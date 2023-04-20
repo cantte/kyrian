@@ -48,7 +48,7 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
             className='app-w-full app-text-base app-h-12'
           />
 
-          <Button type='submit' size='lg'>
+          <Button type='submit'>
             <Search className='app-mr-2 app-h-4 app-w-4' /> Buscar
           </Button>
         </div>
