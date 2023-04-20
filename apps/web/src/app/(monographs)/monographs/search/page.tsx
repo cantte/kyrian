@@ -48,37 +48,43 @@ const SearchMonographsPage = async ({
   return (
     <>
       {monographs.length > 0 ? (
-        <ul className='app-grid app-gap-3 app-w-full px-2 py-2'>
-          {monographs.map((monograph) => (
-            <li key={monograph.id}>
-              <Card>
-                <CardHeader>
-                  <CardTitle>{monograph.title}</CardTitle>
-                  <CardDescription>
-                    Publicado el{' '}
-                    {Intl.DateTimeFormat('es-CO', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }).format(monograph.publicationDate)}
-                  </CardDescription>
-                </CardHeader>
+        <>
+          <div className='app-my-2'>
+            <SearchMonographForm />
+          </div>
 
-                <CardFooter className='app-flex app-justify-end md:app-justify-start'>
-                  <NextLink
-                    href={monograph.downloadUrl}
-                    target='_blank'
-                    passHref
-                  >
-                    <Button>
-                      <Link className='app-mr-2 app-h-4 app-w-4' /> Ver{' '}
-                    </Button>
-                  </NextLink>
-                </CardFooter>
-              </Card>
-            </li>
-          ))}
-        </ul>
+          <ul className='app-grid app-gap-3 app-w-full px-2 py-2'>
+            {monographs.map((monograph) => (
+              <li key={monograph.id}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{monograph.title}</CardTitle>
+                    <CardDescription>
+                      Publicado el{' '}
+                      {Intl.DateTimeFormat('es-CO', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }).format(monograph.publicationDate)}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardFooter className='app-flex app-justify-end md:app-justify-start'>
+                    <NextLink
+                      href={monograph.downloadUrl}
+                      target='_blank'
+                      passHref
+                    >
+                      <Button>
+                        <Link className='app-mr-2 app-h-4 app-w-4' /> Ver{' '}
+                      </Button>
+                    </NextLink>
+                  </CardFooter>
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </>
       ) : (
         <div className='app-grid app-gap-6'>
           <BookTemplate className='app-m-auto app-h-32 app-w-32 app-text-slate-600' />

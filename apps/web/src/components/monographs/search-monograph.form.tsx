@@ -7,10 +7,11 @@ import {
 } from 'next'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Search } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 
 import { searchByTitleSchema } from '@kyrian/api/schemas'
-import { Input } from '@kyrian/ui'
+import { Button, Input } from '@kyrian/ui'
 
 import { api, type RouterInputs } from '~/utils/api'
 
@@ -38,13 +39,19 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className='app-grid app-w-full app-items-center app-gap-1.5'>
-        <Input
-          id='title'
-          type='text'
-          placeholder='Ingresa el título de tu monografía a buscar'
-          {...register('title')}
-          className='app-w-full app-text-base app-h-12'
-        />
+        <div className='app-flex app-w-full app-items-center app-space-x-2'>
+          <Input
+            id='title'
+            type='text'
+            placeholder='Ingresa el título de tu monografía a buscar'
+            {...register('title')}
+            className='app-w-full app-text-base app-h-12'
+          />
+
+          <Button type='submit' size='lg'>
+            <Search className='app-mr-2 app-h-4 app-w-4' /> Buscar
+          </Button>
+        </div>
 
         {errors.title && (
           <span className='app-text-sm app-text-slate-500'>
