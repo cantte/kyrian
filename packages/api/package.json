@@ -11,15 +11,15 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.315.0",
-    "@aws-sdk/credential-providers": "^3.315.0",
-    "@aws-sdk/s3-request-presigner": "^3.315.0",
+    "@aws-sdk/client-s3": "^3.317.0",
+    "@aws-sdk/credential-providers": "^3.316.0",
+    "@aws-sdk/s3-request-presigner": "^3.317.0",
     "@kyrian/auth": "*",
     "@kyrian/db": "^1.0.0",
-    "@trpc/client": "^10.20.0",
-    "@trpc/server": "^10.20.0",
-    "aws-sdk": "^2.1361.0",
-    "superjson": "^1.12.2",
+    "@trpc/client": "^10.21.0",
+    "@trpc/server": "^10.21.0",
+    "aws-sdk": "^2.1362.0",
+    "superjson": "^1.12.3",
     "zod": "^3.21.4"
   },
   "devDependencies": {
