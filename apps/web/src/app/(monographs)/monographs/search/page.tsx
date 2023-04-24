@@ -41,6 +41,15 @@ const SearchMonographsPage = async ({
   })
 
   const { title } = searchParams
+
+  if (
+    title === undefined ||
+    title.length === 0 ||
+    (title as string).trim().length === 0
+  ) {
+    return redirect('/')
+  }
+
   const monographs = await ssg.monograph.byTitle.fetch({
     title: title as string,
   })
