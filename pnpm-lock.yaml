@@ -77,8 +77,8 @@ importers:
         specifier: ^10.21.1
         version: 10.21.1
       lucide-react:
-        specifier: ^0.171.0
-        version: 0.171.0(react@18.2.0)
+        specifier: ^0.176.0
+        version: 0.176.0(react@18.2.0)
       next:
         specifier: 13.3.1
         version: 13.3.1(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0)
@@ -365,8 +365,8 @@ importers:
         specifier: ^8.39.0
         version: 8.39.0
       lucide-react:
-        specifier: ^0.171.0
-        version: 0.171.0(react@18.2.0)
+        specifier: ^0.176.0
+        version: 0.176.0(react@18.2.0)
       next:
         specifier: ^13.3.1
         version: 13.3.1(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0)
@@ -4951,8 +4951,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /lucide-react@0.171.0(react@18.2.0):
-    resolution: {integrity: sha512-iCcpl4wfilDMeG1WtTkYTf47RMOx5KO5Kn5N8SSWq5KBxUELkHT7+p8+6wRz7GETxScA8fvjz22tFBmODnlYRg==}
+  /lucide-react@0.176.0(react@18.2.0):
+    resolution: {integrity: sha512-foy+PkZQ5/inC2W8zHddPUGrJ/t1bmVLPVtFytnfwUVGHMHkKbjTd26teEuRx0zYSE8xFyABiQiEy22xWUlHQw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
