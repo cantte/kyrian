@@ -16,15 +16,15 @@
     "@aws-sdk/s3-request-presigner": "^3.317.0",
     "@kyrian/auth": "*",
     "@kyrian/db": "^1.0.0",
-    "@trpc/client": "^10.21.0",
-    "@trpc/server": "^10.21.0",
-    "aws-sdk": "^2.1362.0",
+    "@trpc/client": "^10.21.1",
+    "@trpc/server": "^10.21.1",
+    "aws-sdk": "^2.1363.0",
     "superjson": "^1.12.3",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@kyrian/eslint-config": "0.1.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "typescript": "^5.0.4"
   }
 }
