@@ -59,3 +59,5 @@ export const searchByTitleSchema = z
     message: 'Debe digitar este campo',
     path: ['title'],
   })
+
+export * from './src/schemas/degree-program'
