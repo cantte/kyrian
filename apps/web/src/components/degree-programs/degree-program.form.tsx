@@ -1,14 +1,12 @@
 'use client'
 
-import { useCallback, useState } from 'react'
 import {
   type NextComponentType,
   type NextPage,
   type NextPageContext,
 } from 'next'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { type DegreeProgram } from '@prisma/client'
-import { Loader2, Upload } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { type z } from 'zod'
 
