@@ -78,12 +78,11 @@ model DegreeProgram {
   phone String?
   email String
 
-  creationStandard     String
-  creationStandardDate DateTime
-  cost                 Decimal
-  studentQuota         Int
-  knowledgeArea        String
-  address              String
+  creationStandard     String?
+  creationStandardDate DateTime?
+  cost                 Decimal?
+  studentQuota         Int?
+  knowledgeArea        String?
 
   history             String?                   @db.Text
   mission             String?                   @db.Text
@@ -93,6 +92,9 @@ model DegreeProgram {
   curricularStructure String?                   @db.Text
   syllabus            String?                   @db.Text
   monographs          Monograph[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("degree_programs")
 }

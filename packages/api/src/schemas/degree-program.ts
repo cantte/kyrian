@@ -38,20 +38,4 @@ export const newDegreeProgramSchema = z.object({
     .email()
     .min(1, 'Debe digitar este campo')
     .max(256, 'Máximo 256 caracteres'),
-
-  creationStandard: z
-    .string()
-    .min(1, 'Debe digitar este campo')
-    .max(191, 'Máximo 191 caracteres'),
-  creationStandardDate: z.coerce.date(),
-  cost: z.coerce.number().min(1, 'Debe digitar este campo'),
-  studentQuota: z.coerce.number().min(1, 'Debe digitar este campo'),
-  knowledgeArea: z
-    .string()
-    .min(1, 'Debe digitar este campo')
-    .max(191, 'Máximo 191 caracteres'),
-  address: z
-    .string()
-    .min(1, 'Debe digitar este campo')
-    .max(191, 'Máximo 191 caracteres'),
 })
