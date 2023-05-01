@@ -7,4 +7,12 @@ export const degreeProgramRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       return await ctx.prisma.degreeProgram.create({ data: input })
     }),
+  getNameAndCode: protectedProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.degreeProgram.findMany({
+      select: {
+        code: true,
+        name: true,
+      },
+    })
+  }),
 })
