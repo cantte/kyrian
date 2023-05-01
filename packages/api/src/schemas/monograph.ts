@@ -26,6 +26,7 @@ export const newMonographSchema = z.object({
 export const searchByTitleSchema = z
   .object({
     title: z.string().min(1, 'Debe digitar este campo').max(256),
+    degreePrograms: z.array(z.string().min(1)).optional(),
   })
   .refine((data) => data.title.trim().length > 0, {
     message: 'Debe digitar este campo',

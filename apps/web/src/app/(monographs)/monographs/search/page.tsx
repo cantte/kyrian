@@ -9,6 +9,7 @@ import { appRouter } from '@kyrian/api'
 import { authOptions } from '@kyrian/auth'
 import { prisma } from '@kyrian/db'
 import {
+  Badge,
   Button,
   Card,
   CardDescription,
@@ -40,7 +41,7 @@ const SearchMonographsPage = async ({
     transformer: superjson,
   })
 
-  const { title } = searchParams
+  const { title, degreePrograms } = searchParams
 
   if (
     title === undefined ||
@@ -52,6 +53,10 @@ const SearchMonographsPage = async ({
 
   const monographs = await ssg.monograph.byTitle.fetch({
     title: title as string,
+    degreePrograms:
+      degreePrograms !== undefined && (degreePrograms as string).length > 0
+        ? (degreePrograms as string).split(',')
+        : undefined,
   })
 
   return (
@@ -68,13 +73,18 @@ const SearchMonographsPage = async ({
                 <Card>
                   <CardHeader>
                     <CardTitle>{monograph.title}</CardTitle>
-                    <CardDescription>
+                    <CardDescription className='app-flex app-flex-1 app-flex-row'>
                       Publicado el{' '}
                       {Intl.DateTimeFormat('es-CO', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
                       }).format(monograph.publicationDate)}
+                      {monograph.degreeProgram !== null && (
+                        <Badge className='app-ml-2' variant='outline'>
+                          {monograph.degreeProgram.name}
+                        </Badge>
+                      )}
                     </CardDescription>
                   </CardHeader>
 
