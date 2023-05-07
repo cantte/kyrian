@@ -7,8 +7,8 @@ import { Button, Toaster } from '@kyrian/ui'
 const MonographLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className='app-mx-auto app-flex app-flex-col app-space-y-6'>
-      <header className='app-container app-sticky app-top-0 app-z-40 app-bg-white'>
-        <div className='app-flex app-h-16 app-items-center app-border-b app-border-b-slate-200 app-py-4 app-space-x-4'>
+      <header className='app-container app-sticky app-top-0 app-z-40'>
+        <div className='app-flex app-h-16 app-items-center app-border-b app-border-b-slate-200 app-py-4 app-space-x-4 dark:app-border-b-slate-500'>
           <div className='flex items-center space-x-10'>
             <NextLink href='/'>
               <Button variant='ghost'>

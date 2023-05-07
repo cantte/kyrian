@@ -3,7 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.tsx'],
-  darkMode: ['class'],
+  darkMode: ['class', '[app-theme="dark"]'],
   presets: [require('@kyrian/tailwind-config')],
   prefix: 'app-',
   theme: {

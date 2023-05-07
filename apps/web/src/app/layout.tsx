@@ -3,6 +3,8 @@ import '@kyrian/ui/styles.css'
 import { type ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 
+import ThemeProvider from '~/components/theme-provider'
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 interface RootLayoutProps {
@@ -17,10 +19,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang='en'
-      className={`app-bg-white app-font-sans app-text-slate-900 app-antialiased ${inter.variable}`}
+      className={`app-font-sans app-antialiased ${inter.variable}`}
     >
       <head />
-      <body className='app-min-h-screen'>{children}</body>
+      <body className='app-min-h-screen app-bg-background'>
+        <ThemeProvider attribute='app-theme' defaultTheme='system' enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

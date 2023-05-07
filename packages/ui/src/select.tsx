@@ -23,7 +23,7 @@ const SelectTrigger = forwardRef<
   <SelectPrimitive.Trigger
     ref={forwardedRef}
     className={cn(
-      'flex h-10 w-full items-center justify-between rounded-md border border-slate-300 bg-transparent py-2 px-3 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900',
+      'border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring flex h-10 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
       className,
     )}
     {...props}
@@ -38,17 +38,25 @@ SelectTrigger.displayName = '@kyrian/ui/select-trigger'
 const SelectContent = forwardRef<
   ElementRef<typeof SelectPrimitive.Content>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, ...props }, forwardedRef) => (
+>(({ className, children, position = 'popper', ...props }, forwardedRef) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={forwardedRef}
       className={cn(
-        'animate-in fade-in-80 relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-100 bg-white text-slate-700 shadow-md dark:border-slate-800 dark:bg-slate-800 dark:text-slate-400',
+        'bg-popover text-popover-foreground animate-in fade-in-80 relative z-50 min-w-[8rem] overflow-hidden rounded-md border shadow-md',
+        position === 'popper' && 'translate-y-1',
         className,
       )}
+      position={position}
       {...props}
     >
-      <SelectPrimitive.Viewport className='p-1'>
+      <SelectPrimitive.Viewport
+        className={cn(
+          'p-1',
+          position === 'popper' &&
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+        )}
+      >
         {children}
       </SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
@@ -63,10 +71,7 @@ const SelectLabel = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <SelectPrimitive.Label
     ref={forwardedRef}
-    className={cn(
-      'py-1.5 pr-2 pl-8 text-sm font-semibold text-slate-900 dark:text-slate-300',
-      className,
-    )}
+    className={cn('py-1.5 pl-8 pr-2 text-sm font-semibold', className)}
     {...props}
   />
 ))
@@ -80,7 +85,7 @@ const SelectItem = forwardRef<
   <SelectPrimitive.Item
     ref={forwardedRef}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-slate-700',
+      'focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className,
     )}
     {...props}
@@ -103,7 +108,7 @@ const SelectSeparator = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <SelectPrimitive.Separator
     ref={forwardedRef}
-    className={cn('-mx-1 my-1 h-px bg-slate-100 dark:bg-slate-700', className)}
+    className={cn('bg-muted -mx-1 my-1 h-px', className)}
     {...props}
   />
 ))
