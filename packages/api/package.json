@@ -16,8 +16,8 @@
     "@aws-sdk/s3-request-presigner": "^3.332.0",
     "@kyrian/auth": "*",
     "@kyrian/db": "^1.0.0",
-    "@trpc/client": "^10.25.0",
-    "@trpc/server": "^10.25.0",
+    "@trpc/client": "^10.26.0",
+    "@trpc/server": "^10.26.0",
     "aws-sdk": "^2.1377.0",
     "superjson": "^1.12.3",
     "zod": "^3.21.4"
