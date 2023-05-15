@@ -12,6 +12,10 @@ const RegisterNewDegreeProgramPage = async () => {
     return redirect('/api/auth/signin')
   }
 
+  if (session.user.role !== 'admin') {
+    return redirect('/')
+  }
+
   return (
     <div className='app-grid app-items-start app-gap-8 app-min-w-2xl'>
       <div className='app-flex app-justify-between'>
