@@ -5,15 +5,12 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: 'Añadir monografia',
       href: '/monographs/new',
+      roles: ['admin'],
     },
     {
       title: 'Agregar programa académico',
       href: '/degree-programs/new',
-    },
-    {
-      title: 'Configuraciones',
-      href: '/settings',
-      disabled: true,
+      roles: ['admin'],
     },
   ],
 }
