@@ -1,3 +1,4 @@
+import * as assert from 'assert'
 import { type PropsWithChildren } from 'react'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth/next'
@@ -11,11 +12,26 @@ import { dashboardConfig } from '~/config/dashboard'
 const RootLayout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions)
 
+  const role = session?.user.role
+  const menu = dashboardConfig.mainNav.filter((item) => {
+    if (item.roles === undefined) {
+      return true
+    }
+
+    if (item.roles.length > 0 && role === undefined) {
+      return false
+    }
+
+    assert.ok(role !== undefined)
+
+    return item.roles.includes(role)
+  })
+
   return (
     <div className='app-flex app-min-h-screen app-flex-col'>
       <header className='app-container app-sticky app-top-0 app-z-40'>
         <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4 dark:app-border-b-slate-500'>
-          <MainNav items={dashboardConfig.mainNav} />
+          <MainNav items={menu} />
           <nav>
             {session ? (
               <Link href='/'>
