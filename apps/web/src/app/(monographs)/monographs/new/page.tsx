@@ -14,6 +14,10 @@ const RegisterNewMonographPage = async () => {
     return redirect('/api/auth/signin')
   }
 
+  if (session.user.role !== 'admin') {
+    return redirect('/')
+  }
+
   const ssg = createServerSideHelpers({
     router: appRouter,
     ctx: {
