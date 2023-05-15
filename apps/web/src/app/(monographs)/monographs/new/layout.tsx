@@ -17,7 +17,7 @@ const MonographLayout = ({ children }: PropsWithChildren) => {
             </NextLink>
           </div>
 
-          <span className='app-text-2xl app-font-bold'>Kyrian</span>
+          <span className='app-text-2xl app-font-bold'>CEDISJ</span>
         </div>
       </header>
 

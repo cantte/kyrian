@@ -18,7 +18,7 @@ const MonographLayout = ({ children }: PropsWithChildren) => {
           </div>
 
           <span className='app-text-2xl app-font-bold'>
-            Kyrian - Resultados de la búsqueda
+            CEDISJ - Resultados de la búsqueda
           </span>
         </div>
       </header>

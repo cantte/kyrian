@@ -5,7 +5,7 @@ const StudentLayout = ({ children }: PropsWithChildren) => {
     <div className='app-mx-auto app-flex app-flex-col app-space-y-6'>
       <header className='app-container app-sticky app-top-0 app-z-40'>
         <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4'>
-          <span className='app-text-2xl app-font-bold'>Kyrian</span>
+          <span className='app-text-2xl app-font-bold'>CEDISJ</span>
         </div>
       </header>
 
