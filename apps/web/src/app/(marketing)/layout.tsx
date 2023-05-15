@@ -13,8 +13,8 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
 
   return (
     <div className='app-flex app-min-h-screen app-flex-col'>
-      <header className='app-container app-sticky app-top-0 app-z-40 app-bg-white'>
-        <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4'>
+      <header className='app-container app-sticky app-top-0 app-z-40'>
+        <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4 dark:app-border-b-slate-500'>
           <MainNav items={dashboardConfig.mainNav} />
           <nav>
             {session ? (

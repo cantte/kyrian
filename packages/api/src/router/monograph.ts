@@ -31,11 +31,19 @@ export const monographRouter = createTRPCRouter({
           title: {
             contains: input.title,
           },
+          degreeProgramId: {
+            in: input.degreePrograms,
+          },
         },
         select: {
           title: true,
           id: true,
           publicationDate: true,
+          degreeProgram: {
+            select: {
+              name: true,
+            },
+          },
         },
         orderBy: {
           publicationDate: 'desc',

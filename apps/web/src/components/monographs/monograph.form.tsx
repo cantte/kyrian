@@ -14,7 +14,17 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { type z } from 'zod'
 
 import { newMonographSchema } from '@kyrian/api/schemas'
-import { Button, Input, Label, useToast } from '@kyrian/ui'
+import {
+  Button,
+  Input,
+  Label,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  useToast,
+} from '@kyrian/ui'
 
 import { api } from '~/utils/api'
 
@@ -28,11 +38,14 @@ type MonographFormValues = z.infer<typeof newMonographSchema>
 
 const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
   const { title, authorId } = defaultValues ?? {}
+  const { data: degreePrograms, isLoading: isLoadingDegreePrograms } =
+    api.degreeProgram.getNameAndCode.useQuery()
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<MonographFormValues>({
     resolver: zodResolver(newMonographSchema),
@@ -185,6 +198,62 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
         ) : (
           <p className='app-text-sm app-text-slate-500'>
             Digite la identificación del autor de la monografía
+          </p>
+        )}
+      </div>
+
+      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+        <Label htmlFor='degreeProgramId'>Programa académico</Label>
+        <Select
+          onValueChange={(value) => setValue('degreeProgramId', value)}
+          {...register('degreeProgramId')}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder='Programa académico' />
+          </SelectTrigger>
+
+          <SelectContent>
+            {isLoadingDegreePrograms && (
+              <SelectItem value='Loading'>
+                <div className='flex flex-row items-center'>
+                  <Loader2 className='app-mr-2 app-h-4 app-w-4 app-animate-spin' />{' '}
+                  <span>Cargando programas académicos...</span>
+                </div>
+              </SelectItem>
+            )}
+
+            {!isLoadingDegreePrograms &&
+              degreePrograms !== undefined &&
+              degreePrograms.length === 0 && (
+                <SelectItem value='' disabled>
+                  No hay programas académicos registrados
+                </SelectItem>
+              )}
+
+            {!isLoadingDegreePrograms &&
+              degreePrograms !== undefined &&
+              degreePrograms.length > 0 && (
+                <>
+                  {degreePrograms?.map((degreeProgram) => (
+                    <SelectItem
+                      value={degreeProgram.code}
+                      key={degreeProgram.code}
+                    >
+                      {degreeProgram.code}, {degreeProgram.name}
+                    </SelectItem>
+                  ))}
+                </>
+              )}
+          </SelectContent>
+        </Select>
+
+        {errors.degreeProgramId !== undefined ? (
+          <p className='app-text-sm app-text-red-500'>
+            {errors.degreeProgramId.message}
+          </p>
+        ) : (
+          <p className='app-text-sm app-text-slate-500'>
+            Seleccione el programa académico al que pertenece la monografía
           </p>
         )}
       </div>

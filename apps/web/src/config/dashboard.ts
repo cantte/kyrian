@@ -7,6 +7,10 @@ export const dashboardConfig: DashboardConfig = {
       href: '/monographs/new',
     },
     {
+      title: 'Agregar programa académico',
+      href: '/degree-programs/new',
+    },
+    {
       title: 'Configuraciones',
       href: '/settings',
       disabled: true,
