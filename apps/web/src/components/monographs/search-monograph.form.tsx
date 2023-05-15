@@ -86,6 +86,12 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
           </Button>
         </div>
 
+        {errors.title && (
+          <span className='app-text-sm app-text-red-500'>
+            {errors.title.message}
+          </span>
+        )}
+
         <div className='app-flex app-flex-1 app-space-x-4 app-items-center'>
           <DropdownMenu>
             <DropdownMenuTrigger>
@@ -154,12 +160,6 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
               </div>
             )}
         </div>
-
-        {errors.title && (
-          <span className='app-text-sm app-text-slate-500'>
-            {errors.title.message}
-          </span>
-        )}
       </div>
     </form>
   )
