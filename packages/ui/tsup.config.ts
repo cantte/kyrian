@@ -8,6 +8,7 @@ export default defineConfig((options: Options) => ({
   dts: true,
   minify: true,
   clean: true,
+  tsconfig: 'tsconfig.json',
   // include 'use client' in the output
   banner: {
     js: "'use client';",
