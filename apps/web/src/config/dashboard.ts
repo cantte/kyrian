@@ -8,13 +8,13 @@ export const dashboardConfig: DashboardConfig = {
       roles: ['admin'],
     },
     {
-      title: 'Agregar programa académico',
-      href: '/degree-programs/new',
+      title: 'Ver programas académicos',
+      href: '/degree-programs/list',
       roles: ['admin'],
     },
     {
-      title: 'Ver programas académicos',
-      href: '/degree-programs/list',
+      title: 'Ver eventos',
+      href: '/events/list',
       roles: ['admin'],
     },
   ],
