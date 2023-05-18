@@ -1,4 +1,4 @@
-import { newEventSchema } from '../schemas/event'
+import { newEventSchema, updateEventSchema } from '../schemas/event'
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
 export const eventRouter = createTRPCRouter({
@@ -16,4 +16,14 @@ export const eventRouter = createTRPCRouter({
       },
     })
   }),
+  update: protectedProcedure
+    .input(updateEventSchema)
+    .mutation(async ({ input, ctx }) => {
+      return await ctx.prisma.event.update({
+        where: {
+          id: input.id,
+        },
+        data: input,
+      })
+    }),
 })
