@@ -30,7 +30,7 @@ const EventsPage = async () => {
     },
   })
 
-  const events = await ssg.event.list.fetch()
+  const events = await ssg.event.listAll.fetch()
 
   return (
     <div className='app-space-y-8 container mx-auto py-10'>
