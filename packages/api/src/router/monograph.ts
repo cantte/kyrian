@@ -64,4 +64,18 @@ export const monographRouter = createTRPCRouter({
         }),
       )
     }),
+  list: protectedProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.monograph.findMany({
+      select: {
+        title: true,
+        id: true,
+        publicationDate: true,
+        degreeProgram: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    })
+  }),
 })
