@@ -35,13 +35,13 @@ const NewEventForm: NextPage<NewEventFormProps> = ({ defaultValues }) => {
   const { mutate, isLoading } = api.event.create.useMutation({
     onSuccess: () => {
       reset()
-      toast({
+      toast.toast({
         title: 'Evento creado',
         description: 'El evento se ha creado exitosamente',
       })
     },
     onError: (error) => {
-      toast({
+      toast.toast({
         title: 'Error',
         description: error.message,
         variant: 'destructive',
