@@ -10,7 +10,7 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import { type z } from 'zod'
 
 import { newEventSchema } from '@kyrian/api/src/schemas/event'
-import { Button, Input, Label, Textarea } from '@kyrian/ui'
+import { Button, Input, Label, Textarea, useToast } from '@kyrian/ui'
 
 import { api } from '~/utils/api'
 
@@ -24,13 +24,30 @@ const NewEventForm: NextPage<NewEventFormProps> = ({ defaultValues }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<EventFormValues>({
     resolver: zodResolver(newEventSchema),
     defaultValues,
   })
 
-  const { mutate, isLoading } = api.event.create.useMutation()
+  const toast = useToast()
+  const { mutate, isLoading } = api.event.create.useMutation({
+    onSuccess: () => {
+      reset()
+      toast({
+        title: 'Evento creado',
+        description: 'El evento se ha creado exitosamente',
+      })
+    },
+    onError: (error) => {
+      toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive',
+      })
+    },
+  })
 
   const onSubmit: SubmitHandler<EventFormValues> = (values) => {
     mutate(values)
