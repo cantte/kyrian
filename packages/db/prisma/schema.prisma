@@ -140,6 +140,20 @@ model Student {
   @@index([userId])
 }
 
+model Author {
+  uid String @id @default(cuid())
+
+  id   String? @unique
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  monographs Monograph[]
+
+  @@map("authors")
+}
+
 model Monograph {
   id              String   @id @default(cuid())
   title           String
@@ -150,6 +164,8 @@ model Monograph {
 
   author        Student?       @relation(fields: [authorId], references: [id], onDelete: Cascade)
   degreeProgram DegreeProgram? @relation(fields: [degreeProgramId], references: [code], onDelete: Cascade)
+
+  authors Author[]
 
   @@index([authorId])
   @@index([degreeProgramId])

@@ -21,7 +21,21 @@ export const monographRouter = createTRPCRouter({
   create: protectedProcedure
     .input(newMonographSchema)
     .mutation(async ({ input, ctx }) => {
-      return await ctx.prisma.monograph.create({ data: input })
+      const { authors, ...monograph } = input
+
+      const dataToCreate = {
+        ...monograph,
+        authors: {
+          create: authors.map((author) => ({
+            ...author,
+            id: author.id ?? null,
+          })),
+        },
+      }
+
+      return await ctx.prisma.monograph.create({
+        data: dataToCreate,
+      })
     }),
   byTitle: publicProcedure
     .input(searchByTitleSchema)

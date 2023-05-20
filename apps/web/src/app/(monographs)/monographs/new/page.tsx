@@ -6,7 +6,7 @@ import { appRouter } from '@kyrian/api'
 import { authOptions } from '@kyrian/auth'
 import { prisma } from '@kyrian/db'
 
-import MonographForm from '~/components/monographs/monograph.form'
+import MonographForm from '~/app/(monographs)/monographs/new/form'
 
 const RegisterNewMonographPage = async () => {
   const session = await getServerSession(authOptions)
