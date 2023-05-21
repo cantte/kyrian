@@ -23,7 +23,10 @@ export const monographRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       const { authors, ...monograph } = input
 
-      const authorsIds = authors.map((author) => author.id)
+      const authorsIds = authors
+        .filter((author) => author.id !== undefined)
+        .map((author) => author.id) as string[]
+
       const authorsInDb = await ctx.prisma.author.findMany({
         where: {
           id: {
