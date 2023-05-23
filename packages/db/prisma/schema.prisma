@@ -177,6 +177,7 @@ model Event {
   title       String
   date        DateTime
   place       String
+  topic       String?
   description String?  @db.Text
 
   createdAt DateTime @default(now())

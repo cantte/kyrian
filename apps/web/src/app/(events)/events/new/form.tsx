@@ -100,6 +100,19 @@ const NewEventForm: NextPage<NewEventFormProps> = ({ defaultValues }) => {
       </div>
 
       <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+        <Label htmlFor='topic'>Temática</Label>
+        <Input type='text' id='topic' {...register('topic')} />
+
+        {errors.topic !== undefined ? (
+          <p className='app-text-sm app-text-red-500'>{errors.topic.message}</p>
+        ) : (
+          <p className='app-text-sm app-text-slate-500'>
+            Digite la temática del evento
+          </p>
+        )}
+      </div>
+
+      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
         <Label htmlFor='date'>Fecha del evento</Label>
         <Input
           id='date'

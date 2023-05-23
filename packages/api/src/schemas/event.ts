@@ -17,6 +17,10 @@ export const newEventSchema = z.object({
     .string()
     .min(1, 'Debe digitar este campo')
     .max(191, 'Máximo 191 caracteres'),
+  topic: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(191, 'Máximo 191 caracteres'),
   userId: z
     .string()
     .min(1, 'Debe digitar este campo')

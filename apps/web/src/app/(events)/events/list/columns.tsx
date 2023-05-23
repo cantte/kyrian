@@ -3,6 +3,8 @@
 import { type Event } from '@prisma/client'
 import { type ColumnDef } from '@tanstack/react-table'
 
+import { Badge } from '@kyrian/ui'
+
 export const columns: ColumnDef<Event>[] = [
   {
     accessorKey: 'title',
@@ -29,5 +31,18 @@ export const columns: ColumnDef<Event>[] = [
   {
     accessorKey: 'place',
     header: 'Lugar',
+  },
+  {
+    accessorKey: 'topic',
+    header: 'Tema',
+    cell: ({ row }) => {
+      const topic = row.getValue('topic')
+
+      return (
+        <Badge variant='secondary'>
+          {topic !== null ? topic : 'Sin temática'}
+        </Badge>
+      )
+    },
   },
 ]
