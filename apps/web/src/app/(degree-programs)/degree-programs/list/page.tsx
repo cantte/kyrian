@@ -8,8 +8,8 @@ import { authOptions } from '@kyrian/auth'
 import { prisma } from '@kyrian/db'
 import { Button } from '@kyrian/ui'
 
+import GenericDataTable from '~/components/table/generic-data-table'
 import { columns } from '~/app/(degree-programs)/degree-programs/list/columns'
-import DegreeProgramsTable from '~/app/(degree-programs)/degree-programs/list/data-table'
 
 const DegreeProgramsPage = async () => {
   const session = await getServerSession(authOptions)
@@ -30,8 +30,6 @@ const DegreeProgramsPage = async () => {
   })
 
   const degreePrograms = await ssg.degreeProgram.list.fetch()
-  const tableColumns = columns()
-
   return (
     <div className='app-space-y-8 container mx-auto py-10'>
       <div className='md:app-flex app-justify-between app-items-center'>
@@ -46,7 +44,7 @@ const DegreeProgramsPage = async () => {
         </NextLink>
       </div>
 
-      <DegreeProgramsTable columns={tableColumns} data={degreePrograms} />
+      <GenericDataTable columns={columns} data={degreePrograms} />
     </div>
   )
 }
