@@ -11,14 +11,14 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.335.0",
-    "@aws-sdk/credential-providers": "^3.335.0",
-    "@aws-sdk/s3-request-presigner": "^3.335.0",
+    "@aws-sdk/client-s3": "^3.338.0",
+    "@aws-sdk/credential-providers": "^3.338.0",
+    "@aws-sdk/s3-request-presigner": "^3.338.0",
     "@kyrian/auth": "*",
     "@kyrian/db": "^1.0.0",
     "@trpc/client": "^10.27.1",
     "@trpc/server": "^10.27.1",
-    "aws-sdk": "^2.1381.0",
+    "aws-sdk": "^2.1382.0",
     "superjson": "^1.12.3",
     "zod": "^3.21.4"
   },
