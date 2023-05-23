@@ -36,7 +36,7 @@ export const columns: ColumnDef<Event>[] = [
     accessorKey: 'topic',
     header: 'Tema',
     cell: ({ row }) => {
-      const topic = row.getValue('topic')
+      const topic = row.original.topic
 
       return (
         <Badge variant='secondary'>
