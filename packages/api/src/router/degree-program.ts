@@ -15,4 +15,7 @@ export const degreeProgramRouter = createTRPCRouter({
       },
     })
   }),
+  list: protectedProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.degreeProgram.findMany()
+  }),
 })

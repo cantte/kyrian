@@ -4,7 +4,7 @@ import { ChevronLeft } from 'lucide-react'
 
 import { Button, Toaster } from '@kyrian/ui'
 
-const NewDegreeProgramLayout = ({ children }: PropsWithChildren) => {
+const DegreeProgramLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className='app-mx-auto app-flex app-flex-col app-space-y-6'>
       <header className='app-container app-sticky app-bg-background app-top-0 app-z-40'>
@@ -32,4 +32,4 @@ const NewDegreeProgramLayout = ({ children }: PropsWithChildren) => {
   )
 }
 
-export default NewDegreeProgramLayout
+export default DegreeProgramLayout

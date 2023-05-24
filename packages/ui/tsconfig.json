@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": ["src"],
   "compilerOptions": {
-    "lib": ["ES2015"],
+    "lib": ["ES2015", "es2016", "dom"],
     "module": "ESNext",
     "target": "ES6",
     "jsx": "react-jsx",

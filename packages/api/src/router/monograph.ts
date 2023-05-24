@@ -21,7 +21,42 @@ export const monographRouter = createTRPCRouter({
   create: protectedProcedure
     .input(newMonographSchema)
     .mutation(async ({ input, ctx }) => {
-      return await ctx.prisma.monograph.create({ data: input })
+      const { authors, ...monograph } = input
+
+      const authorsIds = authors
+        .filter((author) => author.id !== undefined)
+        .map((author) => author.id) as string[]
+
+      const authorsInDb = await ctx.prisma.author.findMany({
+        where: {
+          id: {
+            in: authorsIds,
+          },
+        },
+      })
+
+      const newAuthors = authors.filter(
+        (author) =>
+          !authorsInDb.some((authorInDb) => authorInDb.id === author.id),
+      )
+
+      const dataToCreate = {
+        ...monograph,
+        authors: {
+          create: newAuthors.map((author) => ({
+            ...author,
+            // if id is undefined or empty string, set it to null to avoid creating a new author with an empty id field
+            id: author.id !== undefined && author.id !== '' ? author.id : null,
+          })),
+          connect: authorsInDb.map((author) => ({
+            uid: author.uid,
+          })),
+        },
+      }
+
+      return await ctx.prisma.monograph.create({
+        data: dataToCreate,
+      })
     }),
   byTitle: publicProcedure
     .input(searchByTitleSchema)
@@ -64,4 +99,18 @@ export const monographRouter = createTRPCRouter({
         }),
       )
     }),
+  list: protectedProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.monograph.findMany({
+      select: {
+        title: true,
+        id: true,
+        publicationDate: true,
+        degreeProgram: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    })
+  }),
 })

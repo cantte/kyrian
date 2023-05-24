@@ -1,14 +1,12 @@
+import React from 'react'
 import { redirect } from 'next/navigation'
-import { createServerSideHelpers } from '@trpc/react-query/server'
 import { getServerSession } from 'next-auth/next'
 
-import { appRouter } from '@kyrian/api'
 import { authOptions } from '@kyrian/auth'
-import { prisma } from '@kyrian/db'
 
-import MonographForm from '~/app/(monographs)/monographs/new/form'
+import NewEventForm from '~/app/(events)/events/new/form'
 
-const RegisterNewMonographPage = async () => {
+const NewEventPage = async () => {
   const session = await getServerSession(authOptions)
   if (!session) {
     return redirect('/api/auth/signin')
@@ -18,33 +16,19 @@ const RegisterNewMonographPage = async () => {
     return redirect('/')
   }
 
-  const ssg = createServerSideHelpers({
-    router: appRouter,
-    ctx: {
-      session,
-      prisma: prisma,
-    },
-  })
-
-  const student = await ssg.student.byUser.fetch()
-
   return (
     <div className='app-grid app-items-start app-gap-8 app-min-w-2xl'>
       <div className='app-flex app-justify-between'>
         <div className='app-grid app-gap-1'>
           <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
-            Registro de monografías
+            Registro de eventos
           </h1>
         </div>
       </div>
 
-      <MonographForm
-        defaultValues={{
-          authorId: student?.id ?? undefined,
-        }}
-      />
+      <NewEventForm defaultValues={{ userId: session.user.id }} />
     </div>
   )
 }
 
-export default RegisterNewMonographPage
+export default NewEventPage

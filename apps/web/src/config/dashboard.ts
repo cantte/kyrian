@@ -3,13 +3,18 @@ import { type DashboardConfig } from '~/types'
 export const dashboardConfig: DashboardConfig = {
   mainNav: [
     {
-      title: 'Añadir monografia',
-      href: '/monographs/new',
+      title: 'Ver monografias',
+      href: '/monographs/list',
       roles: ['admin'],
     },
     {
-      title: 'Agregar programa académico',
-      href: '/degree-programs/new',
+      title: 'Ver programas académicos',
+      href: '/degree-programs/list',
+      roles: ['admin'],
+    },
+    {
+      title: 'Ver eventos',
+      href: '/events/list',
       roles: ['admin'],
     },
   ],

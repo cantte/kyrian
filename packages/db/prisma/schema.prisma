@@ -51,6 +51,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   student       Student?
+  Event         Event[]
 }
 
 model VerificationToken {
@@ -139,6 +140,20 @@ model Student {
   @@index([userId])
 }
 
+model Author {
+  uid String @id @default(cuid())
+
+  id   String? @unique
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  monographs Monograph[]
+
+  @@map("authors")
+}
+
 model Monograph {
   id              String   @id @default(cuid())
   title           String
@@ -150,7 +165,27 @@ model Monograph {
   author        Student?       @relation(fields: [authorId], references: [id], onDelete: Cascade)
   degreeProgram DegreeProgram? @relation(fields: [degreeProgramId], references: [code], onDelete: Cascade)
 
+  authors Author[]
+
   @@index([authorId])
   @@index([degreeProgramId])
   @@index([title])
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  date        DateTime
+  place       String
+  topic       String?
+  description String?  @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("events")
 }
