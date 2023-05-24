@@ -159,6 +159,9 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
           {authors.map((author, index) => (
             <li key={index}>
               <Badge>
+                {author.id !== undefined && author.id.length > 0
+                  ? `${author.id}, `
+                  : ''}
                 {author.name}
                 <span
                   className='app-ml-1 app-text-xs app-font-medium'
