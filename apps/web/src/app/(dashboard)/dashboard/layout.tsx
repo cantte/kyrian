@@ -1,6 +1,7 @@
 import * as assert from 'assert'
 import { type PropsWithChildren } from 'react'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@kyrian/auth'
@@ -10,8 +11,12 @@ import MainNav from '~/components/main-nav'
 import DashboardNav from '~/components/nav'
 import { dashboardConfig } from '~/config/dashboard'
 
-const RootLayout = async ({ children }: PropsWithChildren) => {
+const DashboardLayout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions)
+
+  if (!session) {
+    return redirect('/api/auth/signin')
+  }
 
   const role = session?.user.role
   const menu = dashboardConfig.mainNav.filter((item) => {
@@ -44,8 +49,8 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
 
   return (
     <div className='app-flex app-min-h-screen app-flex-col app-space-y-6'>
-      <header className='app-container app-sticky app-bg-background app-top-0 app-z-40'>
-        <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4 dark:app-border-b-slate-500'>
+      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
+        <div className='app-container app-flex app-h-16 app-items-center app-justify-between'>
           <MainNav items={menu} />
           <nav>
             {session ? (
@@ -69,7 +74,7 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
         <aside className='app-hidden app-w-[250px] app-flex-col md:app-flex'>
           <DashboardNav items={sidebar} />
         </aside>
-        <main className='app-flex app-w-full app-flex-1 app-flex-col app-overflow-hidden'>
+        <main className='app-flex app-w-full app-flex-1 app-flex-col app-overflow-hidden app-pl-4'>
           {children}
         </main>
       </div>
@@ -77,4 +82,4 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
   )
 }
 
-export default RootLayout
+export default DashboardLayout

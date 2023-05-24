@@ -13,7 +13,7 @@ const IndexPage = async () => {
 
   return (
     <>
-      <section className='app-container app-grid app-items-center app-justify-center app-gap-6 app-pt-6 app-pb-8 md:app-pt-10 md:app-pb-12 lg:app-pt-16 lg:app-pb-24'>
+      <section className='app-container app-grid app-items-center app-justify-center app-gap-6'>
         <div className='app-mx-auto app-flex app-flex-col app-items-start app-gap-4 lg:app-w-[52rem]'>
           <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
             Ingresa el título a buscar

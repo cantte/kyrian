@@ -94,7 +94,7 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
 
         <div className='app-flex app-flex-1 app-space-x-4 app-items-center'>
           <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
               <Button type='button' variant='outline'>
                 <Filter className='app-mr-2 app-h-4 app-w-4' /> Filtrar
               </Button>

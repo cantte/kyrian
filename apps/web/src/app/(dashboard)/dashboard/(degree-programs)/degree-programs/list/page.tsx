@@ -1,4 +1,3 @@
-import React from 'react'
 import NextLink from 'next/link'
 import { redirect } from 'next/navigation'
 import { createServerSideHelpers } from '@trpc/react-query/server'
@@ -10,9 +9,9 @@ import { prisma } from '@kyrian/db'
 import { Button } from '@kyrian/ui'
 
 import GenericDataTable from '~/components/table/generic-data-table'
-import { columns } from '~/app/(events)/events/list/columns'
+import { columns } from '~/app/(dashboard)/dashboard/(degree-programs)/degree-programs/list/columns'
 
-const EventsPage = async () => {
+const DegreeProgramsPage = async () => {
   const session = await getServerSession(authOptions)
   if (!session) {
     return redirect('/api/auth/signin')
@@ -30,25 +29,24 @@ const EventsPage = async () => {
     },
   })
 
-  const events = await ssg.event.listAll.fetch()
-
+  const degreePrograms = await ssg.degreeProgram.list.fetch()
   return (
     <div className='app-space-y-8 container mx-auto py-10'>
       <div className='md:app-flex app-justify-between app-items-center'>
         <div className='app-grid app-gap-1'>
           <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
-            Eventos
+            Programas académicos
           </h1>
         </div>
 
-        <NextLink href='/events/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear evento</Button>
+        <NextLink href='/degree-programs/new' passHref>
+          <Button className='app-mt-4 md:app-mt-0'>Crear programa</Button>
         </NextLink>
       </div>
 
-      <GenericDataTable columns={columns} data={events} />
+      <GenericDataTable columns={columns} data={degreePrograms} />
     </div>
   )
 }
 
-export default EventsPage
+export default DegreeProgramsPage
