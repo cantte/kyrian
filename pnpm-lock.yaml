@@ -180,8 +180,8 @@ importers:
         specifier: ^10.28.0
         version: 10.28.0
       aws-sdk:
-        specifier: ^2.1384.0
-        version: 2.1384.0
+        specifier: ^2.1385.0
+        version: 2.1385.0
       superjson:
         specifier: ^1.12.3
         version: 1.12.3
@@ -3433,8 +3433,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /aws-sdk@2.1384.0:
-    resolution: {integrity: sha512-5b1ShZ8508yamZKjpRJJlMcztH2EBxnuH8KZObEH4FY/+pHqGIfUtrSVO0IaPNj7RmOnQJ93zCzBc7dhTnEK4A==}
+  /aws-sdk@2.1385.0:
+    resolution: {integrity: sha512-SWBIsV4AlYE1gvEvkeqAHYIKhEgugrT3XsFJmIOmUhKpumOs+DwRmkNh20KSQVdd4iNxat/VdHTFoWHorrJGrw==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
