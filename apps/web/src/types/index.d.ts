@@ -30,3 +30,7 @@ export type DashboardConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
 }
+
+export type MarketingConfig = {
+  mainNav: MainNavItem[]
+}
