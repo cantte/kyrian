@@ -1,5 +1,5 @@
 import { newDegreeProgramSchema } from '../schemas/degree-program'
-import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
 export const degreeProgramRouter = createTRPCRouter({
   create: protectedProcedure
@@ -17,5 +17,15 @@ export const degreeProgramRouter = createTRPCRouter({
   }),
   list: protectedProcedure.query(async ({ ctx }) => {
     return await ctx.prisma.degreeProgram.findMany()
+  }),
+  info: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.degreeProgram.findMany({
+      select: {
+        code: true,
+        name: true,
+        modality: true,
+        degree: true,
+      },
+    })
   }),
 })

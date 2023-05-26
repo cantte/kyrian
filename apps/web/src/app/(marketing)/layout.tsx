@@ -1,4 +1,3 @@
-import * as assert from 'assert'
 import { type PropsWithChildren } from 'react'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth/next'
@@ -7,36 +6,22 @@ import { authOptions } from '@kyrian/auth'
 import { Button } from '@kyrian/ui'
 
 import MainNav from '~/components/main-nav'
-import { dashboardConfig } from '~/config/dashboard'
+import SiteFooter from '~/components/site-footer'
+import { marketingConfig } from '~/config/marketing'
 
 const RootLayout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions)
 
-  const role = session?.user.role
-  const menu = dashboardConfig.mainNav.filter((item) => {
-    if (item.roles === undefined) {
-      return true
-    }
-
-    if (item.roles.length > 0 && role === undefined) {
-      return false
-    }
-
-    assert.ok(role !== undefined)
-
-    return item.roles.includes(role)
-  })
-
   return (
-    <div className='app-flex app-min-h-screen app-flex-col'>
-      <header className='app-container app-sticky app-bg-background app-top-0 app-z-40'>
-        <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4 dark:app-border-b-slate-500'>
-          <MainNav items={menu} />
+    <div className='app-flex app-min-h-screen app-flex-col app-space-y-6'>
+      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
+        <div className='app-container app-flex app-h-16 app-items-center app-space-x-4 app-justify-between'>
+          <MainNav items={marketingConfig.mainNav} />
           <nav>
             {session ? (
-              <Link href='/'>
+              <Link href='/dashboard'>
                 <Button size='sm' className='px-4'>
-                  Inicio
+                  Panel
                 </Button>
               </Link>
             ) : (
@@ -49,7 +34,10 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
           </nav>
         </div>
       </header>
+
       <main className='app-flex-1'>{children}</main>
+
+      <SiteFooter className='app-py-4' />
     </div>
   )
 }

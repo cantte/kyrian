@@ -6,9 +6,9 @@ import { Button, Toaster } from '@kyrian/ui'
 
 const NewDegreeProgramLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className='app-mx-auto app-flex app-flex-col app-space-y-6'>
-      <header className='app-container app-sticky app-bg-background app-top-0 app-z-40'>
-        <div className='app-flex app-h-16 app-items-center app-border-b app-border-b-slate-200 app-py-4 app-space-x-4'>
+    <div className='app-flex app-min-h-screen app-flex-col app-space-y-6'>
+      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
+        <div className='app-container app-flex app-h-16 app-items-center app-space-x-4'>
           <div className='flex items-center space-x-10'>
             <NextLink href='/'>
               <Button variant='ghost'>

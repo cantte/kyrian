@@ -18,6 +18,14 @@ const MainNav = ({ items }: Props) => {
 
   return (
     <div className='app-flex app-gap-6 md:app-gap-10'>
+      <Link
+        href='/'
+        className='app-hidden app-items-center app-space-x-2 md:app-flex'
+      >
+        <span className='app-hidden app-font-bold sm:app-inline-block app-text-primary'>
+          CEDISJ
+        </span>
+      </Link>
       {items?.length ? (
         <nav className='app-hidden app-gap-6 md:app-flex app-text-sm app-font-medium'>
           {items?.map((item, index) => (
