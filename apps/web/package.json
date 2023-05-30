@@ -19,7 +19,7 @@
     "@kyrian/db": "^1.0.0",
     "@kyrian/tailwind-config": "0.1.0",
     "@kyrian/ui": "^0.1.0",
-    "@tanstack/react-query": "^4.29.7",
+    "@tanstack/react-query": "^4.29.12",
     "@tanstack/react-table": "^8.9.1",
     "@trpc/client": "^10.28.1",
     "@trpc/next": "^10.28.1",
