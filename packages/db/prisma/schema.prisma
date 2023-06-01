@@ -42,9 +42,9 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String     @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?    @unique
   role          String?
   emailVerified DateTime?
   image         String?
@@ -52,6 +52,7 @@ model User {
   sessions      Session[]
   student       Student?
   Event         Event[]
+  Document      Document[]
 }
 
 model VerificationToken {
@@ -188,4 +189,27 @@ model Event {
 
   @@index([userId])
   @@map("events")
+}
+
+enum DocumentType {
+  StrategicPlan // Plan Estratégico
+  Protocol // Protocolo
+  Format // Formato
+  Agreement // Acuerdo
+  Standard // Actas
+}
+
+model Document {
+  id   String       @id @default(cuid())
+  name String
+  type DocumentType
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("documents")
 }
