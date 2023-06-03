@@ -15,7 +15,7 @@ export const documentRouter = createTRPCRouter({
     .mutation(async ({ input }) => {
       return await createUploadPresignedUrl({
         bucket: BUCKET_NAME,
-        key: `${input.id}/${input.title}`,
+        key: `${input.id}/${input.name}`,
       })
     }),
   create: protectedProcedure

@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 export const uploadDocumentSchema = z.object({
   id: z.string().min(1, 'Debe digitar este campo').max(191),
-  title: z.string().min(1, 'Debe digitar este campo').max(256),
+  name: z.string().min(1, 'Debe digitar este campo').max(256),
 })
 
 export const newDocumentSchema = z.object({
