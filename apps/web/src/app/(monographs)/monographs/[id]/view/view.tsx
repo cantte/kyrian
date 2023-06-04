@@ -40,18 +40,11 @@ const MonographView = ({ url }: MonographViewProps) => {
         <div className='app-absolute app-z-10 app-flex app-top-4 app-translate-x-1/2 app-translate-y-0 app-p-4 app-right-1/2 app-items-center app-bg-card app-rounded-lg app-border'>
           <Toolbar>
             {(slots: ToolbarSlot) => {
-              const {
-                ZoomOut,
-                ZoomIn,
-                CurrentPageLabel,
-                GoToNextPage,
-                GoToPreviousPage,
-              } = slots
               return (
                 <div className='app-flex app-flex-row app-items-center'>
                   <div className='app-flex app-flex-row app-items-center'>
                     <div className='app-flex-1'>
-                      <ZoomOut>
+                      <slots.ZoomOut>
                         {(props) => (
                           <Button
                             size='sm'
@@ -61,11 +54,11 @@ const MonographView = ({ url }: MonographViewProps) => {
                             <ZoomOutIcon size={16} />
                           </Button>
                         )}
-                      </ZoomOut>
+                      </slots.ZoomOut>
                     </div>
 
                     <div className='app-flex-1'>
-                      <ZoomIn>
+                      <slots.ZoomIn>
                         {(props) => (
                           <Button
                             size='sm'
@@ -75,13 +68,13 @@ const MonographView = ({ url }: MonographViewProps) => {
                             <ZoomInIcon size={16} />
                           </Button>
                         )}
-                      </ZoomIn>
+                      </slots.ZoomIn>
                     </div>
                   </div>
 
                   <div className='app-flex app-flex-row app-items-center'>
                     <div className='app-flex-1'>
-                      <GoToPreviousPage>
+                      <slots.GoToPreviousPage>
                         {(props) => (
                           <Button
                             size='sm'
@@ -92,21 +85,21 @@ const MonographView = ({ url }: MonographViewProps) => {
                             <ChevronLeft size={16} />
                           </Button>
                         )}
-                      </GoToPreviousPage>
+                      </slots.GoToPreviousPage>
                     </div>
 
                     <div className='app-flex-1'>
-                      <CurrentPageLabel>
+                      <slots.CurrentPageLabel>
                         {(props) => (
                           <div className='app-text-sm app-font-medium app-text-gray-500'>
                             {props.currentPage + 1} / {props.numberOfPages}
                           </div>
                         )}
-                      </CurrentPageLabel>
+                      </slots.CurrentPageLabel>
                     </div>
 
                     <div className='app-flex-1'>
-                      <GoToNextPage>
+                      <slots.GoToNextPage>
                         {(props) => (
                           <Button
                             size='sm'
@@ -117,7 +110,7 @@ const MonographView = ({ url }: MonographViewProps) => {
                             <ChevronRight size={16} />
                           </Button>
                         )}
-                      </GoToNextPage>
+                      </slots.GoToNextPage>
                     </div>
                   </div>
                 </div>
