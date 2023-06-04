@@ -90,8 +90,7 @@ const SearchMonographsPage = async ({
 
                   <CardFooter className='app-flex app-justify-end md:app-justify-start'>
                     <NextLink
-                      href={monograph.downloadUrl}
-                      target='_blank'
+                      href={`/monographs/${monograph.id}/view`}
                       passHref
                     >
                       <Button>

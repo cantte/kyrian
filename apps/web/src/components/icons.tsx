@@ -3,6 +3,7 @@ import {
   BookOpen,
   CalendarClock,
   Command,
+  FileText,
   ScrollText,
   type Icon as LucideIcon,
 } from 'lucide-react'
@@ -14,5 +15,6 @@ export const Icons = {
   monographs: BookOpen,
   events: CalendarClock,
   degreePrograms: ScrollText,
+  documents: FileText,
   arrowRight: ArrowRight,
 }

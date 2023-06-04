@@ -34,5 +34,10 @@ export const dashboardConfig: DashboardConfig = {
       href: '/dashboard/events/list',
       icon: 'events',
     },
+    {
+      title: 'Añadir documentos',
+      href: '/dashboard/documents/new',
+      icon: 'documents',
+    },
   ],
 }

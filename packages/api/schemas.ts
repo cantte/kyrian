@@ -34,3 +34,4 @@ export const newStudentSchema = z.object({
 
 export * from './src/schemas/monograph'
 export * from './src/schemas/degree-program'
+export * from './src/schemas/document'
