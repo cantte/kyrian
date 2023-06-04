@@ -15,17 +15,16 @@ export const marketingConfig: MarketingConfig = {
       href: '#events',
     },
     {
-      title: 'Actas',
-      href: '#',
-      disabled: true,
-    },
-    {
       title: 'Formatos',
-      href: '#',
-      disabled: true,
+      href: '/formats',
     },
     {
       title: 'Protocolos',
+      href: '#',
+      disabled: true,
+    },
+    {
+      title: 'Plan estratégico',
       href: '#',
       disabled: true,
     },
