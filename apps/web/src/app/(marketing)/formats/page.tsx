@@ -1,5 +1,4 @@
 import NextLink from 'next/link'
-import { redirect } from 'next/navigation'
 import { createServerSideHelpers } from '@trpc/react-query/server'
 import { getServerSession } from 'next-auth'
 import superjson from 'superjson'
