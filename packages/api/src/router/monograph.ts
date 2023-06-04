@@ -1,3 +1,5 @@
+import { z } from 'zod'
+
 import {
   newMonographSchema,
   searchByTitleSchema,
@@ -113,4 +115,22 @@ export const monographRouter = createTRPCRouter({
       },
     })
   }),
+  downloadUrl: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input, ctx }) => {
+      const monograph = await ctx.prisma.monograph.findUnique({
+        where: {
+          id: input.id,
+        },
+      })
+
+      if (!monograph) {
+        return null
+      }
+
+      return await createDownloadPresignedUrl({
+        bucket: BUCKET_NAME,
+        key: `${monograph.id}/${monograph.title}`,
+      })
+    }),
 })
