@@ -34,7 +34,7 @@ const MainNav = ({ items }: Props) => {
               href={item.disabled ? '#' : item.href}
               className={cn(
                 'app-transition-colors app-text-foreground/60',
-                item.href.startsWith(`/${segment}`) && 'text-slate-900',
+                item.href.startsWith(`/${segment}`) && 'app-text-foreground',
                 item.disabled && 'app-cursor-not-allowed app-opacity-80',
               )}
             >
