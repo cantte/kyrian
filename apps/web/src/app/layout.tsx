@@ -14,7 +14,9 @@ interface RootLayoutProps {
 
 export const metadata = {
   title: 'Kyrian',
-  favicon: '/favicon.ico',
+  icons: {
+    icon: "/favicon.ico",
+  }
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
