@@ -63,7 +63,7 @@ const SearchMonographsPage = async ({
     <>
       {monographs.length > 0 ? (
         <>
-          <div className='app-my-2'>
+          <div className='app-my-2 app-px-2'>
             <SearchMonographForm />
           </div>
 
@@ -104,7 +104,7 @@ const SearchMonographsPage = async ({
           </ul>
         </>
       ) : (
-        <div className='app-grid app-gap-6'>
+        <div className='app-grid app-gap-6 app-px-2'>
           <BookTemplate className='app-m-auto app-h-32 app-w-32 app-text-slate-600' />
           <div>
             <p className='app-text-lg app-text-center app-text-slate-400'>
