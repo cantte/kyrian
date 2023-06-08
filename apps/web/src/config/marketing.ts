@@ -20,8 +20,7 @@ export const marketingConfig: MarketingConfig = {
     },
     {
       title: 'Protocolos',
-      href: '#',
-      disabled: true,
+      href: '/protocols',
     },
     {
       title: 'Plan estratégico',
