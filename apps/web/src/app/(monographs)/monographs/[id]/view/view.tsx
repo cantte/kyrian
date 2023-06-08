@@ -11,6 +11,8 @@ import {
 
 import { Button } from '@kyrian/ui'
 
+import packageJson from '../../../../../../package.json'
+
 import '@react-pdf-viewer/core/lib/styles/index.css'
 import '@react-pdf-viewer/default-layout/lib/styles/index.css'
 import '@react-pdf-viewer/toolbar/lib/styles/index.css'
@@ -18,6 +20,8 @@ import '@react-pdf-viewer/toolbar/lib/styles/index.css'
 type MonographViewProps = {
   url: string
 }
+
+const pdfjsVersion = packageJson.dependencies['pdfjs-dist']
 
 const MonographView = ({ url }: MonographViewProps) => {
   // Disable text selection
@@ -35,7 +39,9 @@ const MonographView = ({ url }: MonographViewProps) => {
   const { Toolbar } = toolbarPluginInstance
 
   return (
-    <Worker workerUrl='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js'>
+    <Worker
+      workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}
+    >
       <div className='app-flex app-relative app-h-screen rpv-core__viewer'>
         <div className='app-absolute app-z-10 app-flex app-top-4 app-translate-x-1/2 app-translate-y-0 app-p-4 app-right-1/2 app-items-center app-bg-card app-rounded-lg app-border'>
           <Toolbar>
