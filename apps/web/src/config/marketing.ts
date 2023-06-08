@@ -25,8 +25,7 @@ export const marketingConfig: MarketingConfig = {
     },
     {
       title: 'Plan estratégico',
-      href: '#',
-      disabled: true,
+      href: '/strategic-plan',
     },
   ],
 }
