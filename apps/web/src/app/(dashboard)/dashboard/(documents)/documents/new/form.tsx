@@ -34,7 +34,7 @@ type NewDocumentFormProps = {
   defaultValues?: Partial<NewDocumentFormValues>
 }
 
-const documentTypes: Record<DocumentType, string> = {
+export const documentTypes: Record<DocumentType, string> = {
   [DocumentType.StrategicPlan]: 'Plan estratégico',
   [DocumentType.Protocol]: 'Protocolo',
   [DocumentType.Format]: 'Formato',

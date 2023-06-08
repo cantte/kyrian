@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Skeleton } from '@kyrian/ui'
 
 const LoadingNewDocumentPage = () => {

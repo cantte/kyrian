@@ -53,4 +53,19 @@ export const documentRouter = createTRPCRouter({
         }),
       )
     }),
+  list: protectedProcedure.query(async ({ ctx }) => {
+    const documents = await ctx.prisma.document.findMany()
+    return await Promise.all(
+      documents.map(async (document) => {
+        const url = await createDownloadPresignedUrl({
+          bucket: BUCKET_NAME,
+          key: `${document.id}/${document.name}`,
+        })
+        return {
+          ...document,
+          url,
+        }
+      }),
+    )
+  }),
 })
