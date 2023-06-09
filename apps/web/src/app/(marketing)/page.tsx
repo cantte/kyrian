@@ -22,7 +22,7 @@ const IndexPage = async () => {
 
   return (
     <>
-      <section className='app-space-y-6 app-pb-8 app-pt-6 md:app-pb-12 md:app-pt-10 lg:app-py-32'>
+      <section className='app-space-y-6 app-pb-8 app-pt-6 md:app-pb-12 md:app-pt-10 lg:app-py-32 app-relative'>
         <div className='app-container app-flex app-max-w-[64rem] app-flex-col app-items-center app-gap-4 app-text-center'>
           <h1 className='app-font-heading app-text-3xl sm:app-text-5xl md:app-text-6xl lg:app-text-7xl'>
             CEDISJ

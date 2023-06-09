@@ -68,11 +68,11 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
 
   return (
     <form
-      className='app-grid app-gap-6 app-w-full px-2 py-2'
+      className='app-grid app-gap-6 app-w-full'
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className='app-grid app-w-full app-items-center app-gap-3'>
-        <div className='app-flex app-w-full app-items-center app-space-x-2'>
+        <div className='app-flex app-w-full md:app-items-center md:app-space-x-2 app-flex-col md:app-flex-row app-space-y-2 md:app-space-y-0'>
           <Input
             id='title'
             type='text'

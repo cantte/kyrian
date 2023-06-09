@@ -1,4 +1,4 @@
-import { createUploadPresignedUrl } from '../aws/s3'
+import { createDownloadPresignedUrl, createUploadPresignedUrl } from '../aws/s3'
 import {
   newDocumentSchema,
   searchByTypeDocumentSchema,
@@ -28,10 +28,44 @@ export const documentRouter = createTRPCRouter({
   byType: publicProcedure
     .input(searchByTypeDocumentSchema)
     .query(async ({ input, ctx }) => {
-      return await ctx.prisma.document.findMany({
+      const session = ctx.session
+      if (!session && input.type === 'Standard') {
+        // Standard is only available for authenticated users
+        return []
+      }
+
+      const documents = await ctx.prisma.document.findMany({
         where: {
           type: input.type,
         },
       })
+
+      return await Promise.all(
+        documents.map(async (document) => {
+          const url = await createDownloadPresignedUrl({
+            bucket: BUCKET_NAME,
+            key: `${document.id}/${document.name}`,
+          })
+          return {
+            ...document,
+            url,
+          }
+        }),
+      )
     }),
+  list: protectedProcedure.query(async ({ ctx }) => {
+    const documents = await ctx.prisma.document.findMany()
+    return await Promise.all(
+      documents.map(async (document) => {
+        const url = await createDownloadPresignedUrl({
+          bucket: BUCKET_NAME,
+          key: `${document.id}/${document.name}`,
+        })
+        return {
+          ...document,
+          url,
+        }
+      }),
+    )
+  }),
 })

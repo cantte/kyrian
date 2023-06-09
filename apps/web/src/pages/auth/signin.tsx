@@ -1,13 +1,15 @@
 import '@/base/styles/globals.css'
+
 import { authOptions } from '@kyrian/auth'
 import { Button } from '@kyrian/ui'
 
 import '@kyrian/ui/styles.css'
+
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from 'next'
-import { Inter } from "next/font/google"
+import { Inter } from 'next/font/google'
 import { getServerSession } from 'next-auth/next'
 import { getProviders, signIn } from 'next-auth/react'
 

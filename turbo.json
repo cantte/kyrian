@@ -1,19 +1,13 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    "**/.env"
-  ],
+  "globalDependencies": ["**/.env"],
   "pipeline": {
     "db:generate": {
-      "inputs": [
-        "prisma/schema.prisma"
-      ],
+      "inputs": ["prisma/schema.prisma"],
       "cache": false
     },
     "db:push": {
-      "inputs": [
-        "prisma/schema.prisma"
-      ],
+      "inputs": ["prisma/schema.prisma"],
       "cache": false
     },
     "dev": {
@@ -21,14 +15,8 @@
       "cache": false
     },
     "build": {
-      "dependsOn": [
-        "^build",
-        "^db:generate"
-      ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ]
+      "dependsOn": ["^build", "^db:generate"],
+      "outputs": ["dist/**", ".next/**"]
     },
     "lint": {},
     "lint:fix": {},
@@ -39,10 +27,7 @@
       "cache": false
     },
     "type-check": {
-      "dependsOn": [
-        "^db:generate",
-        "build"
-      ],
+      "dependsOn": ["^db:generate", "build"],
       "cache": false
     }
   },

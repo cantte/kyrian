@@ -1,29 +1,16 @@
-import {
-  ArrowRight,
-  BookOpen,
-  CalendarClock,
-  Command,
-  FileText,
-  ScrollText,
-  type Icon as LucideIcon,
-  type LucideProps,
-} from 'lucide-react'
+type CedisjLogoProps = {
+  width?: number
+  height?: number
+}
 
-export type Icon = LucideIcon
-
-export const Icons = {
-  logo: Command,
-  monographs: BookOpen,
-  events: CalendarClock,
-  degreePrograms: ScrollText,
-  documents: FileText,
-  arrowRight: ArrowRight,
-  cedisj: ({ ...props }: LucideProps) => (
+const CedisjLogo = ({ width, height }: CedisjLogoProps) => {
+  return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
+      width={width || 128}
+      height={height || 128}
       fill='none'
       viewBox='0 0 128 128'
-      {...props}
     >
       <g clip-path='url(#a)'>
         <ellipse
@@ -340,5 +327,7 @@ export const Icons = {
         />
       </g>
     </svg>
-  ),
+  )
 }
+
+export default CedisjLogo

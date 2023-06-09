@@ -1,5 +1,6 @@
 import '@/base/styles/globals.css'
 import '@kyrian/ui/styles.css'
+
 import { type ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 
@@ -13,6 +14,9 @@ interface RootLayoutProps {
 
 export const metadata = {
   title: 'Kyrian',
+  icons: {
+    icon: "/favicon.ico",
+  }
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
