@@ -1,4 +1,3 @@
-import NextImage from 'next/image'
 import { createServerSideHelpers } from '@trpc/react-query/server'
 import { getServerSession } from 'next-auth/next'
 
