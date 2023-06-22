@@ -1,10 +1,24 @@
+'use client'
+
 import { type PropsWithChildren } from 'react'
+import { useRouter } from 'next/navigation'
+import { ChevronLeft } from 'lucide-react'
+
+import { Button } from '@kyrian/ui'
 
 const StudentLayout = ({ children }: PropsWithChildren) => {
+  const router = useRouter()
+
   return (
     <div className='app-mx-auto app-flex app-flex-col app-space-y-6'>
-      <header className='app-container app-sticky app-bg-background app-top-0 app-z-40'>
-        <div className='app-flex app-h-16 app-items-center app-justify-between app-border-b app-border-b-slate-200 app-py-4'>
+      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
+        <div className='app-container app-flex app-h-16 app-items-center app-space-x-4'>
+          <div className='flex items-center space-x-10'>
+            <Button variant='ghost' onClick={() => router.back()}>
+              <ChevronLeft className='app-mr-2 app-h-4 app-w-4' /> Volver
+            </Button>
+          </div>
+
           <span className='app-text-2xl app-font-bold'>CEDISJ</span>
         </div>
       </header>
