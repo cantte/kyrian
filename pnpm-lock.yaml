@@ -393,8 +393,8 @@ importers:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.24)
       class-variance-authority:
-        specifier: ^0.6.0
-        version: 0.6.0(typescript@5.1.3)
+        specifier: ^0.6.1
+        version: 0.6.1
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -4695,16 +4695,10 @@ packages:
     resolution: {integrity: sha512-riT/3vI5YpVH6/qomlDnJow6TBee2PBKSEpx3O32EGPYbWGIRsIlGRms3Sm74wYE1JMo8RnO04Hb12+v1J5ICw==}
     dev: true
 
-  /class-variance-authority@0.6.0(typescript@5.1.3):
-    resolution: {integrity: sha512-qdRDgfjx3GRb9fpwpSvn+YaidnT7IUJNe4wt5/SWwM+PmUwJUhQRk/8zAyNro0PmVfmen2635UboTjIBXXxy5A==}
-    peerDependencies:
-      typescript: '>= 4.5.5 < 6'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
+  /class-variance-authority@0.6.1:
+    resolution: {integrity: sha512-eurOEGc7YVx3majOrOb099PNKgO3KnKSApOprXI4BTq6bcfbqbQXPN2u+rPPmIJ2di23bMwhk0SxCCthBmszEQ==}
     dependencies:
       clsx: 1.2.1
-      typescript: 5.1.3
     dev: true
 
   /clean-stack@2.2.0:
