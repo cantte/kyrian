@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: true
@@ -252,8 +252,8 @@ importers:
         specifier: ^8.43.0
         version: 8.43.0
       tsup:
-        specifier: ^7.1.0
-        version: 7.1.0(postcss@8.4.24)(typescript@5.1.5)
+        specifier: 7.0.0
+        version: 7.0.0(postcss@8.4.24)(typescript@5.1.5)
       typescript:
         specifier: ^5.1.5
         version: 5.1.5
@@ -432,8 +432,8 @@ importers:
         specifier: ^1.0.6
         version: 1.0.6(tailwindcss@3.3.2)
       tsup:
-        specifier: ^7.1.0
-        version: 7.1.0(postcss@8.4.24)(typescript@5.1.5)
+        specifier: 7.0.0
+        version: 7.0.0(postcss@8.4.24)(typescript@5.1.5)
       typescript:
         specifier: ^5.1.5
         version: 5.1.5
@@ -8223,8 +8223,8 @@ packages:
   /tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
 
-  /tsup@7.1.0(postcss@8.4.24)(typescript@5.1.5):
-    resolution: {integrity: sha512-mazl/GRAk70j8S43/AbSYXGgvRP54oQeX8Un4iZxzATHt0roW0t6HYDVZIXMw0ZQIpvr1nFMniIVnN5186lW7w==}
+  /tsup@7.0.0(postcss@8.4.24)(typescript@5.1.5):
+    resolution: {integrity: sha512-yYARDRkPq07mO3YUXTvF12ISwWQG57Odve8aFEgLdHyeGungxuKxb19yf9G0W8y59SZFkLnRj1gkoVk1gd5fbQ==}
     engines: {node: '>=16.14'}
     hasBin: true
     peerDependencies:
