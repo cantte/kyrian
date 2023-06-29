@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -205,8 +205,8 @@ importers:
         specifier: ^10.33.0
         version: 10.33.0
       aws-sdk:
-        specifier: ^2.1406.0
-        version: 2.1406.0
+        specifier: ^2.1407.0
+        version: 2.1407.0
       superjson:
         specifier: ^1.12.4
         version: 1.12.4
@@ -4470,8 +4470,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /aws-sdk@2.1406.0:
-    resolution: {integrity: sha512-kzZm+DF1OZHr7MXW++NWCbopZgTxQExth9ZEHdSrtm2iBdPSw5yM+0NS7+iIOGEDvwTzTJOZM4yHEaw3zRA3QQ==}
+  /aws-sdk@2.1407.0:
+    resolution: {integrity: sha512-J02Cjciw+5p9zR7923rfH+UGDEmbg72YRAZISEahzuWPf/DwMAyIrC5B1cMMq3KrV+KVsRtEY5LujVCFKwB8Yw==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
