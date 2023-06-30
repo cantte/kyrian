@@ -1,9 +1,12 @@
 'use client'
 
 import { type FC } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { type DegreeProgram } from '@prisma/client'
 import { useForm, type SubmitHandler } from 'react-hook-form'
+import z from 'zod'
 
+import { newDegreeProgramSchema } from '@kyrian/api/schemas'
 import {
   Button,
   Form,
@@ -24,16 +27,31 @@ type EditProgramFormProps = {
   degreeProgram: DegreeProgram
 }
 
+const editDegreeProgramSchema = newDegreeProgramSchema.extend({
+  history: z.string().max(1024).nonempty(),
+  mission: z.string().max(1024).nonempty(),
+  vision: z.string().max(1024).nonempty(),
+})
+
+type DegreeProgramFormValues = z.infer<typeof editDegreeProgramSchema>
+
 const useEditProgramForm = (degreeProgram: DegreeProgram) => {
-  return useForm<DegreeProgram>({
-    defaultValues: degreeProgram,
+  return useForm<DegreeProgramFormValues>({
+    defaultValues: {
+      ...degreeProgram,
+      history: degreeProgram.history ?? '',
+      mission: degreeProgram.mission ?? '',
+      vision: degreeProgram.vision ?? '',
+      phone: degreeProgram.phone ?? '',
+    },
+    resolver: zodResolver(editDegreeProgramSchema),
   })
 }
 
 const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
   const form = useEditProgramForm(degreeProgram)
 
-  const onSubmit: SubmitHandler<DegreeProgram> = (values) => {
+  const onSubmit: SubmitHandler<DegreeProgramFormValues> = (values) => {
     console.log(values)
   }
 
