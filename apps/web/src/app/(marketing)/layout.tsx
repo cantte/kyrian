@@ -7,6 +7,7 @@ import { Button } from '@kyrian/ui'
 
 import MainNav from '~/components/main-nav'
 import SiteFooter from '~/components/site-footer'
+import UserAccountNav from '~/components/user-account-nav'
 import { marketingConfig } from '~/config/marketing'
 
 const RootLayout = async ({ children }: PropsWithChildren) => {
@@ -19,11 +20,13 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
           <MainNav items={marketingConfig.mainNav} />
           <nav>
             {session ? (
-              <Link href='/dashboard'>
-                <Button size='sm' className='px-4'>
-                  Panel
-                </Button>
-              </Link>
+              <UserAccountNav
+                user={{
+                  name: session.user.name,
+                  image: session.user.image,
+                  email: session.user.email,
+                }}
+              />
             ) : (
               <Link href='/auth/signin'>
                 <Button size='sm' className='px-4'>

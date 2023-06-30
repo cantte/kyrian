@@ -1,3 +1,5 @@
+import * as z from 'zod'
+
 import { newDegreeProgramSchema } from '../schemas/degree-program'
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
@@ -28,4 +30,17 @@ export const degreeProgramRouter = createTRPCRouter({
       },
     })
   }),
+  read: publicProcedure
+    .input(z.object({ code: z.string() }))
+    .query(async ({ ctx, input }) => {
+      return await ctx.prisma.degreeProgram.findFirst({
+        include: {
+          objectives: true,
+          profiles: true,
+        },
+        where: {
+          code: input.code,
+        },
+      })
+    }),
 })

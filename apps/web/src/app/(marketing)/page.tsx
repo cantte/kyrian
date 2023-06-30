@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import { createServerSideHelpers } from '@trpc/react-query/server'
 import { getServerSession } from 'next-auth/next'
 
@@ -52,22 +53,27 @@ const IndexPage = async () => {
 
         <div className='app-mx-auto app-grid app-justify-center app-gap-4 sm:app-grid-cols-2 md:app-max-w-[64rem] md:app-grid-cols-3'>
           {degreePrograms.map((degreeProgram) => (
-            <div
+            <NextLink
+              href={`/degree-programs/${degreeProgram.code}/view`}
               key={degreeProgram.code}
-              className='app-relative app-overflow-hidden app-rounded-lg app-border app-bg-background app-p-2'
             >
-              <div className='app-flex app-h-[180px] app-flex-col app-justify-between app-rounded-md app-p-6'>
-                <div className='app-space-y-2'>
-                  <h3 className='app-font-bold'>{degreeProgram.name}</h3>
+              <div
+                key={degreeProgram.code}
+                className='app-relative app-overflow-hidden app-rounded-lg app-border app-bg-background app-p-2'
+              >
+                <div className='app-flex app-h-[180px] app-flex-col app-justify-between app-rounded-md app-p-6'>
+                  <div className='app-space-y-2'>
+                    <h3 className='app-font-bold'>{degreeProgram.name}</h3>
 
-                  <p className='app-text-sm app-text-muted-foreground'>
-                    Modalidad: {degreeProgram.modality}
-                  </p>
+                    <p className='app-text-sm app-text-muted-foreground'>
+                      Modalidad: {degreeProgram.modality}
+                    </p>
 
-                  <Badge>{degreeProgram.degree}</Badge>
+                    <Badge>{degreeProgram.degree}</Badge>
+                  </div>
                 </div>
               </div>
-            </div>
+            </NextLink>
           ))}
         </div>
       </section>

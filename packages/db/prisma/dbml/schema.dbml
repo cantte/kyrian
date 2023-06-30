@@ -1,0 +1,182 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Account {
+  id String [pk]
+  userId String [not null]
+  type String [not null]
+  provider String [not null]
+  providerAccountId String [not null]
+  refresh_token String
+  access_token String
+  expires_at Int
+  token_type String
+  scope String
+  id_token String
+  session_state String
+  user User [not null]
+
+  indexes {
+    (provider, providerAccountId) [unique]
+  }
+}
+
+Table Session {
+  id String [pk]
+  sessionToken String [unique, not null]
+  userId String [not null]
+  expires DateTime [not null]
+  user User [not null]
+}
+
+Table User {
+  id String [pk]
+  name String
+  email String [unique]
+  role String
+  emailVerified DateTime
+  image String
+  accounts Account [not null]
+  sessions Session [not null]
+  student Student
+  Event events [not null]
+  Document documents [not null]
+}
+
+Table verification_tokens {
+  identifier String [not null]
+  token String [unique, not null]
+  expires DateTime [not null]
+
+  indexes {
+    (identifier, token) [unique]
+  }
+}
+
+Table degree_programs {
+  code String [pk]
+  name String [not null]
+  degree String [not null]
+  state String [not null]
+  city String [not null]
+  credits Int [not null]
+  duration Int [not null]
+  modality String [not null]
+  isActive Boolean [not null, default: true]
+  phone String
+  email String [not null]
+  creationStandard String
+  creationStandardDate DateTime
+  cost Decimal
+  studentQuota Int
+  knowledgeArea String
+  history String
+  mission String
+  vision String
+  objectives degree_program_objectives [not null]
+  profiles degree_program_profiles [not null]
+  curricularStructure String
+  syllabus String
+  monographs Monograph [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table degree_program_objectives {
+  id String [pk]
+  degreeProgramId String [not null]
+  description String [not null]
+  degreeProgram degree_programs [not null]
+}
+
+Table degree_program_profiles {
+  id String [pk]
+  degreeProgramId String [not null]
+  title String [not null]
+  description String [not null]
+  degreeProgram degree_programs [not null]
+}
+
+Table Student {
+  id String [pk]
+  idType String [not null]
+  name String [not null]
+  email String [unique, not null]
+  phone String [unique, not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [unique, not null]
+  user User [not null]
+  monographs Monograph [not null]
+}
+
+Table authors {
+  uid String [pk]
+  id String [unique]
+  name String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  monographs Monograph [not null]
+}
+
+Table Monograph {
+  id String [pk]
+  title String [not null]
+  publicationDate DateTime [not null]
+  authorId String
+  degreeProgramId String
+  createdAt DateTime [default: `now()`, not null]
+  author Student
+  degreeProgram degree_programs
+  authors authors [not null]
+}
+
+Table events {
+  id String [pk]
+  title String [not null]
+  date DateTime [not null]
+  place String [not null]
+  topic String
+  description String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [not null]
+  user User [not null]
+}
+
+Table documents {
+  id String [pk]
+  name String [not null]
+  type DocumentType [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [not null]
+  user User [not null]
+}
+
+Enum DocumentType {
+  StrategicPlan
+  Protocol
+  Format
+  Agreement
+  Standard
+}
+
+Ref: Account.userId > User.id [delete: Cascade]
+
+Ref: Session.userId > User.id [delete: Cascade]
+
+Ref: degree_program_objectives.degreeProgramId > degree_programs.code [delete: Cascade]
+
+Ref: degree_program_profiles.degreeProgramId > degree_programs.code [delete: Cascade]
+
+Ref: Student.userId - User.id [delete: Cascade]
+
+Ref: Monograph.authorId > Student.id [delete: Cascade]
+
+Ref: Monograph.degreeProgramId > degree_programs.code [delete: Cascade]
+
+Ref: events.userId > User.id [delete: Cascade]
+
+Ref: documents.userId > User.id [delete: Cascade]

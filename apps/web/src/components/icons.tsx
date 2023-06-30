@@ -5,6 +5,7 @@ import {
   Command,
   FileText,
   ScrollText,
+  User,
   type Icon as LucideIcon,
   type LucideProps,
 } from 'lucide-react'
@@ -18,6 +19,7 @@ export const Icons = {
   degreePrograms: ScrollText,
   documents: FileText,
   arrowRight: ArrowRight,
+  user: User,
   cedisj: ({ ...props }: LucideProps) => (
     <svg
       xmlns='http://www.w3.org/2000/svg'
