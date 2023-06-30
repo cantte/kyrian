@@ -9,12 +9,17 @@ import { Button } from '@kyrian/ui'
 
 import MainNav from '~/components/main-nav'
 import DashboardNav from '~/components/nav'
+import UserAccountNav from '~/components/user-account-nav'
 import { dashboardConfig } from '~/config/dashboard'
 
 const DashboardLayout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions)
 
   if (!session) {
+    return redirect('/api/auth/signin')
+  }
+
+  if (!session.user) {
     return redirect('/api/auth/signin')
   }
 
@@ -54,11 +59,13 @@ const DashboardLayout = async ({ children }: PropsWithChildren) => {
           <MainNav items={menu} />
           <nav>
             {session ? (
-              <Link href='/'>
-                <Button size='sm' className='px-4'>
-                  Inicio
-                </Button>
-              </Link>
+              <UserAccountNav
+                user={{
+                  name: session.user.name,
+                  image: session.user.image,
+                  email: session.user.email,
+                }}
+              />
             ) : (
               <Link href='/auth/signin'>
                 <Button size='sm' className='px-4'>
