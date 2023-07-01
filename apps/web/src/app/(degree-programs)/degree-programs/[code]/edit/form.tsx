@@ -1,6 +1,6 @@
 'use client'
 
-import { type FC } from 'react'
+import { useState, type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type DegreeProgram } from '@prisma/client'
 import { useForm, type SubmitHandler } from 'react-hook-form'
@@ -9,6 +9,13 @@ import z from 'zod'
 import { newDegreeProgramSchema } from '@kyrian/api/schemas'
 import {
   Button,
+  Card,
+  CardContent,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
   Form,
   FormControl,
   FormField,
@@ -23,6 +30,11 @@ import {
   Textarea,
 } from '@kyrian/ui'
 
+import {
+  DegreeProgramObjectivesForm,
+  type DegreeProgramObjectiveFormValues,
+} from '~/components/degree-programs'
+
 type EditProgramFormProps = {
   degreeProgram: DegreeProgram
 }
@@ -31,6 +43,11 @@ const editDegreeProgramSchema = newDegreeProgramSchema.extend({
   history: z.string().max(1024).nonempty(),
   mission: z.string().max(1024).nonempty(),
   vision: z.string().max(1024).nonempty(),
+  objectives: z.array(
+    z.object({
+      description: z.string().max(1024).nonempty(),
+    }),
+  ),
 })
 
 type DegreeProgramFormValues = z.infer<typeof editDegreeProgramSchema>
@@ -51,8 +68,17 @@ const useEditProgramForm = (degreeProgram: DegreeProgram) => {
 const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
   const form = useEditProgramForm(degreeProgram)
 
+  const { watch, setValue } = form
+
   const onSubmit: SubmitHandler<DegreeProgramFormValues> = (values) => {
     console.log(values)
+  }
+
+  const [isObjectiveDialogOpen, setIsObjectiveDialogOpen] = useState(false)
+  const onAddObjective = (objective: DegreeProgramObjectiveFormValues) => {
+    const objectives = watch('objectives')
+    setValue('objectives', [...objectives, objective])
+    setIsObjectiveDialogOpen(false)
   }
 
   return (
@@ -263,9 +289,36 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
           </TabsContent>
 
           <TabsContent value='objectives' className='app-px-2 app-py-2'>
-            <p className='app-text-xl app-text-muted-foreground'>
-              En construcción
-            </p>
+            <div className='app-space-y-2'>
+              <Dialog
+                open={isObjectiveDialogOpen}
+                onOpenChange={(open) => setIsObjectiveDialogOpen(open)}
+              >
+                <DialogTrigger className='app-mb-2 app-items-start'>
+                  <Button onClick={() => setIsObjectiveDialogOpen(true)}>
+                    Agregar objetivo
+                  </Button>
+                </DialogTrigger>
+
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Agregar objetivo</DialogTitle>
+                  </DialogHeader>
+
+                  <DegreeProgramObjectivesForm onSubmit={onAddObjective} />
+                </DialogContent>
+              </Dialog>
+
+              <Card>
+                <CardContent>
+                  <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
+                    {watch('objectives')?.map((objective, idx) => (
+                      <li key={idx}>{objective.description}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
 
           <TabsContent value='profiles' className='app-px-2 app-py-2'>
