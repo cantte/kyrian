@@ -1,5 +1,5 @@
 import '@kyrian/ui/styles.css'
-import '@/base/styles/globals.css'
+import '@kyrian/web/styles/globals.css'
 
 import { type ReactNode } from 'react'
 import { Inter } from 'next/font/google'
