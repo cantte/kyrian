@@ -18,13 +18,12 @@
     "@kyrian/db": "^1.0.0",
     "@trpc/client": "^10.33.0",
     "@trpc/server": "^10.33.0",
-    "aws-sdk": "^2.1407.0",
     "superjson": "^1.12.4",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@kyrian/eslint-config": "0.1.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "typescript": "^5.1.6"
   }
 }

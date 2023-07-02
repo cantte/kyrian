@@ -5,7 +5,8 @@
     "paths": {
       "~/*": ["./src/*"],
       "@/*": ["./src/*"],
-      "@/base/*": ["./src/*"]
+      "@/base/*": ["./src/*"],
+      "@kyrian/web/*": ["./src/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

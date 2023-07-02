@@ -1,10 +1,12 @@
 'use client'
 
+import { type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
 
 import {
+  Button,
   Form,
   FormControl,
   FormDescription,
@@ -15,42 +17,54 @@ import {
   Input,
 } from '@kyrian/ui'
 
-const dregreeProgramObjectiveSchema = z.object({
-  content: z.string().max(255).nonempty(),
+const degreeProgramObjectiveSchema = z.object({
+  description: z
+    .string({
+      required_error: 'El objetivo es requerido',
+    })
+    .max(255)
+    .nonempty('El objetivo es requerido'),
 })
 
-type DegreeProgramObjectiveFormValues = z.infer<
-  typeof dregreeProgramObjectiveSchema
+export type DegreeProgramObjectiveFormValues = z.infer<
+  typeof degreeProgramObjectiveSchema
 >
 
 const useDegreeProgramObjectivesForm = () => {
-  const form = useForm<DegreeProgramObjectiveFormValues>({
-    resolver: zodResolver(dregreeProgramObjectiveSchema),
+  return useForm<DegreeProgramObjectiveFormValues>({
+    resolver: zodResolver(degreeProgramObjectiveSchema),
   })
-
-  return form
 }
 
-const DegreeProgramObjectivesForm = () => {
+type DegreeProgramObjectivesFormProps = {
+  onSubmit: (values: DegreeProgramObjectiveFormValues) => void
+}
+
+const DegreeProgramObjectivesForm: FC<DegreeProgramObjectivesFormProps> = ({
+  onSubmit: onSubmitForm,
+}) => {
   const form = useDegreeProgramObjectivesForm()
 
   const onSubmit: SubmitHandler<DegreeProgramObjectiveFormValues> = (
     values,
   ) => {
-    console.log(values)
+    onSubmitForm(values)
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='app-grid app-space-y-4'
+      >
         <FormField
           control={form.control}
-          name='content'
+          name='description'
           render={({ field }) => (
             <FormItem>
-              <FormLabel htmlFor='content'>Objetivo</FormLabel>
+              <FormLabel htmlFor='description'>Objetivo</FormLabel>
               <FormControl>
-                <Input id='content' type='text' {...field} />
+                <Input id='description' type='text' {...field} />
               </FormControl>
               <FormDescription>
                 El objetivo debe tener un máximo de 255 caracteres
@@ -59,6 +73,8 @@ const DegreeProgramObjectivesForm = () => {
             </FormItem>
           )}
         />
+
+        <Button type='submit'>Agregar</Button>
       </form>
     </Form>
   )
