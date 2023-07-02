@@ -23,21 +23,25 @@ export const dashboardConfig: DashboardConfig = {
       title: 'Monografías',
       href: '/dashboard/monographs/list',
       icon: 'monographs',
+      roles: ['admin'],
     },
     {
       title: 'Programas académicos',
       href: '/dashboard/degree-programs/list',
       icon: 'degreePrograms',
+      roles: ['admin'],
     },
     {
       title: 'Eventos',
       href: '/dashboard/events/list',
       icon: 'events',
+      roles: ['admin'],
     },
     {
       title: 'Documentos',
       href: '/dashboard/documents/list',
       icon: 'documents',
+      roles: ['admin'],
     },
   ],
 }
