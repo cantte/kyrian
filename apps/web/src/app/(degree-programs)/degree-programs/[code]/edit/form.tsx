@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, type FC } from 'react'
+import { useState, type ComponentType, type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type DegreeProgram } from '@prisma/client'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import z from 'zod'
+import type z from 'zod'
 
-import { newDegreeProgramSchema } from '@kyrian/api/schemas'
+import { editDegreeProgramSchema } from '@kyrian/api/schemas'
 import {
   Button,
   Card,
@@ -30,25 +30,18 @@ import {
   Textarea,
 } from '@kyrian/ui'
 
+import { api } from '~/utils/api'
 import {
   DegreeProgramObjectivesForm,
   type DegreeProgramObjectiveFormValues,
 } from '~/components/degree-programs'
+import DegreeProgramProfilesForm, {
+  type DegreeProgramProfileFormValues,
+} from '~/components/degree-programs/degree-program-profiles.form'
 
 type EditProgramFormProps = {
   degreeProgram: DegreeProgram
 }
-
-const editDegreeProgramSchema = newDegreeProgramSchema.extend({
-  history: z.string().max(1024).nonempty(),
-  mission: z.string().max(1024).nonempty(),
-  vision: z.string().max(1024).nonempty(),
-  objectives: z.array(
-    z.object({
-      description: z.string().max(1024).nonempty(),
-    }),
-  ),
-})
 
 type DegreeProgramFormValues = z.infer<typeof editDegreeProgramSchema>
 
@@ -70,8 +63,10 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
   const { watch, setValue } = form
 
+  const { mutate: editDegreeProgram, isLoading: isEditingDegreeProgram } =
+    api.degreeProgram.edit.useMutation()
   const onSubmit: SubmitHandler<DegreeProgramFormValues> = (values) => {
-    console.log(values)
+    editDegreeProgram(values)
   }
 
   const [isObjectiveDialogOpen, setIsObjectiveDialogOpen] = useState(false)
@@ -79,6 +74,13 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
     const objectives = watch('objectives')
     setValue('objectives', [...objectives, objective])
     setIsObjectiveDialogOpen(false)
+  }
+
+  const [isProfileDialogOpen, setIsProfileDialogOpen] = useState(false)
+  const onAddProfile = (profile: DegreeProgramProfileFormValues) => {
+    const profiles = watch('profiles')
+    setValue('profiles', [...profiles, profile])
+    setIsProfileDialogOpen(false)
   }
 
   return (
@@ -224,6 +226,14 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                   </FormItem>
                 )}
               />
+
+              <Button
+                type='submit'
+                className='app-col-span-2'
+                disabled={isEditingDegreeProgram}
+              >
+                Guardar
+              </Button>
             </div>
           </TabsContent>
 
@@ -285,6 +295,14 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                   </FormItem>
                 )}
               />
+
+              <Button
+                type='submit'
+                className='app-col-span-2'
+                disabled={isEditingDegreeProgram}
+              >
+                Guardar
+              </Button>
             </div>
           </TabsContent>
 
@@ -295,7 +313,10 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                 onOpenChange={(open) => setIsObjectiveDialogOpen(open)}
               >
                 <DialogTrigger className='app-mb-2 app-items-start'>
-                  <Button onClick={() => setIsObjectiveDialogOpen(true)}>
+                  <Button
+                    type='button'
+                    onClick={() => setIsObjectiveDialogOpen(true)}
+                  >
                     Agregar objetivo
                   </Button>
                 </DialogTrigger>
@@ -322,16 +343,49 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
           </TabsContent>
 
           <TabsContent value='profiles' className='app-px-2 app-py-2'>
-            <p className='app-text-xl app-text-muted-foreground'>
-              En construcción
-            </p>
+            <div className='app-space-y-2'>
+              <Dialog
+                open={isProfileDialogOpen}
+                onOpenChange={(open) => setIsProfileDialogOpen(open)}
+              >
+                <DialogTrigger className='app-mb-2 app-items-start'>
+                  <Button
+                    type='button'
+                    onClick={() => setIsProfileDialogOpen(true)}
+                  >
+                    Agregar perfil
+                  </Button>
+                </DialogTrigger>
+
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Agregar perfil</DialogTitle>
+                  </DialogHeader>
+
+                  <DegreeProgramProfilesForm onSubmit={onAddProfile} />
+                </DialogContent>
+              </Dialog>
+
+              <Card>
+                <CardContent>
+                  <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
+                    {watch('profiles')?.map((profile, idx) => (
+                      <li key={idx}>
+                        <strong>{profile.title}</strong>:{' '}
+                        <span>{profile.description}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
         </Tabs>
-
-        <Button type='submit'>Guardar</Button>
       </form>
     </Form>
   )
 }
 
-export default EditDegreeProgramForm
+export default api.withTRPC(
+  EditDegreeProgramForm,
+) as ComponentType<EditProgramFormProps>
