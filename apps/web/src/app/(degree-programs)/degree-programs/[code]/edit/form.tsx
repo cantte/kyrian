@@ -2,7 +2,6 @@
 
 import { useState, type ComponentType, type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { type DegreeProgram } from '@prisma/client'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import type z from 'zod'
 
@@ -30,7 +29,7 @@ import {
   Textarea,
 } from '@kyrian/ui'
 
-import { api } from '~/utils/api'
+import { api, type RouterOutputs } from '~/utils/api'
 import {
   DegreeProgramObjectivesForm,
   type DegreeProgramObjectiveFormValues,
@@ -40,19 +39,21 @@ import DegreeProgramProfilesForm, {
 } from '~/components/degree-programs/degree-program-profiles.form'
 
 type EditProgramFormProps = {
-  degreeProgram: DegreeProgram
+  degreeProgram: RouterOutputs['degreeProgram']['read']
 }
 
 type DegreeProgramFormValues = z.infer<typeof editDegreeProgramSchema>
 
-const useEditProgramForm = (degreeProgram: DegreeProgram) => {
+const useEditProgramForm = (
+  degreeProgram: RouterOutputs['degreeProgram']['read'],
+) => {
   return useForm<DegreeProgramFormValues>({
     defaultValues: {
       ...degreeProgram,
-      history: degreeProgram.history ?? '',
-      mission: degreeProgram.mission ?? '',
-      vision: degreeProgram.vision ?? '',
-      phone: degreeProgram.phone ?? '',
+      history: degreeProgram?.history ?? '',
+      mission: degreeProgram?.mission ?? '',
+      vision: degreeProgram?.vision ?? '',
+      phone: degreeProgram?.phone ?? '',
     },
     resolver: zodResolver(editDegreeProgramSchema),
   })
@@ -60,8 +61,6 @@ const useEditProgramForm = (degreeProgram: DegreeProgram) => {
 
 const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
   const form = useEditProgramForm(degreeProgram)
-
-  const { watch, setValue } = form
 
   const { mutate: editDegreeProgram, isLoading: isEditingDegreeProgram } =
     api.degreeProgram.edit.useMutation()
@@ -71,15 +70,13 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
   const [isObjectiveDialogOpen, setIsObjectiveDialogOpen] = useState(false)
   const onAddObjective = (objective: DegreeProgramObjectiveFormValues) => {
-    const objectives = watch('objectives')
-    setValue('objectives', [...objectives, objective])
+    console.log(objective)
     setIsObjectiveDialogOpen(false)
   }
 
   const [isProfileDialogOpen, setIsProfileDialogOpen] = useState(false)
   const onAddProfile = (profile: DegreeProgramProfileFormValues) => {
-    const profiles = watch('profiles')
-    setValue('profiles', [...profiles, profile])
+    console.log(profile)
     setIsProfileDialogOpen(false)
   }
 
@@ -333,7 +330,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
               <Card>
                 <CardContent>
                   <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
-                    {watch('objectives')?.map((objective, idx) => (
+                    {degreeProgram?.objectives?.map((objective, idx) => (
                       <li key={idx}>{objective.description}</li>
                     ))}
                   </ul>
@@ -369,7 +366,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
               <Card>
                 <CardContent>
                   <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
-                    {watch('profiles')?.map((profile, idx) => (
+                    {degreeProgram?.profiles.map((profile, idx) => (
                       <li key={idx}>
                         <strong>{profile.title}</strong>:{' '}
                         <span>{profile.description}</span>
