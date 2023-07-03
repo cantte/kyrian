@@ -1,10 +1,12 @@
 'use client'
 
 import { type FC } from 'react'
+import { useParams } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { z } from 'zod'
+import { type z } from 'zod'
 
+import { newDegreeProgramObjectiveSchema } from '@kyrian/api/src/schemas/degree-program'
 import {
   Button,
   Form,
@@ -17,22 +19,20 @@ import {
   Input,
 } from '@kyrian/ui'
 
-const degreeProgramObjectiveSchema = z.object({
-  description: z
-    .string({
-      required_error: 'El objetivo es requerido',
-    })
-    .max(255)
-    .nonempty('El objetivo es requerido'),
-})
-
 export type DegreeProgramObjectiveFormValues = z.infer<
-  typeof degreeProgramObjectiveSchema
+  typeof newDegreeProgramObjectiveSchema
 >
 
 const useDegreeProgramObjectivesForm = () => {
+  const params = useParams()
+
+  const { code } = params as { code: string }
+
   return useForm<DegreeProgramObjectiveFormValues>({
-    resolver: zodResolver(degreeProgramObjectiveSchema),
+    resolver: zodResolver(newDegreeProgramObjectiveSchema),
+    defaultValues: {
+      degreeProgramCode: code,
+    },
   })
 }
 
