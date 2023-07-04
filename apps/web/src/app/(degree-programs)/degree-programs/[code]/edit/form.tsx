@@ -1,7 +1,9 @@
 'use client'
 
-import { useState, type ComponentType, type FC } from 'react'
+import { useState, useTransition, type ComponentType, type FC } from 'react'
+import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Trash } from 'lucide-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import type z from 'zod'
 
@@ -22,6 +24,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Separator,
   Tabs,
   TabsContent,
   TabsList,
@@ -59,6 +62,38 @@ const useEditProgramForm = (
   })
 }
 
+const useAddObjective = () => {
+  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
+
+  const { mutate: addObjective, isLoading: isAddingObjective } =
+    api.degreeProgram.addObjective.useMutation({
+      onSuccess: () => {
+        startTransition(() => {
+          router.refresh()
+        })
+      },
+    })
+
+  return { addObjective, isAddingObjective, isPending }
+}
+
+const useAddProfile = () => {
+  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
+
+  const { mutate: addProfile, isLoading: isAddingProfile } =
+    api.degreeProgram.addProfile.useMutation({
+      onSuccess: () => {
+        startTransition(() => {
+          router.refresh()
+        })
+      },
+    })
+
+  return { addProfile, isAddingProfile, isPending }
+}
+
 const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
   const form = useEditProgramForm(degreeProgram)
 
@@ -68,15 +103,17 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
     editDegreeProgram(values)
   }
 
+  const { addObjective, isAddingObjective } = useAddObjective()
   const [isObjectiveDialogOpen, setIsObjectiveDialogOpen] = useState(false)
   const onAddObjective = (objective: DegreeProgramObjectiveFormValues) => {
-    console.log(objective)
+    addObjective(objective)
     setIsObjectiveDialogOpen(false)
   }
 
+  const { addProfile, isAddingProfile } = useAddProfile()
   const [isProfileDialogOpen, setIsProfileDialogOpen] = useState(false)
   const onAddProfile = (profile: DegreeProgramProfileFormValues) => {
-    console.log(profile)
+    addProfile(profile)
     setIsProfileDialogOpen(false)
   }
 
@@ -313,6 +350,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                   <Button
                     type='button'
                     onClick={() => setIsObjectiveDialogOpen(true)}
+                    disabled={isEditingDegreeProgram || isAddingObjective}
                   >
                     Agregar objetivo
                   </Button>
@@ -331,7 +369,24 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                 <CardContent>
                   <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
                     {degreeProgram?.objectives?.map((objective, idx) => (
-                      <li key={idx}>{objective.description}</li>
+                      <>
+                        <li
+                          key={idx}
+                          className='app-flex app-flex-row app-justify-between app-space-y-2 app-items-center'
+                        >
+                          <p>{objective.description}</p>
+                          <Button
+                            type='button'
+                            size='icon'
+                            variant='ghost'
+                            disabled={isEditingDegreeProgram}
+                          >
+                            <span className='app-sr-only'>Eliminar</span>
+                            <Trash className='app-w-6 app-h-6' />
+                          </Button>
+                        </li>
+                        <Separator className='app-mt-2' />
+                      </>
                     ))}
                   </ul>
                 </CardContent>
@@ -349,6 +404,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                   <Button
                     type='button'
                     onClick={() => setIsProfileDialogOpen(true)}
+                    disabled={isEditingDegreeProgram || isAddingProfile}
                   >
                     Agregar perfil
                   </Button>
@@ -367,10 +423,29 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                 <CardContent>
                   <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
                     {degreeProgram?.profiles.map((profile, idx) => (
-                      <li key={idx}>
-                        <strong>{profile.title}</strong>:{' '}
-                        <span>{profile.description}</span>
-                      </li>
+                      <>
+                        <li
+                          key={idx}
+                          className='app-flex app-flex-row app-justify-between app-space-y-2 app-items-center'
+                        >
+                          <div>
+                            <strong>{profile.title}</strong>:{' '}
+                            <span>{profile.description}</span>
+                          </div>
+
+                          <Button
+                            type='button'
+                            size='icon'
+                            variant='ghost'
+                            disabled={isEditingDegreeProgram}
+                          >
+                            <span className='app-sr-only'>Eliminar</span>
+                            <Trash className='app-w-6 app-h-6' />
+                          </Button>
+                        </li>
+
+                        <Separator className='app-mt-2' />
+                      </>
                     ))}
                   </ul>
                 </CardContent>
