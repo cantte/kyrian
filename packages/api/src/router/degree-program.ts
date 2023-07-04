@@ -92,4 +92,22 @@ export const degreeProgramRouter = createTRPCRouter({
         },
       })
     }),
+  removeProfile: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      return await ctx.prisma.degreeProgramProfiles.delete({
+        where: {
+          id: input.id,
+        },
+      })
+    }),
+  removeObjective: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      return await ctx.prisma.degreeProgramObjectives.delete({
+        where: {
+          id: input.id,
+        },
+      })
+    }),
 })

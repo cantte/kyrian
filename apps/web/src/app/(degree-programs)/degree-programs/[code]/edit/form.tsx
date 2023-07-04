@@ -62,7 +62,7 @@ const useEditProgramForm = (
   })
 }
 
-const useAddObjective = () => {
+const useObjectiveOperations = () => {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
 
@@ -75,10 +75,24 @@ const useAddObjective = () => {
       },
     })
 
-  return { addObjective, isAddingObjective, isPending }
+  const { mutate: removeObjective, isLoading: isRemovingObjective } =
+    api.degreeProgram.removeObjective.useMutation({
+      onSuccess: () => {
+        startTransition(() => {
+          router.refresh()
+        })
+      },
+    })
+
+  return {
+    addObjective,
+    removeObjective,
+    isPerformObjectiveOperation: isAddingObjective || isRemovingObjective,
+    isPending,
+  }
 }
 
-const useAddProfile = () => {
+const useProfileOperations = () => {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
 
@@ -91,7 +105,21 @@ const useAddProfile = () => {
       },
     })
 
-  return { addProfile, isAddingProfile, isPending }
+  const { mutate: removeProfile, isLoading: isRemovingProfile } =
+    api.degreeProgram.removeProfile.useMutation({
+      onSuccess: () => {
+        startTransition(() => {
+          router.refresh()
+        })
+      },
+    })
+
+  return {
+    addProfile,
+    removeProfile,
+    isPerformProfileOperation: isAddingProfile || isRemovingProfile,
+    isPending,
+  }
 }
 
 const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
@@ -103,14 +131,16 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
     editDegreeProgram(values)
   }
 
-  const { addObjective, isAddingObjective } = useAddObjective()
+  const { addObjective, isPerformObjectiveOperation, removeObjective } =
+    useObjectiveOperations()
   const [isObjectiveDialogOpen, setIsObjectiveDialogOpen] = useState(false)
   const onAddObjective = (objective: DegreeProgramObjectiveFormValues) => {
     addObjective(objective)
     setIsObjectiveDialogOpen(false)
   }
 
-  const { addProfile, isAddingProfile } = useAddProfile()
+  const { addProfile, isPerformProfileOperation, removeProfile } =
+    useProfileOperations()
   const [isProfileDialogOpen, setIsProfileDialogOpen] = useState(false)
   const onAddProfile = (profile: DegreeProgramProfileFormValues) => {
     addProfile(profile)
@@ -350,7 +380,9 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                   <Button
                     type='button'
                     onClick={() => setIsObjectiveDialogOpen(true)}
-                    disabled={isEditingDegreeProgram || isAddingObjective}
+                    disabled={
+                      isEditingDegreeProgram || isPerformObjectiveOperation
+                    }
                   >
                     Agregar objetivo
                   </Button>
@@ -379,7 +411,13 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                             type='button'
                             size='icon'
                             variant='ghost'
-                            disabled={isEditingDegreeProgram}
+                            disabled={
+                              isEditingDegreeProgram ||
+                              isPerformObjectiveOperation
+                            }
+                            onClick={() =>
+                              removeObjective({ id: objective.id })
+                            }
                           >
                             <span className='app-sr-only'>Eliminar</span>
                             <Trash className='app-w-6 app-h-6' />
@@ -404,7 +442,9 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                   <Button
                     type='button'
                     onClick={() => setIsProfileDialogOpen(true)}
-                    disabled={isEditingDegreeProgram || isAddingProfile}
+                    disabled={
+                      isEditingDegreeProgram || isPerformProfileOperation
+                    }
                   >
                     Agregar perfil
                   </Button>
@@ -437,7 +477,11 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                             type='button'
                             size='icon'
                             variant='ghost'
-                            disabled={isEditingDegreeProgram}
+                            disabled={
+                              isEditingDegreeProgram ||
+                              isPerformProfileOperation
+                            }
+                            onClick={() => removeProfile({ id: profile.id })}
                           >
                             <span className='app-sr-only'>Eliminar</span>
                             <Trash className='app-w-6 app-h-6' />
