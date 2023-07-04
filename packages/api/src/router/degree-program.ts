@@ -65,12 +65,13 @@ export const degreeProgramRouter = createTRPCRouter({
   addProfile: protectedProcedure
     .input(newDegreeProgramProfileSchema)
     .mutation(async ({ input, ctx }) => {
+      const { degreeProgramCode, ...rest } = input
       return await ctx.prisma.degreeProgramProfiles.create({
         data: {
-          ...input,
+          ...rest,
           degreeProgram: {
             connect: {
-              code: input.degreeProgramCode,
+              code: degreeProgramCode,
             },
           },
         },
@@ -79,12 +80,13 @@ export const degreeProgramRouter = createTRPCRouter({
   addObjective: protectedProcedure
     .input(newDegreeProgramObjectiveSchema)
     .mutation(async ({ input, ctx }) => {
+      const { degreeProgramCode, ...rest } = input
       return await ctx.prisma.degreeProgramObjectives.create({
         data: {
-          ...input,
+          ...rest,
           degreeProgram: {
             connect: {
-              code: input.degreeProgramCode,
+              code: degreeProgramCode,
             },
           },
         },
