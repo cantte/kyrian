@@ -73,34 +73,43 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
   const toast = useToast()
 
   const onSubmit: SubmitHandler<MonographFormValues> = async (values) => {
-    if (file === null) {
-      setMissingFile(true)
-      return
+    try {
+      if (file === null) {
+        setMissingFile(true)
+        return
+      }
+
+      const monograph = await createMonograph(values)
+
+      const url = await uploadMonograph({
+        title: monograph.title,
+        id: monograph.id,
+      })
+
+      setIsUploading(true)
+
+      await fetch(url, {
+        method: 'PUT',
+        body: file,
+      })
+
+      setIsUploading(false)
+
+      toast.toast({
+        title: 'Monografía registrada',
+        description: 'La monografía ha sido registrada con éxito',
+      })
+
+      reset()
+      setFile(null)
+    } catch (e) {
+      const message = (e as Error).message ?? 'Ocurrió un error inesperado'
+      toast.toast({
+        title: 'Ha ocurrido un error',
+        description: message,
+        variant: 'destructive',
+      })
     }
-
-    const monograph = await createMonograph(values)
-
-    const url = await uploadMonograph({
-      title: monograph.title,
-      id: monograph.id,
-    })
-
-    setIsUploading(true)
-
-    await fetch(url, {
-      method: 'PUT',
-      body: file,
-    })
-
-    setIsUploading(false)
-
-    toast.toast({
-      title: 'Monografía registrada',
-      description: 'La monografía ha sido registrada con éxito',
-    })
-
-    reset()
-    setFile(null)
   }
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -257,7 +266,9 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
         <div className='app-grid app-w-full app-items-center app-gap-1.5'>
           <Label htmlFor='degreeProgramId'>Programa académico</Label>
           <Select
-            onValueChange={(value) => setValue('degreeProgramId', value)}
+            onValueChange={(value: string) =>
+              setValue('degreeProgramId', value)
+            }
             {...register('degreeProgramId')}
           >
             <SelectTrigger>

@@ -25,6 +25,23 @@ export const monographRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       const { authors, ...monograph } = input
 
+      // remove monograph title whitespaces
+      monograph.title = monograph.title.trim()
+
+      // Before save check if the authors already exist in the database and if not, create them
+      const monographExists = await ctx.prisma.monograph.findFirst({
+        where: {
+          title: {
+            contains: monograph.title,
+          },
+          publicationDate: monograph.publicationDate,
+        },
+      })
+
+      if (monographExists) {
+        throw new Error('La monografía ya existe en la base de datos')
+      }
+
       const authorsIds = authors
         .filter((author) => author.id !== undefined)
         .map((author) => author.id) as string[]
