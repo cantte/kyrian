@@ -24,12 +24,14 @@ export const columns: ColumnDef<MonographOutput>[] = [
     accessorKey: 'publicationDate',
     header: 'Fecha de publicación',
     cell: ({ row }) => {
-      const date = row.getValue('publicationDate')
+      const date: Date = row.getValue('publicationDate')
+
       return new Intl.DateTimeFormat('es-CO', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-      }).format(date as Date)
+        timeZone: 'UTC',
+      }).format(date)
     },
   },
   {
