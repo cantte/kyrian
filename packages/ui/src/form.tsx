@@ -1,21 +1,21 @@
 import {
-  ComponentPropsWithoutRef,
   createContext,
-  ElementRef,
   forwardRef,
-  HTMLAttributes,
   useContext,
   useId,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  type HTMLAttributes,
 } from 'react'
-import * as LabelPrimitive from '@radix-ui/react-label'
+import type * as LabelPrimitive from '@radix-ui/react-label'
 import { Slot } from '@radix-ui/react-slot'
 import {
   Controller,
-  ControllerProps,
-  FieldPath,
-  FieldValues,
   FormProvider,
   useFormContext,
+  type ControllerProps,
+  type FieldPath,
+  type FieldValues,
 } from 'react-hook-form'
 
 import { Label } from './label'
@@ -89,7 +89,7 @@ const FormItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     )
   },
 )
-FormItemContext.displayName = '@kyrian/ui/FormItem'
+FormItem.displayName = '@kyrian/ui/FormItem'
 
 const FormLabel = forwardRef<
   ElementRef<typeof LabelPrimitive.Root>,

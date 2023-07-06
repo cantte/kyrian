@@ -111,7 +111,7 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     maxFiles: 1,
-    maxSize: 1024 * 1024 * 5, // 5 MB
+    maxSize: 1024 * 1024 * 25, // 25 MB
     accept: {
       'application/pdf': ['.pdf'],
     },
@@ -201,7 +201,7 @@ const MonographForm: NextPage<MonographFormProps> = ({ defaultValues }) => {
             <span className='app-text-xs app-text-slate-400 app-pt-2'>
               {isDragActive
                 ? 'Suelta el archivo aquí'
-                : 'Solo se permiten archivos PDF de hasta 5MB'}
+                : 'Solo se permiten archivos PDF de hasta 25MB'}
             </span>
           </Label>
 

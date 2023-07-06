@@ -12,7 +12,7 @@ const CedisjLogo = ({ width, height }: CedisjLogoProps) => {
       fill='none'
       viewBox='0 0 128 128'
     >
-      <g clip-path='url(#a)'>
+      <g clipPath='url(#a)'>
         <ellipse
           cx='40.285'
           cy='11.196'

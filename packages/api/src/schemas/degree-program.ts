@@ -39,3 +39,58 @@ export const newDegreeProgramSchema = z.object({
     .min(1, 'Debe digitar este campo')
     .max(256, 'Máximo 256 caracteres'),
 })
+
+export const editDegreeProgramSchema = newDegreeProgramSchema.extend({
+  history: z
+    .string({
+      required_error: 'La historia es requerida',
+    })
+    .nonempty()
+    .optional(),
+  mission: z
+    .string({
+      required_error: 'La misión es requerida',
+    })
+    .nonempty()
+    .optional(),
+  vision: z
+    .string({
+      required_error: 'La visión es requerida',
+    })
+    .nonempty()
+    .optional(),
+})
+
+export const newDegreeProgramObjectiveSchema = z.object({
+  description: z
+    .string({
+      required_error: 'El objetivo es requerido',
+    })
+    .max(255)
+    .nonempty('El objetivo es requerido'),
+  degreeProgramCode: z
+    .string({
+      required_error: 'El código del programa es requerido',
+    })
+    .nonempty('El código del programa es requerido'),
+})
+
+export const newDegreeProgramProfileSchema = z.object({
+  title: z
+    .string({
+      required_error: 'El título es requerido',
+    })
+    .max(191, 'El título no puede tener más de 191 caracteres')
+    .nonempty('El título es requerido'),
+  description: z
+    .string({
+      required_error: 'La descripción es requerida',
+    })
+    .max(191, 'La descripción no puede tener más de 255 caracteres')
+    .nonempty('La descripción es requerida'),
+  degreeProgramCode: z
+    .string({
+      required_error: 'El código del programa es requerido',
+    })
+    .nonempty('El código del programa es requerido'),
+})
