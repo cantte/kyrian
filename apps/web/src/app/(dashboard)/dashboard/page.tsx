@@ -1,6 +1,19 @@
 import SearchMonographForm from '~/components/monographs/search-monograph.form'
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@kyrian/auth";
+import { redirect } from 'next/navigation'
 
-const DashboardMainPage = () => {
+const DashboardMainPage = async () => {
+  const session = await getServerSession(authOptions)
+
+  if (!session) {
+    return redirect('/api/auth/signin')
+  }
+
+  if (!session.user) {
+    return redirect('/api/auth/signin')
+  }
+
   return (
     <section className='app-items-center app-gap-6'>
       <div className='app-mx-auto app-flex app-flex-col app-items-start app-gap-4'>
