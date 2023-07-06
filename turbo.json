@@ -11,6 +11,7 @@
       "cache": false
     },
     "dev": {
+      "dependsOn": ["^db:generate", "^dev"],
       "persistent": true,
       "cache": false
     },
@@ -18,7 +19,10 @@
       "dependsOn": ["^build", "^db:generate"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": ["^db:generate", "build"],
+      "cache": false
+    },
     "lint:fix": {},
     "clean": {
       "cache": false
