@@ -27,7 +27,7 @@ export const Icons = {
       viewBox='0 0 128 128'
       {...props}
     >
-      <g clip-path='url(#a)'>
+      <g clipPath='url(#a)'>
         <ellipse
           cx='40.285'
           cy='11.196'
