@@ -1,9 +1,11 @@
-import React from 'react';
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@kyrian/auth";
-import { dashboardConfig } from "~/config/dashboard";
-import assert from "assert";
-import DashboardNav from "~/components/nav";
+import assert from 'assert'
+import React from 'react'
+import { getServerSession } from 'next-auth/next'
+
+import { authOptions } from '@kyrian/auth'
+
+import DashboardNav from '~/components/nav'
+import { dashboardConfig } from '~/config/dashboard'
 
 const DashboardSidebar = async () => {
   const session = await getServerSession(authOptions)
@@ -23,9 +25,7 @@ const DashboardSidebar = async () => {
     return item.roles.includes(role)
   })
 
-  return (
-    <DashboardNav items={sidebar}/>
-  );
-};
+  return <DashboardNav items={sidebar} />
+}
 
-export default DashboardSidebar;
+export default DashboardSidebar

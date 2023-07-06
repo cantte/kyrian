@@ -1,7 +1,9 @@
-import SearchMonographForm from '~/components/monographs/search-monograph.form'
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@kyrian/auth";
 import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth/next'
+
+import { authOptions } from '@kyrian/auth'
+
+import SearchMonographForm from '~/components/monographs/search-monograph.form'
 
 const DashboardMainPage = async () => {
   const session = await getServerSession(authOptions)

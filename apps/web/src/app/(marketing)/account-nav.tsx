@@ -1,9 +1,11 @@
-import { type FC } from 'react';
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@kyrian/auth";
-import UserAccountNav from "~/components/user-account-nav";
-import { Button } from "@kyrian/ui";
+import { type FC } from 'react'
 import Link from 'next/link'
+import { getServerSession } from 'next-auth/next'
+
+import { authOptions } from '@kyrian/auth'
+import { Button } from '@kyrian/ui'
+
+import UserAccountNav from '~/components/user-account-nav'
 
 const AccountNav: FC = async () => {
   const session = await getServerSession(authOptions)
@@ -26,7 +28,7 @@ const AccountNav: FC = async () => {
         </Link>
       )}
     </nav>
-  );
-};
+  )
+}
 
-export default AccountNav;
+export default AccountNav
