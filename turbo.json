@@ -16,11 +16,11 @@
       "cache": false
     },
     "build": {
-      "dependsOn": ["^build", "^db:generate"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
-      "dependsOn": ["^db:generate", "build"],
+      "dependsOn": ["^build"],
       "cache": false
     },
     "lint:fix": {},
