@@ -138,11 +138,14 @@ model Student {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userId     String      @unique
-  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  monographs Monograph[]
+  userId            String           @unique
+  user              User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  monographs        Monograph[]
+  researchSeminar   ResearchSeminar? @relation(fields: [researchSeminarId], references: [id])
+  researchSeminarId String?
 
   @@index([userId])
+  @@index([researchSeminarId])
 }
 
 model Author {
@@ -216,4 +219,21 @@ model Document {
 
   @@index([userId])
   @@map("documents")
+}
+
+model ResearchSeminar {
+  id String @id @default(cuid())
+
+  name        String
+  description String?   @db.Text
+  isActive    Boolean   @default(true)
+  creation    DateTime?
+  expiration  DateTime?
+
+  students Student[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("research_seminars")
 }
