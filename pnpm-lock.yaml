@@ -126,8 +126,8 @@ importers:
         specifier: ^7.45.1
         version: 7.45.1(react@18.2.0)
       superjson:
-        specifier: ^1.12.4
-        version: 1.12.4
+        specifier: ^1.13.1
+        version: 1.13.1
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -208,8 +208,8 @@ importers:
         specifier: ^10.34.0
         version: 10.34.0
       superjson:
-        specifier: ^1.12.4
-        version: 1.12.4
+        specifier: ^1.13.1
+        version: 1.13.1
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -8002,8 +8002,8 @@ packages:
       ts-interface-checker: 0.1.13
     dev: true
 
-  /superjson@1.12.4:
-    resolution: {integrity: sha512-vkpPQAxdCg9SLfPv5GPC5fnGrui/WryktoN9O5+Zif/14QIMjw+RITf/5LbBh+9QpBFb3KNvJth+puz2H8o6GQ==}
+  /superjson@1.13.1:
+    resolution: {integrity: sha512-AVH2eknm9DEd3qvxM4Sq+LTCkSXE2ssfh1t11MHMXyYXFQyQ1HLgVvV+guLTsaQnJU3gnaVo34TohHPulY/wLg==}
     engines: {node: '>=10'}
     dependencies:
       copy-anything: 3.0.3
