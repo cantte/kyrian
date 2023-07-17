@@ -18,7 +18,7 @@
     "@kyrian/db": "^1.0.0",
     "@trpc/client": "^10.34.0",
     "@trpc/server": "^10.34.0",
-    "superjson": "^1.12.4",
+    "superjson": "^1.13.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {

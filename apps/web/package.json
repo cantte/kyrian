@@ -39,7 +39,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.45.1",
-    "superjson": "^1.12.4",
+    "superjson": "^1.13.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
