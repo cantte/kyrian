@@ -35,4 +35,7 @@ export const researchSeminarRouter = createTRPCRouter({
         },
       })
     }),
+  list: protectedProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.researchSeminar.findMany()
+  }),
 })
