@@ -145,8 +145,8 @@ importers:
         specifier: ^0.5.9
         version: 0.5.9(tailwindcss@3.3.3)
       '@types/node':
-        specifier: ^18.17.0
-        version: 18.17.0
+        specifier: ^18.17.1
+        version: 18.17.1
       '@types/react':
         specifier: ^18.2.15
         version: 18.2.15
@@ -393,8 +393,8 @@ importers:
         specifier: 0.1.0
         version: link:../config/tailwind
       '@types/node':
-        specifier: ^18.17.0
-        version: 18.17.0
+        specifier: ^18.17.1
+        version: 18.17.1
       '@types/react':
         specifier: ^18.2.15
         version: 18.2.15
@@ -3886,7 +3886,7 @@ packages:
   /@types/cross-spawn@6.0.2:
     resolution: {integrity: sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==}
     dependencies:
-      '@types/node': 18.17.0
+      '@types/node': 18.17.1
     dev: true
 
   /@types/debug@4.1.7:
@@ -3925,7 +3925,7 @@ packages:
   /@types/keyv@3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 18.17.0
+      '@types/node': 18.17.1
     dev: false
 
   /@types/ms@0.7.31:
@@ -3936,8 +3936,8 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: false
 
-  /@types/node@18.17.0:
-    resolution: {integrity: sha512-GXZxEtOxYGFchyUzxvKI14iff9KZ2DI+A6a37o6EQevtg6uO9t+aUZKcaC1Te5Ng1OnLM7K9NVVj+FbecD9cJg==}
+  /@types/node@18.17.1:
+    resolution: {integrity: sha512-xlR1jahfizdplZYRU59JlUx9uzF1ARa8jbhM11ccpCJya8kvos5jwdm2ZAgxSCwOl0fq21svP18EVwPBXMQudw==}
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3965,7 +3965,7 @@ packages:
   /@types/responselike@1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 18.17.0
+      '@types/node': 18.17.1
     dev: false
 
   /@types/retry@0.12.0:
@@ -6303,7 +6303,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.17.0
+      '@types/node': 18.17.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
