@@ -11,9 +11,9 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.374.0",
-    "@aws-sdk/credential-providers": "^3.370.0",
-    "@aws-sdk/s3-request-presigner": "^3.375.0",
+    "@aws-sdk/client-s3": "^3.377.0",
+    "@aws-sdk/credential-providers": "^3.377.0",
+    "@aws-sdk/s3-request-presigner": "^3.377.0",
     "@kyrian/auth": "*",
     "@kyrian/db": "^1.0.0",
     "@trpc/client": "^10.35.0",
