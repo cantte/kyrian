@@ -41,7 +41,7 @@ const ResearchSeminarsPage = async () => {
           </h1>
         </div>
 
-        <NextLink href={'/research-seminars/new'} passHref>
+        <NextLink href={'/dashboard/research-seminars/new'} passHref>
           <Button className='app-mt-4 md:app-mt-0'>
             Crear seminario de investigación
           </Button>
