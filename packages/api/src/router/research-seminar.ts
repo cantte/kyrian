@@ -1,5 +1,5 @@
 import { newResearchSeminarSchema } from '../schemas/research-seminar'
-import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
 export const researchSeminarRouter = createTRPCRouter({
   create: protectedProcedure
@@ -37,5 +37,14 @@ export const researchSeminarRouter = createTRPCRouter({
     }),
   list: protectedProcedure.query(async ({ ctx }) => {
     return await ctx.prisma.researchSeminar.findMany()
+  }),
+  info: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.prisma.researchSeminar.findMany({
+      select: {
+        name: true,
+        description: true,
+        creation: true,
+      },
+    })
   }),
 })

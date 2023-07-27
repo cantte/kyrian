@@ -4,7 +4,7 @@ export const marketingConfig: MarketingConfig = {
   mainNav: [
     {
       title: 'Programas',
-      href: '#degree-programs',
+      href: '/#degree-programs',
     },
     {
       title: 'Repositorio',
@@ -12,7 +12,7 @@ export const marketingConfig: MarketingConfig = {
     },
     {
       title: 'Eventos',
-      href: '#events',
+      href: '/#events',
     },
     {
       title: 'Formatos',
@@ -25,6 +25,10 @@ export const marketingConfig: MarketingConfig = {
     {
       title: 'Plan estratégico',
       href: '/strategic-plan',
+    },
+    {
+      title: 'Semilleros de investigación',
+      href: '/research-seminars',
     },
   ],
 }
