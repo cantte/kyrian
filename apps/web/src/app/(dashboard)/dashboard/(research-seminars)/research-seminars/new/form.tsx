@@ -2,6 +2,7 @@
 
 import { type ComponentType } from 'react'
 import { type NextPage } from 'next'
+import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
@@ -33,15 +34,10 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
     resolver: zodResolver(newResearchSeminarSchema),
   })
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    setValue,
-    formState: { errors },
-  } = form
+  const { handleSubmit } = form
 
   const toast = useToast()
+  const router = useRouter()
   const { mutate, isLoading } = api.researchSeminar.create.useMutation({
     onSuccess: () => {
       toast.toast({
@@ -49,7 +45,14 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
         description:
           'El semillero de investigación ha sido creado exitosamente',
       })
-      reset()
+      router.replace('/dashboard/research-seminars/list')
+    },
+    onError: (error) => {
+      toast.toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive',
+      })
     },
   })
 
@@ -63,7 +66,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
         onSubmit={handleSubmit(onSubmit)}
         className='app-grid app-gap-6 app-w-full px-2 py-2'
       >
-        <div className='app-grid app-w-full app-items-center app-align-middle app-gap-1.5 md:app-grid-cols-2'>
+        <div className='app-grid app-w-full app-gap-1.5 md:app-grid-cols-2'>
           <FormField
             control={form.control}
             name='name'
@@ -122,7 +125,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='app-space-y-1 app-leading-none'>
+                <div className='app-leading-none'>
                   <FormLabel htmlFor='expiration'>¿Está activo?</FormLabel>
                 </div>
                 <FormMessage />
