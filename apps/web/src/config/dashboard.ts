@@ -43,5 +43,11 @@ export const dashboardConfig: DashboardConfig = {
       icon: 'documents',
       roles: ['admin'],
     },
+    {
+      title: 'Semilleros de investigacion',
+      href: '/dashboard/research-seminars/list',
+      icon: 'researchSeminars',
+      roles: ['admin'],
+    },
   ],
 }

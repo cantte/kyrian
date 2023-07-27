@@ -4,6 +4,7 @@ import {
   CalendarClock,
   Command,
   FileText,
+  Puzzle,
   ScrollText,
   User,
   type Icon as LucideIcon,
@@ -18,6 +19,7 @@ export const Icons = {
   events: CalendarClock,
   degreePrograms: ScrollText,
   documents: FileText,
+  researchSeminars: Puzzle,
   arrowRight: ArrowRight,
   user: User,
   cedisj: ({ ...props }: LucideProps) => (

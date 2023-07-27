@@ -3,9 +3,9 @@ import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@kyrian/auth'
 
-import NewDocumentForm from '~/app/(dashboard)/dashboard/(documents)/documents/new/form'
+import NewResearchSeminarForm from '~/app/(dashboard)/dashboard/(research-seminars)/research-seminars/new/form'
 
-const NewDocumentPage = async () => {
+const NewResearchSeminarPage = async () => {
   const session = await getServerSession(authOptions)
   if (!session) {
     return redirect('/api/auth/signin')
@@ -20,14 +20,14 @@ const NewDocumentPage = async () => {
       <div className='app-flex app-justify-between'>
         <div className='app-grid app-gap-1'>
           <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
-            Cargue de documentos
+            Registro de semilleros de investigación
           </h1>
         </div>
       </div>
 
-      <NewDocumentForm defaultValues={{ userId: session.user.id }} />
+      <NewResearchSeminarForm />
     </div>
   )
 }
 
-export default NewDocumentPage
+export default NewResearchSeminarPage
