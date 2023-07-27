@@ -4,13 +4,15 @@ import { type ComponentType } from 'react'
 import { type NextPage } from 'next'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Loader2 } from 'lucide-react'
+import { format } from 'date-fns'
+import { CalendarIcon, Loader2 } from 'lucide-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import type z from 'zod'
 
 import { newResearchSeminarSchema } from '@kyrian/api/src/schemas/research-seminar'
 import {
   Button,
+  Calendar,
   Checkbox,
   Form,
   FormControl,
@@ -19,6 +21,9 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   Textarea,
   useToast,
 } from '@kyrian/ui'
@@ -66,46 +71,88 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
         onSubmit={handleSubmit(onSubmit)}
         className='app-grid app-gap-6 app-w-full px-2 py-2'
       >
-        <div className='app-grid app-w-full app-gap-1.5 md:app-grid-cols-2'>
-          <FormField
-            control={form.control}
-            name='name'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel htmlFor='name'>Nombre</FormLabel>
-                <FormControl>
-                  <Input id='name' type='text' {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <FormField
+          control={form.control}
+          name='name'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel htmlFor='name'>Nombre</FormLabel>
+              <FormControl>
+                <Input id='name' type='text' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
+        <div className='app-grid app-w-full app-gap-1.5 md:app-grid-cols-2'>
           <FormField
             control={form.control}
             name='creation'
             render={({ field }) => (
-              <FormItem>
+              <FormItem className='app-flex app-flex-col'>
                 <FormLabel htmlFor='creation'>Creación</FormLabel>
-                <FormControl>
-                  <Input id='creation' type='date' {...field} />
-                </FormControl>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant='outline'
+                        className='app-pl-3 app-text-left app-font-normal'
+                      >
+                        {field.value ? (
+                          format(field.value, 'PPP')
+                        ) : (
+                          <span>Seleccione una fecha</span>
+                        )}
+                        <CalendarIcon className='app-ml-auto app-h-4 app-w-4 app-opacity-50' />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className='app-w-auto app-p-0' align='start'>
+                    <Calendar
+                      mode='single'
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
                 <FormMessage />
               </FormItem>
             )}
           />
-        </div>
 
-        <div className='app-grid app-w-full app-items-center app-align-middle app-gap-1.5 md:app-grid-cols-2'>
           <FormField
             control={form.control}
             name='expiration'
             render={({ field }) => (
-              <FormItem>
+              <FormItem className='app-flex app-flex-col'>
                 <FormLabel htmlFor='expiration'>Vencimiento</FormLabel>
-                <FormControl>
-                  <Input id='expiration' type='date' {...field} />
-                </FormControl>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant='outline'
+                        className='app-pl-3 app-text-left app-font-normal'
+                      >
+                        {field.value ? (
+                          format(field.value, 'PPP')
+                        ) : (
+                          <span>Seleccione una fecha</span>
+                        )}
+                        <CalendarIcon className='app-ml-auto app-h-4 app-w-4 app-opacity-50' />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className='app-w-auto app-p-0' align='start'>
+                    <Calendar
+                      mode='single'
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
                 <FormMessage />
               </FormItem>
             )}
