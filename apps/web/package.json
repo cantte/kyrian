@@ -35,7 +35,7 @@
     "next": "^13.4.12",
     "next-auth": "^4.22.3",
     "next-themes": "^0.2.1",
-    "pdfjs-dist": "^3.8.162",
+    "pdfjs-dist": "^3.9.179",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
