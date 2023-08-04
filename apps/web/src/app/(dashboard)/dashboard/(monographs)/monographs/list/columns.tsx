@@ -36,6 +36,7 @@ export const columns: ColumnDef<MonographOutput>[] = [
   },
   {
     accessorKey: 'degreeProgram.name',
+    id: 'degreeProgram',
     header: 'Programa',
     cell: ({ row }) => {
       const degreeProgram = row.original.degreeProgram

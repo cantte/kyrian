@@ -10,8 +10,8 @@ import { Button } from '@kyrian/ui'
 
 import DashboardHeader from '~/components/dashboard-header'
 import DashboardShell from '~/components/dashboard-shell'
-import GenericDataTable from '~/components/table/generic-data-table'
 import { columns } from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/columns'
+import MonographsDataTable from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/data-table'
 
 const MonographsPage = async () => {
   const session = await getServerSession(authOptions)
@@ -32,6 +32,7 @@ const MonographsPage = async () => {
   })
 
   const monographs = await ssg.monograph.list.fetch()
+  const degreePrograms = await ssg.degreeProgram.getNameAndCode.fetch()
 
   return (
     <DashboardShell>
@@ -41,7 +42,11 @@ const MonographsPage = async () => {
         </NextLink>
       </DashboardHeader>
 
-      <GenericDataTable columns={columns} data={monographs} />
+      <MonographsDataTable
+        columns={columns}
+        data={monographs}
+        degreePrograms={degreePrograms}
+      />
     </DashboardShell>
   )
 }
