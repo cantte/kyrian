@@ -33,7 +33,7 @@
     "date-fns": "^2.30.0",
     "lucide-react": "^0.259.0",
     "next": "^13.4.12",
-    "next-auth": "^4.22.3",
+    "next-auth": "^4.23.0",
     "next-themes": "^0.2.1",
     "pdfjs-dist": "^3.9.179",
     "react": "^18.2.0",
