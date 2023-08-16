@@ -26,15 +26,15 @@ const MonographsDataTableToolbar = <TData,>({
   }))
 
   return (
-    <div className='app-flex app-justify-between app-items-center'>
-      <div className='app-flex app-flex-1 app-items-center app-space-x-2'>
+    <div className='flex items-center justify-between'>
+      <div className='flex flex-1 items-center space-x-2'>
         <Input
           placeholder='Buscar por título'
           value={(table.getColumn('title')?.getFilterValue() as string) ?? ''}
           onChange={(e) => {
             table.getColumn('title')?.setFilterValue(e.target.value)
           }}
-          className='app-h-8 app-w-[150px] lg:app-w-[250px]'
+          className='h-8 w-[150px] lg:w-[250px]'
         />
 
         {table.getColumn('degreeProgram') && (
@@ -49,10 +49,10 @@ const MonographsDataTableToolbar = <TData,>({
           <Button
             variant='ghost'
             onClick={() => table.resetColumnFilters()}
-            className='app-h-8 app-px-2 lg:app-px-3'
+            className='h-8 px-2 lg:px-3'
           >
             Limpiar filtros
-            <XCircle className='app-ml-2 app-h-4 app-w-4' />
+            <XCircle className='ml-2 h-4 w-4' />
           </Button>
         )}
       </div>

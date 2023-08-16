@@ -67,43 +67,38 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
   const selectedDegreePrograms = watch('degreePrograms')
 
   return (
-    <form
-      className='app-grid app-gap-6 app-w-full'
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <div className='app-grid app-w-full app-items-center app-gap-3'>
-        <div className='app-flex app-w-full md:app-items-center md:app-space-x-2 app-flex-col md:app-flex-row app-space-y-2 md:app-space-y-0'>
+    <form className='grid w-full gap-6' onSubmit={handleSubmit(onSubmit)}>
+      <div className='grid w-full items-center gap-3'>
+        <div className='flex w-full flex-col space-y-2 md:flex-row md:items-center md:space-x-2 md:space-y-0'>
           <Input
             id='title'
             type='text'
             placeholder='Ingresa el título de tu monografía a buscar'
             {...register('title')}
-            className='app-w-full app-text-base app-h-12'
+            className='h-12 w-full text-base'
           />
 
           <Button type='submit'>
-            <Search className='app-mr-2 app-h-4 app-w-4' /> Buscar
+            <Search className='mr-2 h-4 w-4' /> Buscar
           </Button>
         </div>
 
         {errors.title && (
-          <span className='app-text-sm app-text-red-500'>
-            {errors.title.message}
-          </span>
+          <span className='text-sm text-red-500'>{errors.title.message}</span>
         )}
 
-        <div className='app-flex app-flex-1 app-space-x-4 app-items-center'>
+        <div className='flex flex-1 items-center space-x-4'>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button type='button' variant='outline'>
-                <Filter className='app-mr-2 app-h-4 app-w-4' /> Filtrar
+                <Filter className='mr-2 h-4 w-4' /> Filtrar
               </Button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent>
               <DropdownMenuGroup>
-                <DropdownMenuLabel className='app-flex app-items-center app-flex-1'>
-                  <BookMarked className='app-mr-2 app-h-4 app-w-4' />
+                <DropdownMenuLabel className='flex flex-1 items-center'>
+                  <BookMarked className='mr-2 h-4 w-4' />
                   <span>Programa académico</span>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
@@ -141,17 +136,18 @@ const SearchMonographForm: NextPage<SearchMonographFormProps> = () => {
           {selectedDegreePrograms !== undefined &&
             selectedDegreePrograms.length > 0 && (
               <div>
-                <span className='app-text-sm app-text-slate-500'>
+                <span className='text-sm text-slate-500'>
                   Programas académicos:{' '}
                   {degreePrograms
-                    ?.filter((degreeProgram) =>
-                      watch('degreePrograms')?.includes(degreeProgram.code),
+                    ?.filter(
+                      (degreeProgram) =>
+                        watch('degreePrograms')?.includes(degreeProgram.code),
                     )
                     .map((degreeProgram) => (
                       <Badge
                         key={degreeProgram.code}
                         variant='secondary'
-                        className='app-mr-1'
+                        className='mr-1'
                       >
                         {degreeProgram.name}
                       </Badge>

@@ -5,9 +5,9 @@ import DashboardShell from '~/components/dashboard-shell'
 const LoadingMonographsPage = () => {
   return (
     <DashboardShell>
-      <div className='app-flex app-flex-row app-space-x-4 app-items-center app-justify-between app-w-full'>
-        <Skeleton className='app-h-10 app-w-full' />
-        <Skeleton className='app-h-10 app-w-full' />
+      <div className='flex w-full flex-row items-center justify-between space-x-4'>
+        <Skeleton className='h-10 w-full' />
+        <Skeleton className='h-10 w-full' />
       </div>
       <Skeleton className='h-20 w-full' />
       <Skeleton className='h-20 w-full' />

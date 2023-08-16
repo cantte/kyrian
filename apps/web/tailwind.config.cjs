@@ -5,7 +5,6 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   darkMode: ['class', '[app-theme="dark"]'],
   presets: [require('@kyrian/tailwind-config')],
-  prefix: 'app-',
   theme: {
     container: {
       center: true,

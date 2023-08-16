@@ -23,12 +23,9 @@ export const metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      lang='en'
-      className={`app-font-sans app-antialiased ${inter.variable}`}
-    >
+    <html lang='en' className={`font-sans antialiased ${inter.variable}`}>
       <head />
-      <body className='app-min-h-screen app-bg-background'>
+      <body className='bg-background min-h-screen'>
         <ThemeProvider attribute='app-theme' defaultTheme='system' enableSystem>
           {children}
         </ThemeProvider>

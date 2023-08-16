@@ -69,7 +69,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='app-grid app-gap-6 app-w-full px-2 py-2'
+        className='grid w-full gap-6 px-2 py-2'
       >
         <FormField
           control={form.control}
@@ -85,30 +85,30 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
           )}
         />
 
-        <div className='app-grid app-w-full app-gap-1.5 md:app-grid-cols-2'>
+        <div className='grid w-full gap-1.5 md:grid-cols-2'>
           <FormField
             control={form.control}
             name='creation'
             render={({ field }) => (
-              <FormItem className='app-flex app-flex-col'>
+              <FormItem className='flex flex-col'>
                 <FormLabel htmlFor='creation'>Creación</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
                       <Button
                         variant='outline'
-                        className='app-pl-3 app-text-left app-font-normal'
+                        className='pl-3 text-left font-normal'
                       >
                         {field.value ? (
                           format(field.value, 'PPP')
                         ) : (
                           <span>Seleccione una fecha</span>
                         )}
-                        <CalendarIcon className='app-ml-auto app-h-4 app-w-4 app-opacity-50' />
+                        <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                       </Button>
                     </FormControl>
                   </PopoverTrigger>
-                  <PopoverContent className='app-w-auto app-p-0' align='start'>
+                  <PopoverContent className='w-auto p-0' align='start'>
                     <Calendar
                       mode='single'
                       selected={field.value}
@@ -126,25 +126,25 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
             control={form.control}
             name='expiration'
             render={({ field }) => (
-              <FormItem className='app-flex app-flex-col'>
+              <FormItem className='flex flex-col'>
                 <FormLabel htmlFor='expiration'>Vencimiento</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
                       <Button
                         variant='outline'
-                        className='app-pl-3 app-text-left app-font-normal'
+                        className='pl-3 text-left font-normal'
                       >
                         {field.value ? (
                           format(field.value, 'PPP')
                         ) : (
                           <span>Seleccione una fecha</span>
                         )}
-                        <CalendarIcon className='app-ml-auto app-h-4 app-w-4 app-opacity-50' />
+                        <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                       </Button>
                     </FormControl>
                   </PopoverTrigger>
-                  <PopoverContent className='app-w-auto app-p-0' align='start'>
+                  <PopoverContent className='w-auto p-0' align='start'>
                     <Calendar
                       mode='single'
                       selected={field.value}
@@ -164,7 +164,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
             control={form.control}
             name='isActive'
             render={({ field }) => (
-              <FormItem className='app-flex app-flex-row app-items-start app-space-x-3 app-space-y-0'>
+              <FormItem className='flex flex-row items-start space-x-3 space-y-0'>
                 <FormControl>
                   <Checkbox
                     id='isActive'
@@ -172,7 +172,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <div className='app-leading-none'>
+                <div className='leading-none'>
                   <FormLabel htmlFor='expiration'>¿Está activo?</FormLabel>
                 </div>
                 <FormMessage />
@@ -186,7 +186,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
             control={form.control}
             name='description'
             render={({ field }) => (
-              <FormItem className='app-col-span-2'>
+              <FormItem className='col-span-2'>
                 <FormLabel htmlFor='description'>Descripción</FormLabel>
                 <FormControl>
                   <Textarea id='description' {...field} />
@@ -198,9 +198,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
         </div>
 
         <Button type='submit' disabled={isLoading}>
-          {isLoading && (
-            <Loader2 className='app-mr-2 app-h-4 app-w-4 app-animate-spin' />
-          )}
+          {isLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
           Registrar
         </Button>
       </form>

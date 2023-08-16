@@ -9,19 +9,19 @@ import { marketingConfig } from '~/config/marketing'
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className='app-flex app-min-h-screen app-flex-col app-space-y-6'>
-      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
-        <div className='app-container app-flex app-h-16 app-items-center app-space-x-4 app-justify-between'>
+    <div className='flex min-h-screen flex-col space-y-6'>
+      <header className='bg-background sticky top-0 z-40 border-b'>
+        <div className='container flex h-16 items-center justify-between space-x-4'>
           <MainNav items={marketingConfig.mainNav} />
-          <Suspense fallback={<Skeleton className='app-h-8 app-w-24' />}>
+          <Suspense fallback={<Skeleton className='h-8 w-24' />}>
             <AccountNav />
           </Suspense>
         </div>
       </header>
 
-      <main className='app-flex-1'>{children}</main>
+      <main className='flex-1'>{children}</main>
 
-      <SiteFooter className='app-py-4' />
+      <SiteFooter className='py-4' />
     </div>
   )
 }

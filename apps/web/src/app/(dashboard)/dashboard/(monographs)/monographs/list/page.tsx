@@ -38,7 +38,7 @@ const MonographsPage = async () => {
     <DashboardShell>
       <DashboardHeader heading='Monografias'>
         <NextLink href='/monographs/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear monografia</Button>
+          <Button className='mt-4 md:mt-0'>Crear monografia</Button>
         </NextLink>
       </DashboardHeader>
 

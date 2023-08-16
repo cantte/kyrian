@@ -22,8 +22,10 @@ const Separator = forwardRef<
       decorative={decorative}
       orientation={orientation}
       className={cn(
-        'bg-slate-200 dark:bg-slate-700',
-        orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]',
+        'ui-bg-slate-200 dark:ui-bg-slate-700',
+        orientation === 'horizontal'
+          ? 'ui-h-[1px] ui-w-full'
+          : 'ui-h-full ui-w-[1px]',
         className,
       )}
       {...props}

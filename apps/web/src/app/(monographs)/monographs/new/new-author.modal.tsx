@@ -58,43 +58,37 @@ const NewAuthorModal: FC<NewAuthorModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOnOpenChange}>
-      <DialogContent className='sm:app-max-w-[425px]'>
+      <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>
           <DialogTitle>Agregar autor</DialogTitle>
         </DialogHeader>
 
         <div className='py-4'>
           <form
-            className='app-grid app-gap-6 app-w-full'
+            className='grid w-full gap-6'
             onSubmit={handleSubmit(onSubmitForm)}
           >
-            <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+            <div className='grid w-full items-center gap-1.5'>
               <Label htmlFor='name'>Nombre</Label>
               <Input id='name' type='text' {...register('name')} />
 
               {errors.name !== undefined ? (
-                <p className='app-text-sm app-text-red-500'>
-                  {errors.name.message}
-                </p>
+                <p className='text-sm text-red-500'>{errors.name.message}</p>
               ) : (
-                <p className='app-text-sm app-text-slate-500'>
+                <p className='text-sm text-slate-500'>
                   Digite el nombre del autor
                 </p>
               )}
             </div>
 
-            <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+            <div className='grid w-full items-center gap-1.5'>
               <Label htmlFor='id'>Id (Opcional)</Label>
               <Input id='id' type='text' {...register('id')} />
 
               {errors.id !== undefined ? (
-                <p className='app-text-sm app-text-red-500'>
-                  {errors.id.message}
-                </p>
+                <p className='text-sm text-red-500'>{errors.id.message}</p>
               ) : (
-                <p className='app-text-sm app-text-slate-500'>
-                  Digite el id del autor
-                </p>
+                <p className='text-sm text-slate-500'>Digite el id del autor</p>
               )}
             </div>
 
@@ -102,7 +96,7 @@ const NewAuthorModal: FC<NewAuthorModalProps> = ({
               <Button
                 type='button'
                 variant='secondary'
-                className='app-mt-3 sm:app-mt-0'
+                className='mt-3 sm:mt-0'
                 onClick={() => {
                   reset()
                   onClose()
@@ -113,7 +107,7 @@ const NewAuthorModal: FC<NewAuthorModalProps> = ({
 
               <Button type='submit' disabled={isSubmitting}>
                 {isSubmitting && (
-                  <Loader2 className='app-mr-2 app-h-4 app-w-4 app-animate-spin' />
+                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                 )}
                 Agregar autor
               </Button>

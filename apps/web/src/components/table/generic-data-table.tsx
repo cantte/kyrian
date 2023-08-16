@@ -87,7 +87,7 @@ const GenericDataTable = <TData, TValue>({
         </Table>
       </div>
 
-      <div className='app-flex app-items-center app-justify-end app-space-x-2 app-py-4'>
+      <div className='flex items-center justify-end space-x-2 py-4'>
         <Button
           variant='outline'
           size='sm'

@@ -9,7 +9,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <textarea
         className={cn(
-          'flex h-20 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-50 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900',
+          'ui-flex ui-h-20 ui-w-full ui-rounded-md ui-border ui-border-slate-300 ui-bg-transparent ui-px-3 ui-py-2 ui-text-sm placeholder:ui-text-slate-400 focus:ui-outline-none focus:ui-ring-2 focus:ui-ring-slate-400 focus:ui-ring-offset-2 disabled:ui-cursor-not-allowed disabled:ui-opacity-50 dark:ui-border-slate-700 dark:ui-text-slate-50 dark:focus:ui-ring-slate-400 dark:focus:ui-ring-offset-slate-900',
           className,
         )}
         ref={ref}

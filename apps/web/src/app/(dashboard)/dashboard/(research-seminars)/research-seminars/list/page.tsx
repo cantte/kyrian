@@ -38,7 +38,7 @@ const ResearchSeminarsPage = async () => {
     <DashboardShell>
       <DashboardHeader heading='Seminarios de investigación'>
         <NextLink href={'/dashboard/research-seminars/new'} passHref>
-          <Button className='app-mt-4 md:app-mt-0'>
+          <Button className='mt-4 md:mt-0'>
             Crear seminario de investigación
           </Button>
         </NextLink>

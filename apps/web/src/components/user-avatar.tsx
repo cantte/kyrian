@@ -16,8 +16,8 @@ const UserAvatar = ({ user, ...props }: UserAvatarProps) => {
         <AvatarImage src={user.image} alt='Picture' />
       ) : (
         <AvatarFallback>
-          <span className='app-sr-only'>{user.name}</span>
-          <Icons.user className='app-w-4 app-h-4' />
+          <span className='sr-only'>{user.name}</span>
+          <Icons.user className='h-4 w-4' />
         </AvatarFallback>
       )}
     </Avatar>

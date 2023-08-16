@@ -36,7 +36,7 @@ const DegreeProgramsPage = async () => {
     <DashboardShell>
       <DashboardHeader heading='Programas académicos'>
         <NextLink href='/degree-programs/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear programa</Button>
+          <Button className='mt-4 md:mt-0'>Crear programa</Button>
         </NextLink>
       </DashboardHeader>
 

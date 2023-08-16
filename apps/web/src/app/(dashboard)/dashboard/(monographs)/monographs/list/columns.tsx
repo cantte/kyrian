@@ -54,12 +54,12 @@ export const columns: ColumnDef<MonographOutput>[] = [
       const id = row.original.id
 
       return (
-        <div className='app-flex'>
+        <div className='flex'>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <NextLink href={`/monographs/${id}/view`}>
-                  <Eye className='app-h-6 app-w-6 app-cursor-pointer hover:app-text-foreground/80' />
+                  <Eye className='hover:text-foreground/80 h-6 w-6 cursor-pointer' />
                 </NextLink>
               </TooltipTrigger>
               <TooltipContent>

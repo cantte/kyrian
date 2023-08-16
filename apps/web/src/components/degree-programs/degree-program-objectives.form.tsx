@@ -53,10 +53,7 @@ const DegreeProgramObjectivesForm: FC<DegreeProgramObjectivesFormProps> = ({
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className='app-grid app-space-y-4'
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className='grid space-y-4'>
         <FormField
           control={form.control}
           name='description'

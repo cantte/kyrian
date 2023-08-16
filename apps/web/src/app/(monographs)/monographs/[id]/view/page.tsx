@@ -39,7 +39,7 @@ const ViewMonographPage = async ({ params }: ViewMonographPageProps) => {
   }
 
   return (
-    <div className='app-h-screen'>
+    <div className='h-screen'>
       <MonographView url={dowloadUrl} />
     </div>
   )

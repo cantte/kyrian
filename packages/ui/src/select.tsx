@@ -23,13 +23,13 @@ const SelectTrigger = forwardRef<
   <SelectPrimitive.Trigger
     ref={forwardedRef}
     className={cn(
-      'border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring flex h-10 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+      'ui-border-input ui-ring-offset-background placeholder:ui-text-muted-foreground focus:ui-ring-ring ui-flex ui-h-10 ui-w-full ui-items-center ui-justify-between ui-rounded-md ui-border ui-bg-transparent ui-px-3 ui-py-2 ui-text-sm focus:ui-outline-none focus:ui-ring-2 focus:ui-ring-offset-2 disabled:ui-cursor-not-allowed disabled:ui-opacity-50',
       className,
     )}
     {...props}
   >
     {props.children}
-    <ChevronDown className='h-4 w-4 opacity-50' />
+    <ChevronDown className='ui-h-4 ui-w-4 ui-opacity-50' />
   </SelectPrimitive.Trigger>
 ))
 
@@ -43,8 +43,8 @@ const SelectContent = forwardRef<
     <SelectPrimitive.Content
       ref={forwardedRef}
       className={cn(
-        'bg-popover text-popover-foreground animate-in fade-in-80 relative z-50 min-w-[8rem] overflow-hidden rounded-md border shadow-md',
-        position === 'popper' && 'translate-y-1',
+        'ui-bg-popover ui-text-popover-foreground ui-animate-in ui-fade-in-80 ui-relative ui-z-50 ui-min-w-[8rem] ui-overflow-hidden ui-rounded-md ui-border ui-shadow-md',
+        position === 'popper' && 'ui-translate-y-1',
         className,
       )}
       position={position}
@@ -52,9 +52,9 @@ const SelectContent = forwardRef<
     >
       <SelectPrimitive.Viewport
         className={cn(
-          'p-1',
+          'ui-p-1',
           position === 'popper' &&
-            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+            'ui-h-[var(--radix-select-trigger-height)] ui-w-full ui-min-w-[var(--radix-select-trigger-width)]',
         )}
       >
         {children}
@@ -71,7 +71,10 @@ const SelectLabel = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <SelectPrimitive.Label
     ref={forwardedRef}
-    className={cn('py-1.5 pl-8 pr-2 text-sm font-semibold', className)}
+    className={cn(
+      'ui-py-1.5 ui-pl-8 ui-pr-2 ui-text-sm ui-font-semibold',
+      className,
+    )}
     {...props}
   />
 ))
@@ -85,14 +88,14 @@ const SelectItem = forwardRef<
   <SelectPrimitive.Item
     ref={forwardedRef}
     className={cn(
-      'focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'focus:ui-bg-accent focus:ui-text-accent-foreground ui-relative ui-flex ui-w-full ui-cursor-default ui-select-none ui-items-center ui-rounded-sm ui-py-1.5 ui-pl-8 ui-pr-2 ui-text-sm ui-outline-none data-[disabled]:ui-pointer-events-none data-[disabled]:ui-opacity-50',
       className,
     )}
     {...props}
   >
-    <span className='absolute left-2 flex h-3.5 w-3.5 items-center justify-center'>
+    <span className='ui-absolute ui-left-2 ui-flex ui-h-3.5 ui-w-3.5 ui-items-center ui-justify-center'>
       <SelectPrimitive.ItemIndicator>
-        <Check className='h-4 w-4' />
+        <Check className='ui-h-4 ui-w-4' />
       </SelectPrimitive.ItemIndicator>
     </span>
 
@@ -108,7 +111,7 @@ const SelectSeparator = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <SelectPrimitive.Separator
     ref={forwardedRef}
-    className={cn('bg-muted -mx-1 my-1 h-px', className)}
+    className={cn('ui-bg-muted ui--mx-1 ui-my-1 ui-h-px', className)}
     {...props}
   />
 ))

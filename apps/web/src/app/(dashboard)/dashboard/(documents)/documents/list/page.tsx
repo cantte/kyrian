@@ -37,7 +37,7 @@ const DocumentsPage = async () => {
     <DashboardShell>
       <DashboardHeader heading='Documentos'>
         <NextLink href='/dashboard/documents/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear documento</Button>
+          <Button className='mt-4 md:mt-0'>Crear documento</Button>
         </NextLink>
       </DashboardHeader>
 

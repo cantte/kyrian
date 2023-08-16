@@ -2,8 +2,8 @@ import { type PropsWithChildren } from 'react'
 
 const FormatsLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className='app-container app-grid app-gap-12 app-grid-cols-1'>
-      <main className='app-flex app-w-full app-flex-1 app-flex-col app-overflow-hidden'>
+    <div className='container grid grid-cols-1 gap-12'>
+      <main className='flex w-full flex-1 flex-col overflow-hidden'>
         {children}
       </main>
     </div>

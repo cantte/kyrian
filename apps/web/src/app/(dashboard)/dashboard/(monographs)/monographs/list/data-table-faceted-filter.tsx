@@ -40,29 +40,25 @@ const MonographsDataTableFacetedFilter = <TData, TValue>({
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          variant='outline'
-          size='sm'
-          className='app-h-8 app-border-dashed'
-        >
-          <PlusCircle className='app-mr-2 app-h-4 app-w-4' />
+        <Button variant='outline' size='sm' className='h-8 border-dashed'>
+          <PlusCircle className='mr-2 h-4 w-4' />
           {title}
 
           {selectedValues?.size > 0 && (
             <>
-              <Separator orientation='vertical' className='app-mx-2 app-h-4' />
+              <Separator orientation='vertical' className='mx-2 h-4' />
               <Badge
                 variant='secondary'
-                className='app-rounded-sm app-px-1 app-font-normal lg:app-hidden'
+                className='rounded-sm px-1 font-normal lg:hidden'
               >
                 {selectedValues.size}
               </Badge>
 
-              <div className='app-hidden app-space-x-1 lg:app-flex'>
+              <div className='hidden space-x-2 lg:flex'>
                 {selectedValues.size > 2 ? (
                   <Badge
                     variant='secondary'
-                    className='app-rounded-sm app-px-1 app-font-normal'
+                    className='rounded-sm px-1 font-normal'
                   >
                     {selectedValues.size} seleccionados
                   </Badge>
@@ -73,7 +69,7 @@ const MonographsDataTableFacetedFilter = <TData, TValue>({
                       <Badge
                         variant='secondary'
                         key={option.value}
-                        className='app-rounded-sm app-px-1 app-font-normal'
+                        className='rounded-sm px-1 font-normal'
                       >
                         {option.label}
                       </Badge>
@@ -85,7 +81,7 @@ const MonographsDataTableFacetedFilter = <TData, TValue>({
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent className='app-w-[200px] app-p-0' align='start'>
+      <PopoverContent className='w-[200px] p-0' align='start'>
         <Command>
           <CommandInput placeholder={`Filtrar por ${title}`} />
           <CommandList>

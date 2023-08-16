@@ -38,7 +38,7 @@ const EventsPage = async () => {
     <DashboardShell>
       <DashboardHeader heading='Eventos'>
         <NextLink href='/events/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear evento</Button>
+          <Button className='mt-4 md:mt-0'>Crear evento</Button>
         </NextLink>
       </DashboardHeader>
 
