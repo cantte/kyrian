@@ -56,7 +56,7 @@ const MonographsDataTable = <TData, TValue>({
   })
 
   return (
-    <div className='app-space-y-4'>
+    <div className='space-y-4'>
       <MonographsDataTableToolbar
         table={table}
         degreePrograms={degreePrograms}
