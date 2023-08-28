@@ -70,11 +70,11 @@
 
 @layer base {
   * {
-    @apply ui-border-border;
+    @apply border-border;
   }
 
   body {
-    @apply ui-bg-background ui-text-foreground;
+    @apply bg-background text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 }

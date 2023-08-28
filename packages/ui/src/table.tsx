@@ -9,10 +9,10 @@ import { cn } from './lib/utils'
 
 const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
-    <div className='ui-w-full ui-overflow-auto'>
+    <div className='w-full overflow-auto'>
       <table
         ref={ref}
-        className={cn('ui-w-full ui-caption-bottom ui-text-sm', className)}
+        className={cn('w-full caption-bottom text-sm', className)}
         {...props}
       />
     </div>
@@ -24,7 +24,7 @@ const TableHeader = forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn('[&_tr]:ui-border-b', className)} {...props} />
+  <thead ref={ref} className={cn('[&_tr]:border-b', className)} {...props} />
 ))
 TableHeader.displayName = '@kyrian/ui/TableHeader'
 
@@ -34,7 +34,7 @@ const TableBody = forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn('[&_tr:last-child]:ui-border-0', className)}
+    className={cn('[&_tr:last-child]:border-0', className)}
     {...props}
   />
 ))
@@ -46,10 +46,7 @@ const TableFooter = forwardRef<
 >(({ className, ...props }, ref) => (
   <tfoot
     ref={ref}
-    className={cn(
-      'ui-bg-primary ui-text-primary-foreground ui-font-medium',
-      className,
-    )}
+    className={cn('bg-primary text-primary-foreground font-medium', className)}
     {...props}
   />
 ))
@@ -62,7 +59,7 @@ const TableRow = forwardRef<
   <tr
     ref={ref}
     className={cn(
-      'hover:ui-bg-muted/50 data-[state=selected]:ui-bg-muted ui-border-b ui-transition-colors',
+      'hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors',
       className,
     )}
     {...props}
@@ -77,7 +74,7 @@ const TableHead = forwardRef<
   <th
     ref={ref}
     className={cn(
-      'ui-text-muted-foreground ui-h-12 ui-px-4 ui-text-left ui-align-middle ui-font-medium [&:has([role=checkbox])]:ui-pr-0',
+      'text-muted-foreground h-12 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0',
       className,
     )}
     {...props}
@@ -91,10 +88,7 @@ const TableCell = forwardRef<
 >(({ className, ...props }, ref) => (
   <td
     ref={ref}
-    className={cn(
-      'ui-p-4 ui-align-middle [&:has([role=checkbox])]:ui-pr-0',
-      className,
-    )}
+    className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', className)}
     {...props}
   />
 ))
@@ -106,7 +100,7 @@ const TableCaption = forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn('ui-text-muted-foreground ui-mt-4 ui-text-sm', className)}
+    className={cn('text-muted-foreground mt-4 text-sm', className)}
     {...props}
   />
 ))

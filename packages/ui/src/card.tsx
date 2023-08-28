@@ -7,7 +7,7 @@ const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        'ui-bg-card ui-text-card-foreground ui-rounded-lg ui-border ui-shadow-sm',
+        'bg-card text-card-foreground rounded-lg border shadow-sm',
         className,
       )}
       {...props}
@@ -20,7 +20,7 @@ const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('ui-flex ui-flex-col ui-space-y-1.5 ui-p-6', className)}
+      className={cn('flex flex-col space-y-1.5 p-6', className)}
       {...props}
     />
   ),
@@ -34,7 +34,7 @@ const CardTitle = forwardRef<
   <h3
     ref={ref}
     className={cn(
-      'ui-text-lg ui-font-semibold ui-leading-none ui-tracking-tight',
+      'text-lg font-semibold leading-none tracking-tight',
       className,
     )}
     {...props}
@@ -48,7 +48,7 @@ const CardDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn('ui-text-muted-foreground ui-text-sm', className)}
+    className={cn('text-muted-foreground text-sm', className)}
     {...props}
   />
 ))
@@ -56,7 +56,7 @@ CardDescription.displayName = '@kyrian/ui/card-description'
 
 const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('ui-p-6 ui-pt-0', className)} {...props} />
+    <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
   ),
 )
 CardContent.displayName = 'CardContent'
@@ -65,7 +65,7 @@ const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('ui-flex ui-items-center ui-p-6 ui-pt-0', className)}
+      className={cn('flex items-center p-6 pt-0', className)}
       {...props}
     />
   ),

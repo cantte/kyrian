@@ -7,7 +7,7 @@ type Props = HTMLAttributes<HTMLDivElement>
 const Skeleton: FC<Props> = ({ className, ...props }) => {
   return (
     <div
-      className={cn('ui-bg-muted ui-animate-pulse ui-rounded-md', className)}
+      className={cn('bg-muted animate-pulse rounded-md', className)}
       {...props}
     />
   )

@@ -21,7 +21,7 @@ const DialogPortal = ({
   ...props
 }: DialogPrimitive.DialogPortalProps) => (
   <DialogPrimitive.Portal className={cn(className)} {...props}>
-    <div className='ui-fixed ui-inset-0 ui-z-50 ui-flex ui-items-start ui-justify-center sm:ui-items-center'>
+    <div className='fixed inset-0 z-50 flex items-start justify-center sm:items-center'>
       {children}
     </div>
   </DialogPrimitive.Portal>
@@ -34,7 +34,7 @@ const DialogOverlay = forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     className={cn(
-      'ui-bg-background/80 data-[state=closed]:ui-animate-out data-[state=closed]:ui-fade-out data-[state=open]:ui-fade-in ui-fixed ui-inset-0 ui-z-50 ui-backdrop-blur-sm ui-transition-all ui-duration-100',
+      'bg-background/80 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in fixed inset-0 z-50 backdrop-blur-sm transition-all duration-100',
       className,
     )}
     {...props}
@@ -52,14 +52,14 @@ const DialogContent = forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        'ui-bg-background ui-animate-in data-[state=open]:ui-fade-in-90 data-[state=open]:ui-slide-in-from-bottom-10 sm:ui-zoom-in-90 data-[state=open]:sm:ui-slide-in-from-bottom-0 ui-fixed ui-z-50 ui-grid ui-w-full ui-gap-4 ui-rounded-b-lg ui-border ui-p-6 ui-shadow-lg sm:ui-max-w-lg sm:ui-rounded-lg',
+        'bg-background animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 fixed z-50 grid w-full gap-4 rounded-b-lg border p-6 shadow-lg sm:max-w-lg sm:rounded-lg',
         className,
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className='ui-ring-offset-background focus:ui-ring-ring data-[state=open]:ui-bg-accent data-[state=open]:ui-text-muted-foreground ui-absolute ui-right-4 ui-top-4 ui-rounded-sm ui-opacity-70 ui-transition-opacity hover:ui-opacity-100 focus:ui-outline-none focus:ui-ring-2 focus:ui-ring-offset-2 disabled:ui-pointer-events-none'>
-        <X className='ui-h-4 ui-w-4' />
+      <DialogPrimitive.Close className='ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none'>
+        <X className='h-4 w-4' />
         <span className='sr-only'>Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -73,7 +73,7 @@ const DialogHeader = ({
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'ui-flex ui-flex-col ui-space-y-1.5 ui-text-center sm:ui-text-left',
+      'flex flex-col space-y-1.5 text-center sm:text-left',
       className,
     )}
     {...props}
@@ -87,7 +87,7 @@ const DialogFooter = ({
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'ui-flex ui-flex-col-reverse sm:ui-flex-row sm:ui-justify-end sm:ui-space-x-2',
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
       className,
     )}
     {...props}
@@ -102,7 +102,7 @@ const DialogTitle = forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      'ui-text-lg ui-font-semibold ui-leading-none ui-tracking-tight',
+      'text-lg font-semibold leading-none tracking-tight',
       className,
     )}
     {...props}
@@ -116,7 +116,7 @@ const DialogDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn('ui-text-muted-foreground ui-text-sm', className)}
+    className={cn('text-muted-foreground text-sm', className)}
     {...props}
   />
 ))

@@ -18,7 +18,7 @@ const AccordionItem = forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn('ui-border-b', className)}
+    className={cn('border-b', className)}
     {...props}
   />
 ))
@@ -32,13 +32,13 @@ const AccordionTrigger = forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        'ui-flex ui-flex-1 ui-items-center ui-justify-between ui-py-4 ui-font-medium ui-transition-all hover:ui-underline [&[data-state=open]>svg]:ui-rotate-180',
+        'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
         className,
       )}
       {...props}
     >
       {children}
-      <ChevronDown className='ui-h-4 ui-w-4 ui-transition-transform ui-duration-200' />
+      <ChevronDown className='h-4 w-4 transition-transform duration-200' />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
@@ -51,12 +51,12 @@ const AccordionContent = forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className={cn(
-      'data-[state=closed]:ui-animate-accordion-up data-[state=open]:ui-animate-accordion-down ui-overflow-hidden ui-text-sm ui-transition-all',
+      'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all',
       className,
     )}
     {...props}
   >
-    <div className='ui-pb-4 ui-pt-0'>{children}</div>
+    <div className='pb-4 pt-0'>{children}</div>
   </AccordionPrimitive.Content>
 ))
 AccordionContent.displayName = '@kyrian/ui/AccordionContent'

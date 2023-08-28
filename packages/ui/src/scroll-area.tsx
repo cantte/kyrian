@@ -15,10 +15,10 @@ const ScrollArea = forwardRef<
 >(({ className, children, ...props }, ref) => (
   <ScrollAreaPrimitive.Root
     ref={ref}
-    className={cn('ui-relative ui-overflow-hidden', className)}
+    className={cn('relative overflow-hidden', className)}
     {...props}
   >
-    <ScrollAreaPrimitive.Viewport className='ui-h-full ui-w-full ui-rounded-[inherit]'>
+    <ScrollAreaPrimitive.Viewport className='h-full w-full rounded-[inherit]'>
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
@@ -35,16 +35,16 @@ const ScrollBar = forwardRef<
     ref={ref}
     orientation={orientation}
     className={cn(
-      'ui-flex ui-touch-none ui-select-none ui-transition-colors',
+      'flex touch-none select-none transition-colors',
       orientation === 'vertical' &&
-        'ui-h-full ui-w-2.5 ui-border-l ui-border-l-transparent ui-p-[1px]',
+        'h-full w-2.5 border-l border-l-transparent p-[1px]',
       orientation === 'horizontal' &&
-        'ui-h-2.5 ui-border-t ui-border-t-transparent ui-p-[1px]',
+        'h-2.5 border-t border-t-transparent p-[1px]',
       className,
     )}
     {...props}
   >
-    <ScrollAreaPrimitive.ScrollAreaThumb className='ui-bg-border ui-relative ui-flex-1 ui-rounded-full' />
+    <ScrollAreaPrimitive.ScrollAreaThumb className='bg-border relative flex-1 rounded-full' />
   </ScrollAreaPrimitive.ScrollAreaScrollbar>
 ))
 ScrollBar.displayName = '@kyrian/ui/ScrollBar'

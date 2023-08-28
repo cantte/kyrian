@@ -15,7 +15,7 @@ const RadioGroup = forwardRef<
   ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Root
-    className={cn('ui-grid ui-gap-2', className)}
+    className={cn('grid gap-2', className)}
     {...props}
     ref={ref}
   />
@@ -29,13 +29,13 @@ const RadioGroupItem = forwardRef<
   <RadioGroupPrimitive.Item
     ref={ref}
     className={cn(
-      'text:ui-fill-slate-50 ui-h-4 ui-w-4 ui-rounded-full ui-border ui-border-slate-300 ui-text-slate-900 hover:ui-border-slate-400 focus:ui-outline-none focus:ui-ring-2 focus:ui-ring-slate-400 focus:ui-ring-offset-2 disabled:ui-cursor-not-allowed disabled:ui-opacity-50 dark:ui-border-slate-700 dark:ui-text-slate-100 dark:hover:ui-text-slate-900 dark:focus:ui-ring-slate-400 dark:focus:ui-ring-offset-slate-900',
+      'text:fill-slate-50 h-4 w-4 rounded-full border border-slate-300 text-slate-900 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:text-slate-100 dark:hover:text-slate-900 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900',
       className,
     )}
     {...props}
   >
-    <RadioGroupPrimitive.Indicator className='ui-flex ui-items-center ui-justify-center'>
-      <Circle className='ui-h-2.5 ui-w-2.5 ui-fill-slate-900 dark:ui-fill-slate-50' />
+    <RadioGroupPrimitive.Indicator className='flex items-center justify-center'>
+      <Circle className='h-2.5 w-2.5 fill-slate-900 dark:fill-slate-50' />
     </RadioGroupPrimitive.Indicator>
   </RadioGroupPrimitive.Item>
 ))

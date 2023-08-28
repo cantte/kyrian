@@ -21,7 +21,7 @@ const AlertDialogPortal = ({
   ...props
 }: AlertDialogPrimitive.AlertDialogPortalProps) => (
   <AlertDialogPrimitive.Portal className={cn(className)} {...props}>
-    <div className='ui-fixed ui-inset-0 ui-z-50 ui-flex ui-items-end ui-justify-center sm:ui-items-center'>
+    <div className='fixed inset-0 z-50 flex items-end justify-center sm:items-center'>
       {children}
     </div>
   </AlertDialogPrimitive.Portal>
@@ -34,7 +34,7 @@ const AlertDialogOverlay = forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
     className={cn(
-      'ui-bg-background/80 ui-animate-in ui-fade-in ui-fixed ui-inset-0 ui-z-50 ui-backdrop-blur-sm ui-transition-opacity',
+      'bg-background/80 animate-in fade-in fixed inset-0 z-50 backdrop-blur-sm transition-opacity',
       className,
     )}
     {...props}
@@ -52,7 +52,7 @@ const AlertDialogContent = forwardRef<
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        'ui-bg-background ui-animate-in ui-fade-in-90 ui-slide-in-from-bottom-10 sm:ui-zoom-in-90 sm:ui-slide-in-from-bottom-0 ui-fixed ui-z-50 ui-grid ui-w-full ui-max-w-lg ui-scale-100 ui-gap-4 ui-border ui-p-6 ui-opacity-100 ui-shadow-lg sm:ui-rounded-lg md:ui-w-full',
+        'bg-background animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90 sm:slide-in-from-bottom-0 fixed z-50 grid w-full max-w-lg scale-100 gap-4 border p-6 opacity-100 shadow-lg sm:rounded-lg md:w-full',
         className,
       )}
       {...props}
@@ -67,7 +67,7 @@ const AlertDialogHeader = ({
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'ui-flex ui-flex-col ui-space-y-2 ui-text-center sm:ui-text-left',
+      'flex flex-col space-y-2 text-center sm:text-left',
       className,
     )}
     {...props}
@@ -81,7 +81,7 @@ const AlertDialogFooter = ({
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'ui-flex ui-flex-col-reverse sm:ui-flex-row sm:ui-justify-end sm:ui-space-x-2',
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
       className,
     )}
     {...props}
@@ -95,11 +95,7 @@ const AlertDialogTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
-    className={cn(
-      'ui-text-lg ui-font-semibold',
-      'dark:ui-text-slate-50',
-      className,
-    )}
+    className={cn('text-lg font-semibold', 'dark:text-slate-50', className)}
     {...props}
   />
 ))
@@ -111,7 +107,7 @@ const AlertDialogDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description
     ref={ref}
-    className={cn('ui-text-muted-foreground ui-text-sm', className)}
+    className={cn('text-muted-foreground text-sm', className)}
     {...props}
   />
 ))
