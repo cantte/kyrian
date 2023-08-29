@@ -29,7 +29,7 @@
     "@kyrian/tailwind-config": "0.1.0",
     "@types/node": "^18.17.5",
     "@types/react": "^18.2.21",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "eslint": "^8.47.0",
