@@ -24,7 +24,7 @@
     "@react-pdf-viewer/core": "3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf-viewer/toolbar": "^3.12.0",
-    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query": "^4.33.0",
     "@tanstack/react-table": "^8.9.3",
     "@trpc/client": "^10.37.1",
     "@trpc/next": "^10.37.1",
