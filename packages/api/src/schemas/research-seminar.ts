@@ -18,14 +18,5 @@ export const newResearchSeminarSchema = z.object({
         message: 'La fecha de creación no puede ser mayor a la fecha actual',
       },
     ),
-  expiration: z.coerce
-    .date()
-    .optional()
-    .refine(
-      (date) => (date !== undefined ? date.getTime() >= Date.now() : true),
-      {
-        message: 'La fecha de expiración no puede ser menor a la fecha actual',
-      },
-    ),
   students: z.array(z.string()).optional(),
 })
