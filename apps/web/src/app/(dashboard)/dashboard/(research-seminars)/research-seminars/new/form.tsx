@@ -1,11 +1,11 @@
 'use client'
 
-import { type ComponentType } from 'react'
+import { useState, type ComponentType } from 'react'
 import { type NextPage } from 'next'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { format } from 'date-fns'
-import { CalendarIcon, Loader2 } from 'lucide-react'
+import { CalendarIcon, Loader2, Plus } from 'lucide-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import type z from 'zod'
 
@@ -29,6 +29,9 @@ import {
 } from '@kyrian/ui'
 
 import { api } from '~/utils/api'
+import AddStudentModal, {
+  type NewStudent,
+} from '~/app/(dashboard)/dashboard/(research-seminars)/research-seminars/new/add-student.modal'
 
 type NewResearchSeminarFormValues = z.infer<typeof newResearchSeminarSchema>
 
@@ -39,7 +42,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
     resolver: zodResolver(newResearchSeminarSchema),
   })
 
-  const { handleSubmit } = form
+  const { handleSubmit, watch } = form
 
   const toast = useToast()
   const router = useRouter()
@@ -65,8 +68,22 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
     mutate(values)
   }
 
+  const students = watch('students')
+  const [isOpenAddStudentModal, setIsOpenAddStudentModal] = useState(false)
+  const closeAddStudentModal = () => setIsOpenAddStudentModal(false)
+  const onStudentSubmit = (values: NewStudent) => {
+    console.log(values)
+    closeAddStudentModal()
+  }
+
   return (
     <Form {...form}>
+      <AddStudentModal
+        isOpen={isOpenAddStudentModal}
+        onClose={closeAddStudentModal}
+        onSubmit={onStudentSubmit}
+      />
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='grid w-full gap-6 px-2 py-2'
@@ -92,42 +109,6 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
             render={({ field }) => (
               <FormItem className='flex flex-col'>
                 <FormLabel htmlFor='creation'>Creación</FormLabel>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <FormControl>
-                      <Button
-                        variant='outline'
-                        className='pl-3 text-left font-normal'
-                      >
-                        {field.value ? (
-                          format(field.value, 'PPP')
-                        ) : (
-                          <span>Seleccione una fecha</span>
-                        )}
-                        <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                      </Button>
-                    </FormControl>
-                  </PopoverTrigger>
-                  <PopoverContent className='w-auto p-0' align='start'>
-                    <Calendar
-                      mode='single'
-                      selected={field.value}
-                      onSelect={field.onChange}
-                      initialFocus
-                    />
-                  </PopoverContent>
-                </Popover>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name='expiration'
-            render={({ field }) => (
-              <FormItem className='flex flex-col'>
-                <FormLabel htmlFor='expiration'>Vencimiento</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -195,6 +176,42 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
               </FormItem>
             )}
           />
+        </div>
+
+        <div className='space-y-2'>
+          <div className='items-center justify-between space-y-2 md:flex md:space-y-0'>
+            <p className='text-xl font-semibold tracking-tight'>Estudiantes</p>
+
+            <Button
+              type='button'
+              variant='outline'
+              size='sm'
+              className='text-sm'
+              onClick={() => setIsOpenAddStudentModal(true)}
+            >
+              <span className='flex items-center gap-1.5'>
+                <Plus size={16} />
+                <span>Agregar estudiante</span>
+              </span>
+            </Button>
+          </div>
+
+          {students === undefined || students.length === 0 ? (
+            <p className='text-muted-foreground'>
+              No hay estudiantes seleccionados
+            </p>
+          ) : (
+            <div className='grid grid-cols-1 gap-2'>
+              {students.map((student, index) => (
+                <div
+                  key={student + index}
+                  className='flex items-center justify-between gap-2'
+                >
+                  <p className='text-sm'>{student}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <Button type='submit' disabled={isLoading}>
