@@ -395,8 +395,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       pnpm:
-        specifier: ^8.6.12
-        version: 8.6.12
+        specifier: ^8.7.1
+        version: 8.7.1
       react-day-picker:
         specifier: ^8.8.1
         version: 8.8.1(date-fns@2.30.0)(react@18.2.0)
@@ -7586,8 +7586,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /pnpm@8.6.12:
-    resolution: {integrity: sha512-Eza4C5SO/Xl5IYozupbZ5NOA5leBRPYxmXmXfe7G4/4uCkRLhks84rB33aitxNZU/uMrnDGGjwrLktoKvPjqHA==}
+  /pnpm@8.7.1:
+    resolution: {integrity: sha512-Qbt3EhYUaXFS2k4FLQA7r2/eYz/JoDeG680/3UXG0Ga03LPuY4GgdvCLe+zO3M7ZnWG4VI4bAwk7QpJyfr5eqA==}
     engines: {node: '>=16.14'}
     hasBin: true
     dev: false
@@ -9146,7 +9146,7 @@ packages:
       '@webassemblyjs/wasm-parser': 1.11.6
       acorn: 8.9.0
       acorn-import-assertions: 1.9.0(acorn@8.9.0)
-      browserslist: 4.21.9
+      browserslist: 4.21.10
       chrome-trace-event: 1.0.3
       enhanced-resolve: 5.14.1
       es-module-lexer: 1.2.1
