@@ -163,7 +163,6 @@ Table research_seminars {
   description String
   isActive Boolean [not null, default: true]
   creation DateTime
-  expiration DateTime
   students Student [not null]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
