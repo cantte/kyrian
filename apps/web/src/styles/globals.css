@@ -1,3 +1,5 @@
+@import '../../node_modules/@kyrian/ui/dist/index.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

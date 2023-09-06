@@ -1,4 +1,3 @@
-import '@kyrian/ui/styles.css'
 import '@kyrian/web/styles/globals.css'
 
 import { type ReactNode } from 'react'
