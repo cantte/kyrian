@@ -13,11 +13,7 @@ type AddStudentModalProps = {
   onSubmit: (values: NewStudent) => void
 }
 
-const AddStudentModal: FC<AddStudentModalProps> = ({
-  isOpen,
-  onClose,
-  onSubmit,
-}) => {
+const AddStudentModal: FC<AddStudentModalProps> = ({ isOpen, onClose }) => {
   const handleOnOpenChange = (isOpen: boolean) => {
     if (!isOpen) {
       onClose()
