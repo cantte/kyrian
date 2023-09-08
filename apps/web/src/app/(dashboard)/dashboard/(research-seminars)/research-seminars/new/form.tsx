@@ -30,7 +30,7 @@ import {
 
 import { api } from '~/utils/api'
 import AddStudentModal, {
-  type NewStudent,
+  type AddStudent,
 } from '~/app/(dashboard)/dashboard/(research-seminars)/research-seminars/new/add-student.modal'
 
 type NewResearchSeminarFormValues = z.infer<typeof newResearchSeminarSchema>
@@ -71,7 +71,7 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
   const students = watch('students')
   const [isOpenAddStudentModal, setIsOpenAddStudentModal] = useState(false)
   const closeAddStudentModal = () => setIsOpenAddStudentModal(false)
-  const onStudentSubmit = (values: NewStudent) => {
+  const onStudentSubmit = (values: AddStudent) => {
     console.log(values)
     closeAddStudentModal()
   }
