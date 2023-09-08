@@ -1,6 +1,5 @@
 import { useEffect, useState, type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { is } from 'date-fns/locale'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -51,12 +50,7 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
     resolver: zodResolver(addStudentSchema),
   })
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = form
+  const { handleSubmit, reset } = form
 
   const onSubmitForm: SubmitHandler<AddStudent> = (values) => {
     onSubmit(values)
