@@ -82,7 +82,7 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
     if (student) {
       form.setValue('name', student.name)
     }
-  }, [student, isLoadingStudent])
+  }, [student, isLoadingStudent, form])
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOnOpenChange}>
