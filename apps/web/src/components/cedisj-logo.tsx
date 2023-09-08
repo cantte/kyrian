@@ -318,7 +318,7 @@ const CedisjLogo = ({ width, height }: CedisjLogoProps) => {
           cy='69.5'
           r='4.5'
           fill='#000'
-          className='app-bg-background'
+          className='bg-background'
         />
         <path
           fill='#000'

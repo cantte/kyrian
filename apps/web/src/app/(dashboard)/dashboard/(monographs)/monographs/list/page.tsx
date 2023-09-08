@@ -8,8 +8,10 @@ import { authOptions } from '@kyrian/auth'
 import { prisma } from '@kyrian/db'
 import { Button } from '@kyrian/ui'
 
-import GenericDataTable from '~/components/table/generic-data-table'
+import DashboardHeader from '~/components/dashboard-header'
+import DashboardShell from '~/components/dashboard-shell'
 import { columns } from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/columns'
+import MonographsDataTable from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/data-table'
 
 const MonographsPage = async () => {
   const session = await getServerSession(authOptions)
@@ -30,23 +32,22 @@ const MonographsPage = async () => {
   })
 
   const monographs = await ssg.monograph.list.fetch()
+  const degreePrograms = await ssg.degreeProgram.getNameAndCode.fetch()
 
   return (
-    <div className='app-space-y-8 container mx-auto py-10'>
-      <div className='md:app-flex app-justify-between app-items-center'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-font-heading app-text-3xl md:app-text-4xl'>
-            Monografías
-          </h1>
-        </div>
-
+    <DashboardShell>
+      <DashboardHeader heading='Monografias'>
         <NextLink href='/monographs/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear monografia</Button>
+          <Button className='mt-4 md:mt-0'>Crear monografia</Button>
         </NextLink>
-      </div>
+      </DashboardHeader>
 
-      <GenericDataTable columns={columns} data={monographs} />
-    </div>
+      <MonographsDataTable
+        columns={columns}
+        data={monographs}
+        degreePrograms={degreePrograms}
+      />
+    </DashboardShell>
   )
 }
 

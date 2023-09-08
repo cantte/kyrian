@@ -149,10 +149,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className='app-space-y-8 app-grid'
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className='grid space-y-8'>
         <Tabs defaultValue='main'>
           <TabsList>
             <TabsTrigger value='main'>Información general</TabsTrigger>
@@ -161,8 +158,8 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
             <TabsTrigger value='profiles'>Perfiles</TabsTrigger>
           </TabsList>
 
-          <TabsContent value='main' className='app-px-2 app-py-2'>
-            <div className='app-grid app-w-full app-gap-2 md:app-grid-cols-2'>
+          <TabsContent value='main' className='px-2 py-2'>
+            <div className='grid w-full gap-2 md:grid-cols-2'>
               <FormField
                 control={form.control}
                 name='name'
@@ -293,7 +290,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
               <Button
                 type='submit'
-                className='app-col-span-2'
+                className='col-span-2'
                 disabled={isEditingDegreeProgram}
               >
                 Guardar
@@ -301,19 +298,19 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
             </div>
           </TabsContent>
 
-          <TabsContent value='about' className='app-px-2 app-py-2'>
-            <div className='app-grid app-w-full app-gap-2 app-grid-cols-1 md:app-grid-cols-2'>
+          <TabsContent value='about' className='px-2 py-2'>
+            <div className='grid w-full grid-cols-1 gap-2 md:grid-cols-2'>
               <FormField
                 control={form.control}
                 name='history'
                 render={({ field }) => (
-                  <FormItem className='app-col-span-2'>
+                  <FormItem className='col-span-2'>
                     <FormLabel htmlFor='history'>Historia</FormLabel>
                     <FormControl>
                       <Textarea
                         rows={15}
                         id='history'
-                        className='app-resize-none app-h-48'
+                        className='h-48 resize-none'
                         {...field}
                       />
                     </FormControl>
@@ -332,7 +329,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                       <Textarea
                         rows={15}
                         id='mission'
-                        className='app-resize-none app-h-48'
+                        className='h-48 resize-none'
                         {...field}
                       />
                     </FormControl>
@@ -351,7 +348,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                       <Textarea
                         rows={15}
                         id='vision'
-                        className='app-resize-none app-h-48'
+                        className='h-48 resize-none'
                         {...field}
                       />
                     </FormControl>
@@ -362,7 +359,7 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
               <Button
                 type='submit'
-                className='app-col-span-2'
+                className='col-span-2'
                 disabled={isEditingDegreeProgram}
               >
                 Guardar
@@ -370,13 +367,13 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
             </div>
           </TabsContent>
 
-          <TabsContent value='objectives' className='app-px-2 app-py-2'>
-            <div className='app-space-y-2'>
+          <TabsContent value='objectives' className='px-2 py-2'>
+            <div className='space-y-2'>
               <Dialog
                 open={isObjectiveDialogOpen}
                 onOpenChange={(open) => setIsObjectiveDialogOpen(open)}
               >
-                <DialogTrigger className='app-mb-2 app-items-start'>
+                <DialogTrigger className='mb-2 items-start'>
                   <Button
                     type='button'
                     onClick={() => setIsObjectiveDialogOpen(true)}
@@ -399,12 +396,12 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
               <Card>
                 <CardContent>
-                  <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
+                  <ul className='list-inside list-disc pt-6 leading-7'>
                     {degreeProgram?.objectives?.map((objective, idx) => (
                       <>
                         <li
                           key={idx}
-                          className='app-flex app-flex-row app-justify-between app-space-y-2 app-items-center'
+                          className='flex flex-row items-center justify-between space-y-2'
                         >
                           <p>{objective.description}</p>
                           <Button
@@ -419,11 +416,11 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                               removeObjective({ id: objective.id })
                             }
                           >
-                            <span className='app-sr-only'>Eliminar</span>
-                            <Trash className='app-w-6 app-h-6' />
+                            <span className='sr-only'>Eliminar</span>
+                            <Trash className='h-6 w-6' />
                           </Button>
                         </li>
-                        <Separator className='app-mt-2' />
+                        <Separator className='mt-2' />
                       </>
                     ))}
                   </ul>
@@ -432,13 +429,13 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
             </div>
           </TabsContent>
 
-          <TabsContent value='profiles' className='app-px-2 app-py-2'>
-            <div className='app-space-y-2'>
+          <TabsContent value='profiles' className='px-2 py-2'>
+            <div className='space-y-2'>
               <Dialog
                 open={isProfileDialogOpen}
                 onOpenChange={(open) => setIsProfileDialogOpen(open)}
               >
-                <DialogTrigger className='app-mb-2 app-items-start'>
+                <DialogTrigger className='mb-2 items-start'>
                   <Button
                     type='button'
                     onClick={() => setIsProfileDialogOpen(true)}
@@ -461,12 +458,12 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
 
               <Card>
                 <CardContent>
-                  <ul className='app-list-disc app-list-inside app-leading-7 app-pt-6'>
+                  <ul className='list-inside list-disc pt-6 leading-7'>
                     {degreeProgram?.profiles.map((profile, idx) => (
                       <>
                         <li
                           key={idx}
-                          className='app-flex app-flex-row app-justify-between app-space-y-2 app-items-center'
+                          className='flex flex-row items-center justify-between space-y-2'
                         >
                           <div>
                             <strong>{profile.title}</strong>:{' '}
@@ -483,12 +480,12 @@ const EditDegreeProgramForm: FC<EditProgramFormProps> = ({ degreeProgram }) => {
                             }
                             onClick={() => removeProfile({ id: profile.id })}
                           >
-                            <span className='app-sr-only'>Eliminar</span>
-                            <Trash className='app-w-6 app-h-6' />
+                            <span className='sr-only'>Eliminar</span>
+                            <Trash className='h-6 w-6' />
                           </Button>
                         </li>
 
-                        <Separator className='app-mt-2' />
+                        <Separator className='mt-2' />
                       </>
                     ))}
                   </ul>

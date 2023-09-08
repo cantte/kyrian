@@ -57,11 +57,8 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
   }
 
   return (
-    <form
-      className='app-grid app-gap-6 app-w-full px-2'
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+    <form className='grid w-full gap-6 px-2' onSubmit={handleSubmit(onSubmit)}>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='id'>Identificación</Label>
         <Input
           type='text'
@@ -71,15 +68,15 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
         />
 
         {errors.id !== undefined ? (
-          <p className='app-text-sm app-text-red-500'>{errors.id.message}</p>
+          <p className='text-sm text-red-500'>{errors.id.message}</p>
         ) : (
-          <p className='app-text-sm app-text-slate-500'>
+          <p className='text-sm text-slate-500'>
             Digite su número de identificación
           </p>
         )}
       </div>
 
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='idType'>Tipo de identificación</Label>
         <Select
           onValueChange={(value) => setValue('idType', value)}
@@ -96,43 +93,37 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
         </Select>
 
         {errors.idType !== undefined ? (
-          <p className='app-text-sm app-text-red-500'>
-            {errors.idType.message}
-          </p>
+          <p className='text-sm text-red-500'>{errors.idType.message}</p>
         ) : (
-          <p className='app-text-sm app-text-slate-500'>
+          <p className='text-sm text-slate-500'>
             Seleccione el tipo de identificación
           </p>
         )}
       </div>
 
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='name'>Nombre</Label>
         <Input type='text' id='name' {...register('name')} />
 
         {errors.name !== undefined ? (
-          <p className='app-text-sm app-text-red-500'>{errors.name.message}</p>
+          <p className='text-sm text-red-500'>{errors.name.message}</p>
         ) : (
-          <p className='app-text-sm app-text-slate-500'>
-            Digite su nombre completo
-          </p>
+          <p className='text-sm text-slate-500'>Digite su nombre completo</p>
         )}
       </div>
 
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='email'>Correo electronico</Label>
         <Input type='email' id='email' {...register('email')} />
 
         {errors.email !== undefined ? (
-          <p className='app-text-sm app-text-red-500'>{errors.email.message}</p>
+          <p className='text-sm text-red-500'>{errors.email.message}</p>
         ) : (
-          <p className='app-text-sm app-text-slate-500'>
-            Digite su correo electronico
-          </p>
+          <p className='text-sm text-slate-500'>Digite su correo electronico</p>
         )}
       </div>
 
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='phone'>Teléfono</Label>
         <Input
           type='text'
@@ -142,11 +133,9 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
         />
 
         {errors.phone !== undefined ? (
-          <p className='app-text-sm app-text-red-500'>{errors.phone.message}</p>
+          <p className='text-sm text-red-500'>{errors.phone.message}</p>
         ) : (
-          <p className='app-text-sm app-text-slate-500'>
-            Digite su número de teléfono
-          </p>
+          <p className='text-sm text-slate-500'>Digite su número de teléfono</p>
         )}
       </div>
 

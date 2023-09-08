@@ -18,28 +18,25 @@ const MainNav = ({ items }: Props) => {
   const segment = useSelectedLayoutSegment()
 
   return (
-    <div className='app-flex app-gap-6 md:app-gap-10'>
-      <Link
-        href='/'
-        className='app-hidden app-items-center app-space-x-2 md:app-flex'
-      >
-        <Icons.cedisj className='app-w-12 app-h-12' />
-        <span className='app-hidden app-font-bold sm:app-inline-block app-text-primary'>
+    <div className='flex gap-6 md:gap-10'>
+      <Link href='/' className='hidden items-center space-x-2 md:flex'>
+        <Icons.cedisj className='h-12 w-12' />
+        <span className='text-primary hidden font-bold sm:inline-block'>
           CEDISJ
         </span>
       </Link>
       {items?.length ? (
-        <nav className='app-hidden app-gap-6 md:app-flex'>
+        <nav className='hidden gap-6 md:flex'>
           {items?.map((item, index) => (
             <Link
               key={index}
               href={item.disabled ? '#' : item.href}
               className={cn(
-                'app-flex app-items-center app-text-lg app-font-medium app-transition-colors hover:app-text-foreground/80 sm:app-text-sm',
+                'hover:text-foreground/80 flex items-center text-lg font-medium transition-colors sm:text-sm',
                 item.href.startsWith(`/${segment}`)
-                  ? 'app-text-foreground'
-                  : 'app-text-foreground/60',
-                item.disabled && 'app-cursor-not-allowed app-opacity-80',
+                  ? 'text-foreground'
+                  : 'text-foreground/60',
+                item.disabled && 'cursor-not-allowed opacity-80',
               )}
             >
               {item.title}

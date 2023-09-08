@@ -17,6 +17,10 @@ export const dashboardConfig: DashboardConfig = {
       href: '/dashboard/events/list',
       roles: ['admin'],
     },
+    {
+      title: 'Buscar monografias',
+      href: '/dashboard',
+    },
   ],
   sidebarNav: [
     {

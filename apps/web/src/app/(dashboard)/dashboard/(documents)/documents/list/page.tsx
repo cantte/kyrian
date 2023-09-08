@@ -8,6 +8,8 @@ import { authOptions } from '@kyrian/auth'
 import { prisma } from '@kyrian/db'
 import { Button } from '@kyrian/ui'
 
+import DashboardHeader from '~/components/dashboard-header'
+import DashboardShell from '~/components/dashboard-shell'
 import GenericDataTable from '~/components/table/generic-data-table'
 import { columns } from '~/app/(dashboard)/dashboard/(documents)/documents/list/columns'
 
@@ -32,21 +34,15 @@ const DocumentsPage = async () => {
   const documents = await ssg.document.list.fetch()
 
   return (
-    <div className='app-space-y-8 container mx-auto py-10'>
-      <div className='md:app-flex app-justify-between app-items-center'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-font-heading app-text-3xl md:app-text-4xl'>
-            Documentos
-          </h1>
-        </div>
-
+    <DashboardShell>
+      <DashboardHeader heading='Documentos'>
         <NextLink href='/dashboard/documents/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear documento</Button>
+          <Button className='mt-4 md:mt-0'>Crear documento</Button>
         </NextLink>
-      </div>
+      </DashboardHeader>
 
       <GenericDataTable columns={columns} data={documents} />
-    </div>
+    </DashboardShell>
   )
 }
 

@@ -32,10 +32,10 @@ const RegisterNewStudentPage = async () => {
   }
 
   return (
-    <div className='app-grid app-items-start app-gap-8 app-max-w-2xl'>
-      <div className='app-flex app-justify-between'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-text-2xl app-font-bold app-tracking-wide app-text-slate-900'>
+    <div className='grid max-w-2xl items-start gap-8'>
+      <div className='flex justify-between'>
+        <div className='grid gap-1'>
+          <h1 className='text-2xl font-bold tracking-wide text-slate-900'>
             Registro de estudiantes
           </h1>
         </div>

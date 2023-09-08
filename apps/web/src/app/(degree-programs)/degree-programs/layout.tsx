@@ -10,21 +10,21 @@ const NewDegreeProgramLayout = ({ children }: PropsWithChildren) => {
   const router = useRouter()
 
   return (
-    <div className='app-flex app-min-h-screen app-flex-col app-space-y-6'>
-      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
-        <div className='app-container app-flex app-h-16 app-items-center app-space-x-4'>
+    <div className='flex min-h-screen flex-col space-y-6'>
+      <header className='bg-background sticky top-0 z-40 border-b'>
+        <div className='container flex h-16 items-center space-x-4'>
           <div className='flex items-center space-x-10'>
             <Button variant='ghost' onClick={() => router.back()}>
-              <ChevronLeft className='app-mr-2 app-h-4 app-w-4' /> Volver
+              <ChevronLeft className='mr-2 h-4 w-4' /> Volver
             </Button>
           </div>
 
-          <span className='app-text-2xl app-font-bold'>CEDISJ</span>
+          <span className='text-2xl font-bold'>CEDISJ</span>
         </div>
       </header>
 
-      <div className='app-container app-grid app-gap-12 app-grid-cols-1'>
-        <main className='app-flex app-w-full app-flex-1 app-flex-col app-overflow-hidden'>
+      <div className='container grid grid-cols-1 gap-12'>
+        <main className='flex w-full flex-1 flex-col overflow-hidden'>
           {children}
         </main>
       </div>

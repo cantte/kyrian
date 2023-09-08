@@ -3,6 +3,8 @@ import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@kyrian/auth'
 
+import DashboardHeader from '~/components/dashboard-header'
+import DashboardShell from '~/components/dashboard-shell'
 import NewResearchSeminarForm from '~/app/(dashboard)/dashboard/(research-seminars)/research-seminars/new/form'
 
 const NewResearchSeminarPage = async () => {
@@ -16,17 +18,11 @@ const NewResearchSeminarPage = async () => {
   }
 
   return (
-    <div className='app-grid app-items-start app-gap-8 app-min-w-2xl'>
-      <div className='app-flex app-justify-between'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
-            Registro de semilleros de investigación
-          </h1>
-        </div>
-      </div>
+    <DashboardShell>
+      <DashboardHeader heading='Registro de semilleros de investigación' />
 
       <NewResearchSeminarForm />
-    </div>
+    </DashboardShell>
   )
 }
 

@@ -1,11 +1,11 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const shared = require('@kyrian/tailwind-config/index')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.tsx'],
   darkMode: ['class', '[app-theme="dark"]'],
-  presets: [require('@kyrian/tailwind-config')],
-  prefix: 'app-',
+  presets: [shared],
   theme: {
     container: {
       center: true,

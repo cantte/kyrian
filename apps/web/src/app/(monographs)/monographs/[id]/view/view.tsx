@@ -42,19 +42,19 @@ const MonographView = ({ url }: MonographViewProps) => {
     <Worker
       workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}
     >
-      <div className='app-flex app-relative app-h-screen rpv-core__viewer'>
-        <div className='app-absolute app-z-10 app-flex app-top-4 app-translate-x-1/2 app-translate-y-0 app-p-4 app-right-1/2 app-items-center app-bg-card app-rounded-lg app-border'>
+      <div className='rpv-core__viewer relative flex h-screen'>
+        <div className='bg-card absolute right-1/2 top-4 z-10 flex translate-x-1/2 translate-y-0 items-center rounded-lg border p-4'>
           <Toolbar>
             {(slots: ToolbarSlot) => {
               return (
-                <div className='app-flex app-flex-row app-items-center'>
-                  <div className='app-flex app-flex-row app-items-center'>
-                    <div className='app-flex-1'>
+                <div className='flex flex-row items-center'>
+                  <div className='flex flex-row items-center'>
+                    <div className='flex-1'>
                       <slots.ZoomOut>
                         {(props) => (
                           <Button
                             size='sm'
-                            className='app-rounded-full app-mr-2'
+                            className='mr-2 rounded-full'
                             onClick={props.onClick}
                           >
                             <ZoomOutIcon size={16} />
@@ -63,12 +63,12 @@ const MonographView = ({ url }: MonographViewProps) => {
                       </slots.ZoomOut>
                     </div>
 
-                    <div className='app-flex-1'>
+                    <div className='flex-1'>
                       <slots.ZoomIn>
                         {(props) => (
                           <Button
                             size='sm'
-                            className='app-rounded-full app-mr-2'
+                            className='mr-2 rounded-full'
                             onClick={props.onClick}
                           >
                             <ZoomInIcon size={16} />
@@ -78,14 +78,14 @@ const MonographView = ({ url }: MonographViewProps) => {
                     </div>
                   </div>
 
-                  <div className='app-flex app-flex-row app-items-center'>
-                    <div className='app-flex-1'>
+                  <div className='flex flex-row items-center'>
+                    <div className='flex-1'>
                       <slots.GoToPreviousPage>
                         {(props) => (
                           <Button
                             size='sm'
                             variant='ghost'
-                            className='app-rounded-full app-mr-2'
+                            className='mr-2 rounded-full'
                             onClick={props.onClick}
                           >
                             <ChevronLeft size={16} />
@@ -94,23 +94,23 @@ const MonographView = ({ url }: MonographViewProps) => {
                       </slots.GoToPreviousPage>
                     </div>
 
-                    <div className='app-flex-1'>
+                    <div className='flex-1'>
                       <slots.CurrentPageLabel>
                         {(props) => (
-                          <div className='app-text-sm app-font-medium app-text-gray-500'>
+                          <div className='text-sm font-medium text-gray-500'>
                             {props.currentPage + 1} / {props.numberOfPages}
                           </div>
                         )}
                       </slots.CurrentPageLabel>
                     </div>
 
-                    <div className='app-flex-1'>
+                    <div className='flex-1'>
                       <slots.GoToNextPage>
                         {(props) => (
                           <Button
                             size='sm'
                             variant='ghost'
-                            className='app-rounded-full app-ml-2'
+                            className='ml-2 rounded-full'
                             onClick={props.onClick}
                           >
                             <ChevronRight size={16} />
@@ -125,7 +125,7 @@ const MonographView = ({ url }: MonographViewProps) => {
           </Toolbar>
         </div>
 
-        <div className='app-flex-1 app-overflow-hidden'>
+        <div className='flex-1 overflow-hidden'>
           <Viewer
             fileUrl={url}
             plugins={[toolbarPluginInstance]}

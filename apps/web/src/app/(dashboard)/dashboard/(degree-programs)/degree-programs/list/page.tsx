@@ -8,6 +8,8 @@ import { authOptions } from '@kyrian/auth'
 import { prisma } from '@kyrian/db'
 import { Button } from '@kyrian/ui'
 
+import DashboardHeader from '~/components/dashboard-header'
+import DashboardShell from '~/components/dashboard-shell'
 import GenericDataTable from '~/components/table/generic-data-table'
 import { columns } from '~/app/(dashboard)/dashboard/(degree-programs)/degree-programs/list/columns'
 
@@ -31,21 +33,15 @@ const DegreeProgramsPage = async () => {
 
   const degreePrograms = await ssg.degreeProgram.list.fetch()
   return (
-    <div className='app-space-y-8 container mx-auto py-10'>
-      <div className='md:app-flex app-justify-between app-items-center'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-font-heading app-text-3xl md:app-text-4xl'>
-            Programas académicos
-          </h1>
-        </div>
-
+    <DashboardShell>
+      <DashboardHeader heading='Programas académicos'>
         <NextLink href='/degree-programs/new' passHref>
-          <Button className='app-mt-4 md:app-mt-0'>Crear programa</Button>
+          <Button className='mt-4 md:mt-0'>Crear programa</Button>
         </NextLink>
-      </div>
+      </DashboardHeader>
 
       <GenericDataTable columns={columns} data={degreePrograms} />
-    </div>
+    </DashboardShell>
   )
 }
 

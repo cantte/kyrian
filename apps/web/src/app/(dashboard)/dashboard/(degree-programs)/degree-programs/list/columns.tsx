@@ -60,13 +60,13 @@ export const columns: ColumnDef<DegreeProgram>[] = [
       const code = row.original.code
 
       return (
-        <div className='app-flex'>
+        <div className='flex'>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <NextLink href={`/degree-programs/${code}/edit`}>
                   <Button variant='outline' size='icon'>
-                    <Edit className='app-h-4 app-w-4 app-cursor-pointer hover:app-text-foreground/80' />
+                    <Edit className='hover:text-foreground/80 h-4 w-4 cursor-pointer' />
                   </Button>
                 </NextLink>
               </TooltipTrigger>

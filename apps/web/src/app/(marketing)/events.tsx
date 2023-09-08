@@ -18,10 +18,10 @@ const EventsSection: FC = async () => {
 
   return (
     <>
-      <div className='app-mx-auto app-grid app-justify-center app-gap-4 md:app-max-w-[64rem]'>
+      <div className='mx-auto grid justify-center gap-4 md:max-w-[64rem]'>
         {events.length === 0 && (
-          <div className='app-flex app-flex-col app-items-center app-justify-center app-text-center app-p-6 app-bg-background app-text-muted-foreground'>
-            <h3 className='app-font-bold app-text-4xl'>No hay eventos</h3>
+          <div className='bg-background text-muted-foreground flex flex-col items-center justify-center p-6 text-center'>
+            <h3 className='text-4xl font-bold'>No hay eventos</h3>
 
             <p className='text-muted-foreground max-w-[85%] leading-normal sm:text-lg sm:leading-7'>
               Pronto habrá más eventos
@@ -31,29 +31,29 @@ const EventsSection: FC = async () => {
         {events.map((event) => (
           <div
             key={event.id}
-            className='app-relative app-overflow-hidden app-rounded-lg app-border app-bg-background app-p-2 md:app-min-w-[42rem] md:app-max-w-[64rem]'
+            className='bg-background relative overflow-hidden rounded-lg border p-2 md:min-w-[42rem] md:max-w-[64rem]'
           >
-            <div className='app-flex app-min-h-[180px] app-flex-row app-rounded-md app-p-6 app-space-x-2'>
-              <div className='app-space-y-1 app-w-[100px]'>
-                <h3 className='app-font-bold app-text-4xl'>
+            <div className='flex min-h-[180px] flex-row space-x-2 rounded-md p-6'>
+              <div className='w-[100px] space-y-1'>
+                <h3 className='text-4xl font-bold'>
                   {Intl.DateTimeFormat('es-CO', {
                     day: 'numeric',
                   }).format(event.date)}
                 </h3>
 
-                <p className='app-text-sm app-text-muted-foreground'>
+                <p className='text-muted-foreground text-sm'>
                   {Intl.DateTimeFormat('es-CO', {
                     month: 'long',
                   }).format(event.date)}
                 </p>
 
-                <p className='app-text-sm app-text-muted-foreground'>
+                <p className='text-muted-foreground text-sm'>
                   {Intl.DateTimeFormat('es-CO', {
                     year: 'numeric',
                   }).format(event.date)}
                 </p>
 
-                <p className='app-text-sm app-text-muted-foreground'>
+                <p className='text-muted-foreground text-sm'>
                   {Intl.DateTimeFormat('es-CO', {
                     hour: 'numeric',
                     minute: 'numeric',
@@ -61,17 +61,17 @@ const EventsSection: FC = async () => {
                 </p>
               </div>
 
-              <div className='app-space-y-2 app-w-full'>
+              <div className='w-full space-y-2'>
                 <Badge>{event.topic}</Badge>
-                <h3 className='app-font-bold app-text-4xl'>{event.title}</h3>
+                <h3 className='text-4xl font-bold'>{event.title}</h3>
 
-                <p className='app-text-sm app-text-muted-foreground'>
+                <p className='text-muted-foreground text-sm'>
                   {event.description}
                 </p>
 
                 <Separator />
 
-                <p className='app-text-sm app-text-muted-foreground'>
+                <p className='text-muted-foreground text-sm'>
                   Lugar: {event.place}
                 </p>
               </div>

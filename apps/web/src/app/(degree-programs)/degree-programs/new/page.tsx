@@ -17,10 +17,10 @@ const RegisterNewDegreeProgramPage = async () => {
   }
 
   return (
-    <div className='app-grid app-items-start app-gap-8 app-min-w-2xl'>
-      <div className='app-flex app-justify-between'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
+    <div className='min-w-2xl grid items-start gap-8'>
+      <div className='flex justify-between'>
+        <div className='grid gap-1'>
+          <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
             Registro de programas de grado
           </h1>
         </div>

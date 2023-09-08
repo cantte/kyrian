@@ -18,7 +18,7 @@ const DegreeProgramsSection: FC = async () => {
   const degreePrograms = await ssg.degreeProgram.info.fetch()
 
   return (
-    <div className='app-mx-auto app-grid app-justify-center app-gap-4 sm:app-grid-cols-2 md:app-max-w-[64rem] md:app-grid-cols-3'>
+    <div className='mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3'>
       {degreePrograms.map((degreeProgram) => (
         <NextLink
           href={`/degree-programs/${degreeProgram.code}/view`}
@@ -26,13 +26,13 @@ const DegreeProgramsSection: FC = async () => {
         >
           <div
             key={degreeProgram.code}
-            className='app-relative app-overflow-hidden app-rounded-lg app-border app-bg-background app-p-2'
+            className='bg-background relative overflow-hidden rounded-lg border p-2'
           >
-            <div className='app-flex app-h-[180px] app-flex-col app-justify-between app-rounded-md app-p-6'>
-              <div className='app-space-y-2'>
-                <h3 className='app-font-bold'>{degreeProgram.name}</h3>
+            <div className='flex h-[180px] flex-col justify-between rounded-md p-6'>
+              <div className='space-y-2'>
+                <h3 className='font-bold'>{degreeProgram.name}</h3>
 
-                <p className='app-text-sm app-text-muted-foreground'>
+                <p className='text-muted-foreground text-sm'>
                   Modalidad: {degreeProgram.modality}
                 </p>
 

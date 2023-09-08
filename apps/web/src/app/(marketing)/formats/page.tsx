@@ -32,22 +32,22 @@ const FormatsPage = async () => {
   })
 
   return (
-    <div className='app-grid app-items-start app-gap-8 app-min-w-2xl'>
-      <div className='app-flex app-justify-between'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
+    <div className='min-w-2xl grid items-start gap-8'>
+      <div className='flex justify-between'>
+        <div className='grid gap-1'>
+          <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
             Formatos de CEDISJ
           </h1>
         </div>
       </div>
       {formats.length > 0 ? (
-        <ul className='app-grid app-gap-6 app-w-full px-2 py-2'>
+        <ul className='grid w-full gap-6 px-2 py-2'>
           {formats.map((format) => (
             <li key={format.id}>
               <Card>
                 <CardHeader>
                   <CardTitle>{format.name}</CardTitle>
-                  <CardDescription className='app-flex app-flex-1 app-flex-row'>
+                  <CardDescription className='flex flex-1 flex-row'>
                     Cargado el{' '}
                     {Intl.DateTimeFormat('es-CO', {
                       year: 'numeric',
@@ -66,7 +66,7 @@ const FormatsPage = async () => {
           ))}
         </ul>
       ) : (
-        <div className='app-grid app-gap-6 app-w-full px-2 py-2'>
+        <div className='grid w-full gap-6 px-2 py-2'>
           <p>No hay formatos registrados</p>
         </div>
       )}

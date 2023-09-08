@@ -8,11 +8,11 @@ import AccountNav from '~/app/(marketing)/account-nav'
 
 const DashboardSidebarFallback = () => {
   return (
-    <div className='app-grid app-gap-6 app-w-full px-2 py-2'>
-      <div className='app-flex app-flex-col app-space-y-4 app-items-center app-justify-between app-w-full'>
-        <Skeleton className='app-h-10 app-w-full' />
-        <Skeleton className='app-h-10 app-w-full' />
-        <Skeleton className='app-h-10 app-w-full' />
+    <div className='grid w-full gap-6 px-2 py-2'>
+      <div className='flex w-full flex-col items-center justify-between space-y-4'>
+        <Skeleton className='h-10 w-full' />
+        <Skeleton className='h-10 w-full' />
+        <Skeleton className='h-10 w-full' />
       </div>
     </div>
   )
@@ -20,25 +20,25 @@ const DashboardSidebarFallback = () => {
 
 const DashboardLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className='app-flex app-min-h-screen app-flex-col app-space-y-6'>
-      <header className='app-sticky app-bg-background app-top-0 app-z-40 app-border-b'>
-        <div className='app-container app-flex app-h-16 app-items-center app-justify-between'>
-          <Suspense fallback={<Skeleton className='app-h-8 app-w-24' />}>
+    <div className='flex min-h-screen flex-col space-y-6'>
+      <header className='bg-background sticky top-0 z-40 border-b'>
+        <div className='container flex h-16 items-center justify-between'>
+          <Suspense fallback={<Skeleton className='h-8 w-24' />}>
             <DashboardMainNav />
           </Suspense>
-          <Suspense fallback={<Skeleton className='app-h-8 app-w-24' />}>
+          <Suspense fallback={<Skeleton className='h-8 w-24' />}>
             <AccountNav />
           </Suspense>
         </div>
       </header>
 
-      <div className='app-container app-grid app-flex-1 app-gap-12 md:app-grid-cols-[200px_1fr]'>
-        <aside className='app-hidden app-w-[250px] app-flex-col md:app-flex'>
+      <div className='container grid flex-1 gap-12 md:grid-cols-[200px_1fr]'>
+        <aside className='hidden w-[250px] flex-col md:flex'>
           <Suspense fallback={<DashboardSidebarFallback />}>
             <DashboardSidebar />
           </Suspense>
         </aside>
-        <main className='app-flex app-w-full app-flex-1 app-flex-col app-overflow-hidden app-pl-4'>
+        <main className='flex w-full flex-1 flex-col overflow-hidden pl-4'>
           {children}
         </main>
       </div>

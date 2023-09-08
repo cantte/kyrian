@@ -1,15 +1,21 @@
 'use client'
 
+import { useState } from 'react'
 import {
   flexRender,
   getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
   useReactTable,
   type ColumnDef,
+  type ColumnFiltersState,
 } from '@tanstack/react-table'
 
+import { type RouterOutputs } from '@kyrian/api'
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -18,24 +24,43 @@ import {
   TableRow,
 } from '@kyrian/ui'
 
-interface GenericTableProps<TData, TValue> {
+import MonographsDataTableToolbar from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/data-table-toolbar'
+
+type MonographsDataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+
+  degreePrograms: RouterOutputs['degreeProgram']['getNameAndCode']
 }
 
-const GenericDataTable = <TData, TValue>({
+const MonographsDataTable = <TData, TValue>({
   columns,
   data,
-}: GenericTableProps<TData, TValue>) => {
+  degreePrograms,
+}: MonographsDataTableProps<TData, TValue>) => {
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+
   const table = useReactTable({
     data,
     columns,
+    state: {
+      columnFilters,
+    },
+    onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFacetedRowModel: getFacetedRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
   return (
-    <div>
+    <div className='space-y-4'>
+      <MonographsDataTableToolbar
+        table={table}
+        degreePrograms={degreePrograms}
+      />
       <div className='rounded-md border'>
         <Table>
           <TableHeader>
@@ -86,27 +111,8 @@ const GenericDataTable = <TData, TValue>({
           </TableBody>
         </Table>
       </div>
-
-      <div className='flex items-center justify-end space-x-2 py-4'>
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Anterior
-        </Button>
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Siguiente
-        </Button>
-      </div>
     </div>
   )
 }
 
-export default GenericDataTable
+export default MonographsDataTable

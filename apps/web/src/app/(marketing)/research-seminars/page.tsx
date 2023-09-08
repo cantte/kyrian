@@ -22,24 +22,24 @@ const ResearchSeminarsPage = async () => {
   const researchSeminars = await ssg.researchSeminar.info.fetch()
 
   return (
-    <div className='app-grid app-items-start app-gap-8 app-min-w-2xl'>
-      <div className='app-flex app-justify-between'>
-        <div className='app-grid app-gap-1'>
-          <h1 className='app-scroll-m-20 app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
+    <div className='min-w-2xl grid items-start gap-8'>
+      <div className='flex justify-between'>
+        <div className='grid gap-1'>
+          <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
             Semilleros de investigación
           </h1>
         </div>
       </div>
 
       {researchSeminars.length > 0 ? (
-        <ul className='app-grid app-gap-6 app-w-full px-2 py-2'>
+        <ul className='grid w-full gap-6 px-2 py-2'>
           {researchSeminars.map((researchSeminar, id) => {
             return (
               <li key={id}>
                 <Card>
                   <CardHeader>
                     <CardTitle>{researchSeminar.name}</CardTitle>
-                    <CardDescription className='app-flex app-flex-1 app-flex-row'>
+                    <CardDescription className='flex flex-1 flex-row'>
                       {researchSeminar.description}
                     </CardDescription>
                   </CardHeader>
@@ -49,8 +49,8 @@ const ResearchSeminarsPage = async () => {
           })}
         </ul>
       ) : (
-        <div className='app-flex app-flex-col app-items-center app-justify-center app-w-full app-h-full'>
-          <h1 className='app-text-4xl app-font-extrabold app-tracking-tight lg:app-text-5xl'>
+        <div className='flex h-full w-full flex-col items-center justify-center'>
+          <h1 className='text-4xl font-extrabold tracking-tight lg:text-5xl'>
             No hay semilleros de investigación cargados
           </h1>
         </div>

@@ -228,7 +228,6 @@ model ResearchSeminar {
   description String?   @db.Text
   isActive    Boolean   @default(true)
   creation    DateTime?
-  expiration  DateTime?
 
   students Student[]
 

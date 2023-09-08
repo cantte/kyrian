@@ -25,15 +25,15 @@ const UserAccountNav = ({ user }: UserAccountNavProps) => {
       <DropdownMenuTrigger>
         <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
-          className='app-h-8 app-w-8'
+          className='h-8 w-8'
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <div className='app-flex app-items-center app-justify-start app-gap-2 app-p-2'>
-          <div className='app-flex app-flex-col app-space-y-1 app-leading-none'>
-            {user.name && <p className='app-font-medium'>{user.name}</p>}
+        <div className='flex items-center justify-start gap-2 p-2'>
+          <div className='flex flex-col space-y-1 leading-none'>
+            {user.name && <p className='font-medium'>{user.name}</p>}
             {user.email && (
-              <p className='app-text-muted-foreground app-w-[200px] app-truncate app-text-sm'>
+              <p className='text-muted-foreground w-[200px] truncate text-sm'>
                 {user.email}
               </p>
             )}
