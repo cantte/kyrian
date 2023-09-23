@@ -49,7 +49,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.3.1
-        version: 3.3.1(react-hook-form@7.45.4)
+        version: 3.3.1(react-hook-form@7.46.2)
       '@kyrian/api':
         specifier: ^0.1.0
         version: link:../../packages/api
@@ -126,8 +126,8 @@ importers:
         specifier: ^14.2.3
         version: 14.2.3(react@18.2.0)
       react-hook-form:
-        specifier: ^7.45.4
-        version: 7.45.4(react@18.2.0)
+        specifier: ^7.46.2
+        version: 7.46.2(react@18.2.0)
       superjson:
         specifier: ^1.13.1
         version: 1.13.1
@@ -401,8 +401,8 @@ importers:
         specifier: ^8.8.1
         version: 8.8.1(date-fns@2.30.0)(react@18.2.0)
       react-hook-form:
-        specifier: ^7.45.4
-        version: 7.45.4(react@18.2.0)
+        specifier: ^7.46.2
+        version: 7.46.2(react@18.2.0)
     devDependencies:
       '@kyrian/eslint-config':
         specifier: 0.1.0
@@ -1657,12 +1657,12 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@hookform/resolvers@3.3.1(react-hook-form@7.45.4):
+  /@hookform/resolvers@3.3.1(react-hook-form@7.46.2):
     resolution: {integrity: sha512-K7KCKRKjymxIB90nHDQ7b9nli474ru99ZbqxiqDAWYsYhOsU3/4qLxW91y+1n04ic13ajjZ66L3aXbNef8PELQ==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.45.4(react@18.2.0)
+      react-hook-form: 7.46.2(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:
@@ -7896,8 +7896,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-hook-form@7.45.4(react@18.2.0):
-    resolution: {integrity: sha512-HGDV1JOOBPZj10LB3+OZgfDBTn+IeEsNOKiq/cxbQAIbKaiJUe/KV8DBUzsx0Gx/7IG/orWqRRm736JwOfUSWQ==}
+  /react-hook-form@7.46.2(react@18.2.0):
+    resolution: {integrity: sha512-x1DWmHQchV7x2Rq9l99M/cQHC8JGchAnw9Z0uTz5KrPa0bTl/Inm1NR7ceOARfIrkNuQNAhuSuZPYa6k7QYn3Q==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
