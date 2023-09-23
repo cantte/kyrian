@@ -17,6 +17,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Label,
 } from '@kyrian/ui'
 
 import { api } from '~/utils/api'
@@ -42,6 +43,7 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
 }) => {
   const handleOnOpenChange = (isOpen: boolean) => {
     if (!isOpen) {
+      reset()
       onClose()
     }
   }
@@ -67,8 +69,10 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
         enabled: findStudent,
       },
     )
+  const [notFoundStudent, setNotFoundStudent] = useState(false)
 
   const handleFindStudent = () => {
+    form.resetField('name')
     setFindStudent(true)
   }
 
@@ -78,6 +82,7 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
     }
 
     setFindStudent(false)
+    setNotFoundStudent(student === null)
 
     if (student) {
       form.setValue('name', student.name)
@@ -111,19 +116,41 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
                 )}
               />
 
-              {student && (
-                <p className='text-sm text-slate-500'>{student.name}</p>
+              {notFoundStudent && (
+                <FormField
+                  control={form.control}
+                  name='name'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel htmlFor='id'>Nombre</FormLabel>
+                      <FormControl>
+                        <Input id='name' type='text' {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               )}
+
+              {student && (
+                <div className='space-y-2'>
+                  <Label>Nombre</Label>
+                  <p className='text-muted-foreground border-input rounded-md border p-2 text-sm'>
+                    {student.name}
+                  </p>
+                </div>
+              )}
+
+              {notFoundStudent && <Button type='submit'>Agregar</Button>}
             </form>
           </Form>
         </div>
 
         <DialogFooter>
           <div className='flex justify-end space-x-2'>
-            <Button variant='outline' onClick={onClose}>
-              Cancelar
-            </Button>
-            <Button onClick={handleFindStudent}>Buscar</Button>
+            {!notFoundStudent && (
+              <Button onClick={handleFindStudent}>Buscar</Button>
+            )}
           </div>
         </DialogFooter>
       </DialogContent>
