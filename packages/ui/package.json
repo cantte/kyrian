@@ -70,6 +70,6 @@
     "date-fns": "^2.30.0",
     "pnpm": "^8.7.4",
     "react-day-picker": "^8.8.1",
-    "react-hook-form": "^7.45.4"
+    "react-hook-form": "^7.46.2"
   }
 }
