@@ -47,7 +47,7 @@ export const columns: ColumnDef<MonographOutput>[] = [
         </Badge>
       )
     },
-    filterFn: (row, id, value) => {
+    filterFn: (row, id, value: string) => {
       return value.includes(row.getValue(id))
     }
   },
