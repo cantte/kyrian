@@ -1,10 +1,10 @@
 'use client'
 
 import NextLink from 'next/link'
-import { type ColumnDef } from '@tanstack/react-table'
-import { Eye } from 'lucide-react'
+import {type ColumnDef} from '@tanstack/react-table'
+import {Eye} from 'lucide-react'
 
-import { type RouterOutputs } from '@kyrian/api'
+import {type RouterOutputs} from '@kyrian/api'
 import {
   Badge,
   Tooltip,
@@ -23,7 +23,7 @@ export const columns: ColumnDef<MonographOutput>[] = [
   {
     accessorKey: 'publicationDate',
     header: 'Fecha de publicación',
-    cell: ({ row }) => {
+    cell: ({row}) => {
       const date: Date = row.getValue('publicationDate')
 
       return new Intl.DateTimeFormat('es-CO', {
@@ -38,7 +38,7 @@ export const columns: ColumnDef<MonographOutput>[] = [
     accessorKey: 'degreeProgram.name',
     id: 'degreeProgram',
     header: 'Programa',
-    cell: ({ row }) => {
+    cell: ({row}) => {
       const degreeProgram = row.original.degreeProgram
 
       return (
@@ -47,10 +47,13 @@ export const columns: ColumnDef<MonographOutput>[] = [
         </Badge>
       )
     },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    }
   },
   {
     id: 'actions',
-    cell: ({ row }) => {
+    cell: ({row}) => {
       const id = row.original.id
 
       return (
@@ -59,7 +62,8 @@ export const columns: ColumnDef<MonographOutput>[] = [
             <Tooltip>
               <TooltipTrigger asChild>
                 <NextLink href={`/monographs/${id}/view`}>
-                  <Eye className='hover:text-foreground/80 h-6 w-6 cursor-pointer' />
+                  <Eye
+                    className='hover:text-foreground/80 h-6 w-6 cursor-pointer'/>
                 </NextLink>
               </TooltipTrigger>
               <TooltipContent>

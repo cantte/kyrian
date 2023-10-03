@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import {useState} from 'react'
 import {
   flexRender,
   getCoreRowModel,
@@ -14,7 +14,7 @@ import {
   type ColumnFiltersState,
 } from '@tanstack/react-table'
 
-import { type RouterOutputs } from '@kyrian/api'
+import {type RouterOutputs} from '@kyrian/api'
 import {
   Table,
   TableBody,
@@ -24,7 +24,9 @@ import {
   TableRow,
 } from '@kyrian/ui'
 
-import MonographsDataTableToolbar from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/data-table-toolbar'
+import MonographsDataTableToolbar
+  from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/data-table-toolbar'
+import DataTablePagination from "~/components/table/data-table-pagination";
 
 type MonographsDataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[]
@@ -34,10 +36,10 @@ type MonographsDataTableProps<TData, TValue> = {
 }
 
 const MonographsDataTable = <TData, TValue>({
-  columns,
-  data,
-  degreePrograms,
-}: MonographsDataTableProps<TData, TValue>) => {
+                                              columns,
+                                              data,
+                                              degreePrograms,
+                                            }: MonographsDataTableProps<TData, TValue>) => {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
 
   const table = useReactTable({
@@ -72,9 +74,9 @@ const MonographsDataTable = <TData, TValue>({
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
                     </TableHead>
                   )
                 })}
@@ -111,6 +113,7 @@ const MonographsDataTable = <TData, TValue>({
           </TableBody>
         </Table>
       </div>
+      <DataTablePagination table={table}></DataTablePagination>
     </div>
   )
 }
