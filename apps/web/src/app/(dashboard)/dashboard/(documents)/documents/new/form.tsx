@@ -114,27 +114,24 @@ const NewDocumentForm: NextPage<NewDocumentFormProps> = ({ defaultValues }) => {
 
   return (
     <form
-      className='app-grid app-gap-6 app-w-full md:app-col-span-3 md:app-col-start-1 app-overflow-visible app-px-2'
+      className='grid w-full gap-6 overflow-visible px-2 md:col-span-3 md:col-start-1'
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div
-        className='app-grid app-w-full app-items-center app-gap-1.5'
-        {...getRootProps()}
-      >
+      <div className='grid w-full items-center gap-1.5' {...getRootProps()}>
         <Label
           htmlFor='file'
-          className='app-text-slate-500 app-flex app-h-32 app-w-full app-flex-col app-items-center app-justify-center app-rounded-lg app-border-2 app-border-dashed app-border-slate-200 app-p-5 app-cursor-pointer'
+          className='flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-200 p-5 text-slate-500'
         >
-          <span className='app-flex app-items-center app-gap-1.5'>
+          <span className='flex items-center gap-1.5'>
             <Upload size={24} />
-            <span className='app-font-medium app-text-sm app-text-slate-600'>
+            <span className='text-sm font-medium text-slate-600'>
               {file !== null
                 ? file.name
                 : 'Arrastra un archivo o haz clic aquí'}
             </span>
           </span>
 
-          <span className='app-text-xs app-text-slate-400 app-pt-2'>
+          <span className='pt-2 text-xs text-slate-400'>
             {isDragActive
               ? 'Suelta el archivo aquí'
               : 'Solo se permiten archivos PDF de hasta 20MB'}
@@ -144,13 +141,11 @@ const NewDocumentForm: NextPage<NewDocumentFormProps> = ({ defaultValues }) => {
         <input {...getInputProps()} />
 
         {missingFile && file === null && (
-          <p className='app-text-sm app-text-red-500'>
-            Debes seleccionar un archivo
-          </p>
+          <p className='text-sm text-red-500'>Debes seleccionar un archivo</p>
         )}
       </div>
 
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='name'>Nombre</Label>
         <Input
           id='name'
@@ -160,11 +155,11 @@ const NewDocumentForm: NextPage<NewDocumentFormProps> = ({ defaultValues }) => {
         />
 
         {errors.name !== undefined ? (
-          <p className='app-text-sm app-text-red-500'>{errors.name.message}</p>
+          <p className='text-sm text-red-500'>{errors.name.message}</p>
         ) : null}
       </div>
 
-      <div className='app-grid app-w-full app-items-center app-gap-1.5'>
+      <div className='grid w-full items-center gap-1.5'>
         <Label htmlFor='type'>Tipo</Label>
         <Select
           onValueChange={(value) => {
@@ -191,7 +186,7 @@ const NewDocumentForm: NextPage<NewDocumentFormProps> = ({ defaultValues }) => {
         disabled={isCreatingDocument || isUploading || isUploadingDocument}
       >
         {(isCreatingDocument || isUploading || isUploadingDocument) && (
-          <Loader2 className='app-mr-2 app-h-4 app-w-4 app-animate-spin' />
+          <Loader2 className='mr-2 h-4 w-4 animate-spin' />
         )}
         Registrar
       </Button>
