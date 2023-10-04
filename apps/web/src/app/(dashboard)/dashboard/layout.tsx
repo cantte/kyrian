@@ -20,7 +20,7 @@ const DashboardSidebarFallback = () => {
 
 const DashboardLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className='flex min-h-screen flex-col space-y-6'>
+    <div className='flex min-h-screen flex-col'>
       <header className='bg-background sticky top-0 z-40 border-b'>
         <div className='container flex h-16 items-center justify-between'>
           <Suspense fallback={<Skeleton className='h-8 w-24' />}>
@@ -32,15 +32,13 @@ const DashboardLayout = ({ children }: PropsWithChildren) => {
         </div>
       </header>
 
-      <div className='container grid flex-1 gap-12 md:grid-cols-[200px_1fr]'>
-        <aside className='hidden w-[250px] flex-col md:flex'>
+      <div className='grid flex-1 gap-12 md:grid-cols-[200px_1fr]'>
+        <aside className='sticky top-0 hidden h-screen w-[250px] flex-col border border-t-0 border-l-neutral-50 p-2 md:flex'>
           <Suspense fallback={<DashboardSidebarFallback />}>
             <DashboardSidebar />
           </Suspense>
         </aside>
-        <main className='flex w-full flex-1 flex-col overflow-hidden pl-4'>
-          {children}
-        </main>
+        <main className='flex-grow overflow-auto p-6'>{children}</main>
       </div>
     </div>
   )

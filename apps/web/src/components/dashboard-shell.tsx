@@ -11,7 +11,7 @@ const DashboardShell: FC<PropsWithChildren<DashboardShellProps>> = ({
   ...props
 }) => {
   return (
-    <div className={cn('grid items-start gap-8', className)} {...props}>
+    <div className={cn('items-start space-y-6', className)} {...props}>
       {children}
     </div>
   )
