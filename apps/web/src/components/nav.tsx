@@ -8,6 +8,7 @@ import { cn } from '@kyrian/ui'
 import { Icons } from '~/components/icons'
 import { type SidebarNavItem } from '~/types'
 
+
 type DashboardNavProps = {
   items: SidebarNavItem[]
 }
@@ -20,7 +21,7 @@ const DashboardNav = ({ items }: DashboardNavProps) => {
   }
 
   return (
-    <nav className='grid items-start gap-2'>
+    <nav className='flex flex-col space-y-2 overflow-hidden'>
       {items.map((item, index) => {
         const Icon = Icons[item.icon || 'arrowRight']
         return (

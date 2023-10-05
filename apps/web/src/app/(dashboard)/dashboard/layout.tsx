@@ -6,6 +6,7 @@ import DashboardMainNav from '~/app/(dashboard)/dashboard/main-nav'
 import DashboardSidebar from '~/app/(dashboard)/dashboard/sidebar'
 import AccountNav from '~/app/(marketing)/account-nav'
 
+
 const DashboardSidebarFallback = () => {
   return (
     <div className='grid w-full gap-6 px-2 py-2'>
@@ -20,8 +21,8 @@ const DashboardSidebarFallback = () => {
 
 const DashboardLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className='flex min-h-screen flex-col'>
-      <header className='bg-background sticky top-0 z-40 border-b'>
+    <div className='flex h-screen flex-col'>
+      <header className='bg-background border-b'>
         <div className='container flex h-16 items-center justify-between'>
           <Suspense fallback={<Skeleton className='h-8 w-24' />}>
             <DashboardMainNav />
@@ -32,13 +33,13 @@ const DashboardLayout = ({ children }: PropsWithChildren) => {
         </div>
       </header>
 
-      <div className='grid flex-1 gap-12 md:grid-cols-[200px_1fr]'>
-        <aside className='sticky top-0 hidden h-screen w-[250px] flex-col border border-t-0 border-l-neutral-50 p-2 md:flex'>
+      <div className='flex flex-1 overflow-hidden'>
+        <aside className='hidden overflow-y-auto border border-t-0 border-l-neutral-50 p-4 md:flex'>
           <Suspense fallback={<DashboardSidebarFallback />}>
             <DashboardSidebar />
           </Suspense>
         </aside>
-        <main className='flex-grow overflow-auto p-6'>{children}</main>
+        <main className='flex-1 overflow-y-auto p-6'>{children}</main>
       </div>
     </div>
   )
