@@ -24,6 +24,7 @@ import {
   TableRow,
 } from '@kyrian/ui'
 
+import DataTablePagination from '~/components/table/data-table-pagination'
 import MonographsDataTableToolbar from '~/app/(dashboard)/dashboard/(monographs)/monographs/list/data-table-toolbar'
 
 type MonographsDataTableProps<TData, TValue> = {
@@ -111,6 +112,7 @@ const MonographsDataTable = <TData, TValue>({
           </TableBody>
         </Table>
       </div>
+      <DataTablePagination table={table}></DataTablePagination>
     </div>
   )
 }
