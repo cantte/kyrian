@@ -41,7 +41,7 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.46.2",
     "superjson": "^1.13.1",
-    "zod": "^3.22.2"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
