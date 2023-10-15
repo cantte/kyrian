@@ -3,6 +3,7 @@ import { z } from 'zod'
 import {
   newMonographSchema,
   searchByTitleSchema,
+  updateMonographSchema,
   uploadMonographSchema,
 } from '../../schemas'
 import { createDownloadPresignedUrl, createUploadPresignedUrl } from '../aws/s3'
@@ -148,6 +149,63 @@ export const monographRouter = createTRPCRouter({
       return await createDownloadPresignedUrl({
         bucket: BUCKET_NAME,
         key: `${monograph.id}/${monograph.title}`,
+      })
+    }),
+  edit: protectedProcedure
+    .input(updateMonographSchema)
+    .mutation(async ({ input, ctx }) => {
+      const id = input.id
+      const { authors, ...monograph } = input
+
+      // remove monograph title whitespaces
+      monograph.title = monograph.title.trim()
+
+      // Check if the monograph exists in the database
+      const monographExists = await ctx.prisma.monograph.findFirst({
+        where: {
+          id: id,
+        },
+      })
+
+      if (!monographExists) {
+        throw new Error('La monografía no existe en la base de datos')
+      }
+
+      // Before save check if the authors already exist in the database and if not, create them
+      const authorsIds = authors
+        .filter((author) => author.id !== undefined)
+        .map((author) => author.id) as string[]
+
+      const authorsInDb = await ctx.prisma.author.findMany({
+        where: {
+          id: {
+            in: authorsIds,
+          },
+        },
+      })
+
+      const newAuthors = authors.filter(
+        (author) =>
+          !authorsInDb.some((authorInDb) => authorInDb.id === author.id),
+      )
+
+      const dataToUpdate = {
+        ...monograph,
+        authors: {
+          create: newAuthors.map((author) => ({
+            ...author,
+          })),
+          connect: authorsInDb.map((author) => ({
+            uid: author.uid,
+          })),
+        },
+      }
+
+      return await ctx.prisma.monograph.update({
+        where: {
+          id: id,
+        },
+        data: dataToUpdate,
       })
     }),
 })
