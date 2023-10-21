@@ -10,7 +10,7 @@ const MonographsLayout = ({ children }: PropsWithChildren) => {
   const router = useRouter()
 
   return (
-    <div className='flex min-h-screen flex-col space-y-6'>
+    <div className='flex h-screen flex-col space-y-6'>
       <header className='bg-background sticky top-0 z-40 border-b'>
         <div className='container flex h-16 items-center space-x-4'>
           <div className='flex items-center space-x-10'>
@@ -23,10 +23,8 @@ const MonographsLayout = ({ children }: PropsWithChildren) => {
         </div>
       </header>
 
-      <div className='container grid grid-cols-1 gap-12'>
-        <main className='flex w-full flex-1 flex-col overflow-hidden'>
-          {children}
-        </main>
+      <div className='flex flex-1 overflow-hidden'>
+        <main className='flex-1 overflow-y-auto px-6'>{children}</main>
       </div>
 
       <Toaster />
