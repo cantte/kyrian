@@ -78,6 +78,33 @@ export const monographRouter = createTRPCRouter({
         data: dataToCreate,
       })
     }),
+  find: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input, ctx }) => {
+      return await ctx.prisma.monograph.findUnique({
+        where: {
+          id: input.id,
+        },
+        select: {
+          title: true,
+          id: true,
+          publicationDate: true,
+          degreeProgramId: true,
+          degreeProgram: {
+            select: {
+              name: true,
+            },
+          },
+          authors: {
+            select: {
+              name: true,
+              id: true,
+              uid: true,
+            },
+          },
+        },
+      })
+    }),
   byTitle: publicProcedure
     .input(searchByTitleSchema)
     .query(async ({ input, ctx }) => {
