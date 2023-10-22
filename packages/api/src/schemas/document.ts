@@ -16,6 +16,8 @@ export const newDocumentSchema = z.object({
     'Format',
     'Agreement',
     'Standard',
+    'Book',
+    'Article',
   ]),
   userId: z
     .string()

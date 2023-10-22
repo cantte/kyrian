@@ -40,6 +40,8 @@ export const documentTypes: Record<DocumentType, string> = {
   [DocumentType.Format]: 'Formato',
   [DocumentType.Agreement]: 'Acuerdo',
   [DocumentType.Standard]: 'Acta',
+  [DocumentType.Book]: 'Libro',
+  [DocumentType.Article]: 'Publicación',
 }
 
 const NewDocumentForm: NextPage<NewDocumentFormProps> = ({ defaultValues }) => {

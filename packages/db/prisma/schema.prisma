@@ -204,6 +204,8 @@ enum DocumentType {
   Format // Formato
   Agreement // Acuerdo
   Standard // Actas
+  Book // Libros
+  Article // Publicaciones
 }
 
 model Document {
