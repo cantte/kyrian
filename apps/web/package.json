@@ -54,7 +54,7 @@
     "autoprefixer": "^10.4.16",
     "canvas": "^2.11.2",
     "dotenv-cli": "^7.3.0",
-    "eslint": "^8.50.0",
+    "eslint": "^8.52.0",
     "file-loader": "^6.2.0",
     "postcss": "^8.4.31",
     "tailwind-merge": "^1.14.0",
