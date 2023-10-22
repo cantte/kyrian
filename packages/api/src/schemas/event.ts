@@ -33,3 +33,11 @@ export const updateEventSchema = newEventSchema.extend({
     .min(1, 'Debe digitar este campo')
     .max(191, 'Máximo 191 caracteres'),
 })
+
+export const uploadEventSchema = z.object({
+  id: z.string().min(1, 'Debe digitar este campo').max(191),
+  title: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(191, 'Máximo 191 caracteres'),
+})
