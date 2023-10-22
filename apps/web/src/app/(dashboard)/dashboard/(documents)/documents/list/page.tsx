@@ -10,8 +10,8 @@ import { Button } from '@kyrian/ui'
 
 import DashboardHeader from '~/components/dashboard-header'
 import DashboardShell from '~/components/dashboard-shell'
-import GenericDataTable from '~/components/table/generic-data-table'
 import { columns } from '~/app/(dashboard)/dashboard/(documents)/documents/list/columns'
+import DocumentsDataTable from '~/app/(dashboard)/dashboard/(documents)/documents/list/data-table'
 
 const DocumentsPage = async () => {
   const session = await getServerSession(authOptions)
@@ -41,7 +41,7 @@ const DocumentsPage = async () => {
         </NextLink>
       </DashboardHeader>
 
-      <GenericDataTable columns={columns} data={documents} />
+      <DocumentsDataTable columns={columns} data={documents} />
     </DashboardShell>
   )
 }

@@ -2,7 +2,7 @@
 
 import NextLink from 'next/link'
 import { type ColumnDef } from '@tanstack/react-table'
-import { Edit } from 'lucide-react'
+import { Edit, Eye } from 'lucide-react'
 
 import { type RouterOutputs } from '@kyrian/api'
 import {
@@ -34,6 +34,9 @@ export const columns: ColumnDef<DocumentOutput>[] = [
         day: 'numeric',
       }).format(date as Date)
     },
+    filterFn: (row, id, value: string) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     accessorKey: 'type',
@@ -44,6 +47,9 @@ export const columns: ColumnDef<DocumentOutput>[] = [
 
       return <Badge>{type !== null ? typeName : 'Sin tipo'}</Badge>
     },
+    filterFn: (row, id, value: string) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     id: 'actions',
@@ -51,20 +57,37 @@ export const columns: ColumnDef<DocumentOutput>[] = [
       const id = row.original.id
 
       return (
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <NextLink href={`/dashboard/documents/${id}/edit`}>
-                <Button variant='outline' size='icon'>
-                  <Edit className='hover:text-foreground/80 h-4 w-4 cursor-pointer' />
-                </Button>
-              </NextLink>
-            </TooltipTrigger>
-            <TooltipContent>
-              <span>Editar documento</span>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <div className='flex flex-row items-center justify-center space-x-4'>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <NextLink href={row.original.url} target='_blank'>
+                  <Button variant='outline' size='icon'>
+                    <Eye className='hover:text-foreground/80 h-4 w-4 cursor-pointer' />
+                  </Button>
+                </NextLink>
+              </TooltipTrigger>
+              <TooltipContent>
+                <span>Ver documento</span>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <NextLink href={`/dashboard/documents/${id}/edit`}>
+                  <Button variant='outline' size='icon'>
+                    <Edit className='hover:text-foreground/80 h-4 w-4 cursor-pointer' />
+                  </Button>
+                </NextLink>
+              </TooltipTrigger>
+              <TooltipContent>
+                <span>Editar documento</span>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
       )
     },
   },
