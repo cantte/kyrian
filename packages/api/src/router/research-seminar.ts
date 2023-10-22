@@ -10,7 +10,7 @@ export const researchSeminarRouter = createTRPCRouter({
       // remove researchSeminar title whitespaces
       researchSeminar.name = researchSeminar.name.trim()
 
-      // Before save check if the students already exist in the database and if not, create them
+      // Check if the researchSeminar exists in the database
       const researchSeminarExists = await ctx.prisma.researchSeminar.findFirst({
         where: {
           name: {
@@ -26,11 +26,36 @@ export const researchSeminarRouter = createTRPCRouter({
         )
       }
 
+      if (students === undefined) {
+        throw new Error('Debe ingresar al menos un estudiante')
+      }
+
+      // Before save check if the students already exist in the database and if not, create them
+      const studentsIds = students
+        .filter((student) => student.id !== undefined)
+        .map((student) => student.id)
+
+      const studentsInDb = await ctx.prisma.student.findMany({
+        where: {
+          id: {
+            in: studentsIds,
+          },
+        },
+      })
+
+      const newStudents = students.filter(
+        (student) =>
+          !studentsInDb.some((studentInDb) => studentInDb.id === student.id),
+      )
+
       return await ctx.prisma.researchSeminar.create({
         data: {
           ...researchSeminar,
           students: {
-            connect: students?.map((student) => ({ id: student })),
+            create: newStudents,
+            connect: studentsInDb.map((student) => ({
+              id: student.id,
+            })),
           },
         },
       })

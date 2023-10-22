@@ -1,5 +1,6 @@
 import { useEffect, useState, type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Loader2 } from 'lucide-react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -30,8 +31,8 @@ type AddStudentModalProps = {
 }
 
 const addStudentSchema = z.object({
-  id: z.string().nonempty(),
-  name: z.string().nonempty(),
+  id: z.string().min(1),
+  name: z.string().min(1),
 })
 
 export type AddStudent = z.infer<typeof addStudentSchema>
@@ -54,15 +55,9 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
 
   const { handleSubmit, reset } = form
 
-  const onSubmitForm: SubmitHandler<AddStudent> = (values) => {
-    onSubmit(values)
-    reset()
-    onClose()
-  }
-
   const id = form.watch('id')
   const [findStudent, setFindStudent] = useState(false)
-  const { data: student, isLoading: isLoadingStudent } =
+  const { data: student, isFetching: isLoadingStudent } =
     api.student.byId.useQuery(
       { id },
       {
@@ -86,8 +81,19 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
 
     if (student) {
       form.setValue('name', student.name)
+      return
     }
+
+    form.resetField('name')
   }, [student, isLoadingStudent, form])
+
+  const onSubmitForm: SubmitHandler<AddStudent> = (values) => {
+    onSubmit(values)
+    reset()
+    onClose()
+    setFindStudent(false)
+    setNotFoundStudent(false)
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOnOpenChange}>
@@ -141,15 +147,27 @@ const AddStudentModal: FC<AddStudentModalProps> = ({
                 </div>
               )}
 
-              {notFoundStudent && <Button type='submit'>Agregar</Button>}
+              {(notFoundStudent || student) && (
+                <Button type='submit' disabled={isLoadingStudent}>
+                  {isLoadingStudent && (
+                    <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                  )}
+                  Agregar
+                </Button>
+              )}
             </form>
           </Form>
         </div>
 
         <DialogFooter>
           <div className='flex justify-end space-x-2'>
-            {!notFoundStudent && (
-              <Button onClick={handleFindStudent}>Buscar</Button>
+            {!notFoundStudent && student === undefined && (
+              <Button onClick={handleFindStudent} disabled={isLoadingStudent}>
+                {isLoadingStudent && (
+                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                )}
+                Buscar
+              </Button>
             )}
           </div>
         </DialogFooter>

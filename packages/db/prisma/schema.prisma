@@ -131,15 +131,15 @@ model DegreeProgramProfiles {
 
 model Student {
   id        String   @id @default(cuid())
-  idType    String
+  idType    String?
   name      String
-  email     String   @unique
-  phone     String   @unique
+  email     String?  @unique
+  phone     String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userId            String           @unique
-  user              User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String?          @unique
+  user              User?            @relation(fields: [userId], references: [id], onDelete: Cascade)
   monographs        Monograph[]
   researchSeminar   ResearchSeminar? @relation(fields: [researchSeminarId], references: [id])
   researchSeminarId String?
@@ -204,6 +204,8 @@ enum DocumentType {
   Format // Formato
   Agreement // Acuerdo
   Standard // Actas
+  Book // Libros
+  Article // Publicaciones
 }
 
 model Document {

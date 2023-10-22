@@ -38,3 +38,16 @@ export const searchByTitleSchema = z
     message: 'Debe digitar este campo',
     path: ['title'],
   })
+
+export const updateMonographSchema = z.object({
+  id: z.string().min(1, 'Debe digitar este campo').max(191),
+  title: z.string().min(1, 'Debe digitar este campo').max(256),
+  publicationDate: z.coerce.date().refine((date) => date <= new Date(), {
+    message: 'La fecha de publicación debe ser menor o igual a la fecha actual',
+  }),
+  degreeProgramId: z
+    .string()
+    .min(1, 'Debe digitar este campo')
+    .max(10, 'Máximo 10 caracteres'),
+  authors: z.array(newAuthorSchema),
+})

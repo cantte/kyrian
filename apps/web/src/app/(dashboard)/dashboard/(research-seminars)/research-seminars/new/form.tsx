@@ -71,8 +71,14 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
   const students = watch('students')
   const [isOpenAddStudentModal, setIsOpenAddStudentModal] = useState(false)
   const closeAddStudentModal = () => setIsOpenAddStudentModal(false)
-  const onStudentSubmit = (values: AddStudent) => {
-    console.log(values)
+  const onStudentSubmit = (student: AddStudent) => {
+    const students = form.getValues('students')
+    const studentExists = students?.find(({ id }) => id === student.id)
+
+    if (!studentExists) {
+      form.setValue('students', (students ?? []).concat(student))
+    }
+
     closeAddStudentModal()
   }
 
@@ -202,12 +208,14 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
             </p>
           ) : (
             <div className='grid grid-cols-1 gap-2'>
-              {students.map((student, index) => (
+              {students.map((student) => (
                 <div
-                  key={student + index}
+                  key={student.id}
                   className='flex items-center justify-between gap-2'
                 >
-                  <p className='text-sm'>{student}</p>
+                  <p className='text-sm'>
+                    {student.id}, {student.name}
+                  </p>
                 </div>
               ))}
             </div>

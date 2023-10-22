@@ -11,19 +11,19 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.421.0",
-    "@aws-sdk/credential-providers": "^3.421.0",
-    "@aws-sdk/s3-request-presigner": "^3.421.0",
+    "@aws-sdk/client-s3": "^3.433.0",
+    "@aws-sdk/credential-providers": "^3.433.0",
+    "@aws-sdk/s3-request-presigner": "^3.433.0",
     "@kyrian/auth": "*",
     "@kyrian/db": "^1.0.0",
     "@trpc/client": "^10.37.1",
     "@trpc/server": "^10.37.1",
-    "superjson": "^1.13.1",
-    "zod": "^3.22.2"
+    "superjson": "^1.13.3",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@kyrian/eslint-config": "0.1.0",
-    "eslint": "^8.50.0",
+    "eslint": "^8.52.0",
     "typescript": "^5.2.2"
   }
 }

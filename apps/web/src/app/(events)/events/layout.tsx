@@ -23,10 +23,8 @@ const EventsLayout = ({ children }: PropsWithChildren) => {
         </div>
       </header>
 
-      <div className='container grid grid-cols-1 gap-12'>
-        <main className='flex w-full flex-1 flex-col overflow-hidden'>
-          {children}
-        </main>
+      <div className='flex flex-1 overflow-hidden'>
+        <main className='flex-1 overflow-y-auto px-6'>{children}</main>
       </div>
 
       <Toaster />
