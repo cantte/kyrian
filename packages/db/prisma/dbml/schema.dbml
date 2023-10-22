@@ -100,14 +100,14 @@ Table degree_program_profiles {
 
 Table Student {
   id String [pk]
-  idType String [not null]
+  idType String
   name String [not null]
-  email String [unique, not null]
-  phone String [unique, not null]
+  email String [unique]
+  phone String [unique]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
-  userId String [unique, not null]
-  user User [not null]
+  userId String [unique]
+  user User
   monographs Monograph [not null]
   researchSeminar research_seminars
   researchSeminarId String

@@ -1,5 +1,10 @@
 import { z } from 'zod'
 
+const studentSchema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+})
+
 export const newResearchSeminarSchema = z.object({
   name: z
     .string({
@@ -18,5 +23,5 @@ export const newResearchSeminarSchema = z.object({
         message: 'La fecha de creación no puede ser mayor a la fecha actual',
       },
     ),
-  students: z.array(z.string()).optional(),
+  students: z.array(studentSchema).optional(),
 })
