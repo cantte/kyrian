@@ -42,9 +42,9 @@ const RegisterNewStudentPage = async () => {
       </div>
       <StudentForm
         defaultValues={{
-          name: session?.user?.name ?? undefined,
-          email: session?.user?.email ?? undefined,
-          userId: session?.user?.id ?? undefined,
+          name: session?.user?.name ?? '',
+          email: session?.user?.email ?? '',
+          userId: session?.user?.id ?? '',
         }}
       />
     </div>

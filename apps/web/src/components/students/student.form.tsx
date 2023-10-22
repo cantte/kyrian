@@ -45,9 +45,9 @@ const StudentForm: NextPage<StudentFormProps> = ({ defaultValues }) => {
     resolver: zodResolver(newStudentSchema),
     defaultValues: {
       idType: 'CC',
-      name: name,
-      email: email,
-      userId: userId,
+      name: name ?? '',
+      email: email ?? '',
+      userId: userId ?? '',
     },
   })
 
