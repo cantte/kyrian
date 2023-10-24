@@ -1,11 +1,10 @@
-import { type FC } from 'react'
 import { createServerSideHelpers } from '@trpc/react-query/server'
 
 import { appRouter } from '@kyrian/api'
 import { prisma } from '@kyrian/db'
 import { Badge, Separator } from '@kyrian/ui'
 
-const EventsSection: FC = async () => {
+const EventsSection = async () => {
   const ssg = createServerSideHelpers({
     router: appRouter,
     ctx: {
@@ -33,7 +32,12 @@ const EventsSection: FC = async () => {
             key={event.id}
             className='bg-background relative overflow-hidden rounded-lg border p-2 md:min-w-[42rem] md:max-w-[64rem]'
           >
-            <div className='flex min-h-[180px] flex-row space-x-2 rounded-md p-6'>
+            <div className='flex min-h-[180px] flex-row items-center space-x-2 rounded-md p-6'>
+              <img
+                src={event.url}
+                alt={event.title}
+                className='mx-auto mr-4 h-24 w-24 rounded-full'
+              />
               <div className='w-[100px] space-y-1'>
                 <h3 className='text-4xl font-bold'>
                   {Intl.DateTimeFormat('es-CO', {

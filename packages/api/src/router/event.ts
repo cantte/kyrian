@@ -1,4 +1,4 @@
-import { createUploadPresignedUrl } from '../aws/s3'
+import { createDownloadPresignedUrl, createUploadPresignedUrl } from '../aws/s3'
 import {
   newEventSchema,
   updateEventSchema,
@@ -33,7 +33,7 @@ export const eventRouter = createTRPCRouter({
 
     return await Promise.all(
       events.map(async (event) => {
-        const url = await createUploadPresignedUrl({
+        const url = await createDownloadPresignedUrl({
           bucket: BUCKET_NAME,
           key: `${event.id}/${event.title}`,
         })
