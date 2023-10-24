@@ -37,6 +37,8 @@ const EventsSection = async () => {
               <Image
                 src={event.url}
                 alt={event.title}
+                width={100}
+                height={100}
                 className='mx-auto mr-4 h-24 w-24 rounded-full'
               />
               <div className='w-[100px] space-y-1'>
