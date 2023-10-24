@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { createServerSideHelpers } from '@trpc/react-query/server'
 
 import { appRouter } from '@kyrian/api'
@@ -33,7 +34,7 @@ const EventsSection = async () => {
             className='bg-background relative overflow-hidden rounded-lg border p-2 md:min-w-[42rem] md:max-w-[64rem]'
           >
             <div className='flex min-h-[180px] flex-row items-center space-x-2 rounded-md p-6'>
-              <img
+              <Image
                 src={event.url}
                 alt={event.title}
                 className='mx-auto mr-4 h-24 w-24 rounded-full'
