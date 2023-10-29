@@ -395,8 +395,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       pnpm:
-        specifier: ^8.7.4
-        version: 8.7.4
+        specifier: ^8.10.0
+        version: 8.10.0
       react-day-picker:
         specifier: ^8.9.1
         version: 8.9.1(date-fns@2.30.0)(react@18.2.0)
@@ -7554,8 +7554,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /pnpm@8.7.4:
-    resolution: {integrity: sha512-/bQ5bXp8l7krhm2QXQVGuPjzNC/Z/p0fK4kw8aIrqG0YthTS9akRKGHiWyaHX623lntCriHBZZPqhbXczqSNVg==}
+  /pnpm@8.10.0:
+    resolution: {integrity: sha512-nCy4Pyts9qJdjFgwC/mRl8fvO+hM8+dm8pBUtAuDtC+Kq6b8wxSp7PJ8APfOgKdXu0xgiADnrb4tKdxccFb1vg==}
     engines: {node: '>=16.14'}
     hasBin: true
     dev: false
