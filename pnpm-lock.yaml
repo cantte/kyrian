@@ -255,8 +255,8 @@ importers:
         specifier: ^8.52.0
         version: 8.52.0
       tsup:
-        specifier: 7.0.0
-        version: 7.0.0(postcss@8.4.31)(typescript@5.2.2)
+        specifier: 7.2.0
+        version: 7.2.0(postcss@8.4.31)(typescript@5.2.2)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -453,8 +453,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.3.3)
       tsup:
-        specifier: 7.0.0
-        version: 7.0.0(postcss@8.4.31)(typescript@5.2.2)
+        specifier: 7.2.0
+        version: 7.2.0(postcss@8.4.31)(typescript@5.2.2)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -8732,8 +8732,8 @@ packages:
   /tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
 
-  /tsup@7.0.0(postcss@8.4.31)(typescript@5.2.2):
-    resolution: {integrity: sha512-yYARDRkPq07mO3YUXTvF12ISwWQG57Odve8aFEgLdHyeGungxuKxb19yf9G0W8y59SZFkLnRj1gkoVk1gd5fbQ==}
+  /tsup@7.2.0(postcss@8.4.31)(typescript@5.2.2):
+    resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
     engines: {node: '>=16.14'}
     hasBin: true
     peerDependencies:
