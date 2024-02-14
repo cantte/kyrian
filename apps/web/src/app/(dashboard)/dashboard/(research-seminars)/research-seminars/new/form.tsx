@@ -171,6 +171,30 @@ const NewResearchSeminarForm: NextPage<NewResearchSeminarFormProps> = () => {
         <div>
           <FormField
             control={form.control}
+            name='isResearchGroup'
+            render={({ field }) => (
+              <FormItem className='flex flex-row items-start space-x-3 space-y-0'>
+                <FormControl>
+                  <Checkbox
+                    id='isResearchGroup'
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div className='leading-none'>
+                  <FormLabel htmlFor='isResearchGroup'>
+                    ¿Es un grupo de investigación?
+                  </FormLabel>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div>
+          <FormField
+            control={form.control}
             name='description'
             render={({ field }) => (
               <FormItem className='col-span-2'>

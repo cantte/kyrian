@@ -30,24 +30,19 @@ export const columns: ColumnDef<ResearchSeminarOutput>[] = [
     },
   },
   {
+    accessorKey: 'isResearchGroup',
+    header: 'Grupo de investigación',
+    cell: ({ row }) => {
+      const isResearchGroup = row.original.isResearchGroup
+
+      return isResearchGroup ? 'Sí' : 'No'
+    },
+  },
+  {
     accessorKey: 'creation',
     header: 'Fecha de creación',
     cell: ({ row }) => {
       const date: Date = row.getValue('creation')
-
-      return new Intl.DateTimeFormat('es-CO', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        timeZone: 'UTC',
-      }).format(date)
-    },
-  },
-  {
-    accessorKey: 'expiration',
-    header: 'Fecha de expiración',
-    cell: ({ row }) => {
-      const date: Date = row.getValue('expiration')
 
       return new Intl.DateTimeFormat('es-CO', {
         year: 'numeric',

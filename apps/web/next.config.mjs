@@ -10,6 +10,14 @@ const config = {
 
     return config
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'kyrian-event-images.s3.us-east-2.amazonaws.com',
+      }
+    ]
+  }
 }
 
 export default config

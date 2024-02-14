@@ -14,6 +14,7 @@ export const newResearchSeminarSchema = z.object({
     .max(191, 'Máximo 191 caracteres'),
   description: z.string().max(65535, 'Máximo 65535 caracteres').optional(),
   isActive: z.coerce.boolean().optional().default(false),
+  isResearchGroup: z.coerce.boolean().optional().default(false),
   creation: z.coerce
     .date()
     .optional()

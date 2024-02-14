@@ -226,10 +226,11 @@ model Document {
 model ResearchSeminar {
   id String @id @default(cuid())
 
-  name        String
-  description String?   @db.Text
-  isActive    Boolean   @default(true)
-  creation    DateTime?
+  name            String
+  description     String?   @db.Text
+  isActive        Boolean   @default(true)
+  isResearchGroup Boolean   @default(false)
+  creation        DateTime?
 
   students Student[]
 

@@ -162,6 +162,7 @@ Table research_seminars {
   name String [not null]
   description String
   isActive Boolean [not null, default: true]
+  isResearchGroup Boolean [not null, default: false]
   creation DateTime
   students Student [not null]
   createdAt DateTime [default: `now()`, not null]
